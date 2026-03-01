@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoIcon from "@/assets/logo-icon.png";
+import logoWhite from "@/assets/logo-white.png";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const footerLinks = [
@@ -18,12 +18,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-3 mb-5 group">
-              <img src={logoIcon} alt="Articon" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
-              <div>
-                <span className="font-display text-lg font-bold text-primary-foreground">ARTICON</span>
-                <p className="text-primary-foreground/40 text-[10px] tracking-[0.15em] uppercase">Dental Digital Solutions</p>
-              </div>
+            <Link to="/" className="flex items-center mb-5 group">
+              <img src={logoWhite} alt="Articon Dental Digital Solutions" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
             </Link>
             <p className="text-primary-foreground/50 text-sm leading-relaxed">
               Центр цифровой стоматологии. 10 место в рейтинге StartsmileTop при поддержке Forbes.

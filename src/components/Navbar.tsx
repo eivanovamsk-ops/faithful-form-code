@@ -3,7 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import logoIcon from "@/assets/logo-icon.png";
+import logoFull from "@/assets/logo-full.png";
+import logoWhite from "@/assets/logo-white.png";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -66,18 +67,12 @@ const Navbar = () => {
         )}
       >
         <div className="container mx-auto flex items-center justify-between h-16 px-4">
-          <Link to="/" className="flex items-center gap-3 group">
-            <img src={logoIcon} alt="Articon" className="h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
-            <div className="flex flex-col leading-tight">
-              <span className={cn(
-                "font-display text-lg font-bold tracking-tight transition-colors duration-500",
-                showSolid ? "text-foreground" : "text-primary-foreground"
-              )}>ARTICON</span>
-              <span className={cn(
-                "text-[9px] tracking-[0.15em] uppercase transition-colors duration-500",
-                showSolid ? "text-muted-foreground" : "text-primary-foreground/60"
-              )}>Dental Digital Solutions</span>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img
+              src={showSolid ? logoFull : logoWhite}
+              alt="Articon Dental Digital Solutions"
+              className="h-10 w-auto transition-all duration-500 group-hover:scale-105"
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-7">
