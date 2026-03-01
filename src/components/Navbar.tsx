@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, Phone, Mail, Clock, ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import logoIcon from "@/assets/logo-icon.png";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Услуги", href: "/uslugi" },
@@ -17,21 +18,37 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const showSolid = scrolled || !isHome;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       {/* Top bar */}
-      <div className="bg-foreground text-primary-foreground">
+      <div
+        className={cn(
+          "transition-all duration-500",
+          showSolid ? "bg-foreground" : "bg-foreground/40 backdrop-blur-sm"
+        )}
+      >
         <div className="container mx-auto flex items-center justify-between px-4 py-2 text-xs">
-          <span className="hidden sm:block text-primary-foreground/70">
+          <span className="hidden sm:block text-primary-foreground/60">
             Цифровые технологии — предсказуемый результат лечения
           </span>
           <div className="flex items-center gap-4 sm:gap-6 ml-auto">
-            <span className="flex items-center gap-1.5 text-primary-foreground/70">
+            <span className="flex items-center gap-1.5 text-primary-foreground/60">
               <Clock className="w-3 h-3" />
               Ежедневно с 9:00 до 21:00
             </span>
-            <a href="mailto:clinic@articon.pro" className="flex items-center gap-1.5 text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+            <a href="mailto:clinic@articon.pro" className="flex items-center gap-1.5 text-primary-foreground/60 hover:text-primary-foreground transition-colors duration-300">
               <Mail className="w-3 h-3" />
               clinic@articon.pro
             </a>
@@ -40,22 +57,41 @@ const Navbar = () => {
       </div>
 
       {/* Main nav */}
-      <div className="bg-background/95 backdrop-blur-lg border-b border-border">
+      <div
+        className={cn(
+          "transition-all duration-500 border-b",
+          showSolid
+            ? "bg-background/95 backdrop-blur-lg border-border shadow-sm"
+            : "bg-background/10 backdrop-blur-md border-primary-foreground/10"
+        )}
+      >
         <div className="container mx-auto flex items-center justify-between h-16 px-4">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logoIcon} alt="Articon" className="h-9 w-auto" />
+          <Link to="/" className="flex items-center gap-3 group">
+            <img src={logoIcon} alt="Articon" className="h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
             <div className="flex flex-col leading-tight">
-              <span className="font-display text-lg font-bold tracking-tight text-foreground">ARTICON</span>
-              <span className="text-[9px] tracking-[0.15em] text-muted-foreground uppercase">Dental Digital Solutions</span>
+              <span className={cn(
+                "font-display text-lg font-bold tracking-tight transition-colors duration-500",
+                showSolid ? "text-foreground" : "text-primary-foreground"
+              )}>ARTICON</span>
+              <span className={cn(
+                "text-[9px] tracking-[0.15em] uppercase transition-colors duration-500",
+                showSolid ? "text-muted-foreground" : "text-primary-foreground/60"
+              )}>Dental Digital Solutions</span>
             </div>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-brand-blue transition-colors"
+                className={cn(
+                  "text-sm font-medium transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-blue after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left",
+                  showSolid
+                    ? "text-muted-foreground hover:text-foreground"
+                    : "text-primary-foreground/80 hover:text-primary-foreground",
+                  location.pathname === link.href && "after:scale-x-100"
+                )}
               >
                 {link.label}
               </Link>
@@ -63,16 +99,25 @@ const Navbar = () => {
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+74959759598" className="flex items-center gap-2 text-sm font-semibold text-foreground">
+            <a href="tel:+74959759598" className={cn(
+              "flex items-center gap-2 text-sm font-semibold transition-colors duration-500",
+              showSolid ? "text-foreground" : "text-primary-foreground"
+            )}>
               <Phone className="w-4 h-4 text-brand-blue" />
               +7(495)975-95-98
             </a>
-            <Button asChild className="bg-brand-blue text-primary-foreground font-semibold hover:bg-brand-blue/90 transition-colors">
+            <Button asChild className="bg-brand-blue text-primary-foreground font-semibold hover:bg-brand-blue/90 transition-all duration-300 hover:scale-105">
               <Link to="/contacts">Запись на приём</Link>
             </Button>
           </div>
 
-          <button className="lg:hidden text-foreground" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            className={cn(
+              "lg:hidden transition-colors duration-500",
+              showSolid ? "text-foreground" : "text-primary-foreground"
+            )}
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -84,18 +129,28 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="lg:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="flex flex-col gap-3 px-4 py-5">
-              {navLinks.map((link) => (
-                <Link
+              {navLinks.map((link, i) => (
+                <motion.div
                   key={link.href}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-base font-medium text-muted-foreground hover:text-brand-blue transition-colors py-1"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    to={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "text-base font-medium transition-colors py-1 block",
+                      location.pathname === link.href ? "text-brand-blue" : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
               <a href="tel:+74959759598" className="flex items-center gap-2 text-sm font-semibold text-foreground pt-2">
                 <Phone className="w-4 h-4 text-brand-blue" />
