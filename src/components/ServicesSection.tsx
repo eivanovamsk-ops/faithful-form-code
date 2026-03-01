@@ -45,7 +45,7 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium tracking-widest uppercase text-gold">Наши услуги</span>
+          <span className="text-sm font-medium tracking-widest uppercase text-brand-blue">Наши услуги</span>
           <h2 className="mt-3 text-3xl sm:text-4xl font-display font-bold text-foreground">
             Полный спектр стоматологической помощи
           </h2>
@@ -59,10 +59,10 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group p-8 rounded-xl bg-card border border-border hover:border-gold/40 hover:shadow-lg transition-all duration-300"
+              className="group p-8 rounded-xl bg-card border border-border hover:border-brand-blue/40 hover:shadow-lg transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-lg bg-gradient-gold flex items-center justify-center mb-5">
-                <service.icon className="w-6 h-6 text-foreground" />
+              <div className="w-12 h-12 rounded-lg bg-brand-blue flex items-center justify-center mb-5">
+                <service.icon className="w-6 h-6 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-display font-semibold text-foreground mb-3">{service.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{service.description}</p>

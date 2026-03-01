@@ -19,7 +19,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="text-sm font-medium tracking-widest uppercase text-gold">О клинике</span>
+            <span className="text-sm font-medium tracking-widest uppercase text-brand-blue">О клинике</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-display font-bold text-foreground mb-6">
               Стоматология нового поколения
             </h2>
@@ -48,9 +48,9 @@ const AboutSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                className="bg-card rounded-xl p-6 text-center border border-border"
+                className="bg-background rounded-xl p-6 text-center border border-border"
               >
-                <stat.icon className="w-8 h-8 text-gold mx-auto mb-3" />
+                <stat.icon className="w-8 h-8 text-brand-blue mx-auto mb-3" />
                 <div className="text-3xl font-display font-bold text-foreground">{stat.value}</div>
                 <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
               </motion.div>

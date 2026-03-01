@@ -1,15 +1,16 @@
+import logoIcon from "@/assets/logo-icon.png";
+
 const Footer = () => {
   return (
-    <footer className="bg-gradient-navy py-12">
+    <footer className="bg-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <span className="font-display text-2xl font-bold text-primary-foreground">
-              Art<span className="text-gradient-gold">icon</span>
-            </span>
-            <p className="text-primary-foreground/60 text-sm mt-2">
-              Премиум стоматология в центре Москвы
-            </p>
+          <div className="flex items-center gap-3">
+            <img src={logoIcon} alt="Articon" className="h-10 w-auto" />
+            <div>
+              <span className="font-display text-lg font-bold text-primary-foreground">ARTICON</span>
+              <p className="text-primary-foreground/50 text-xs tracking-wider">Dental Digital Solutions</p>
+            </div>
           </div>
 
           <div className="flex gap-8 text-sm">
@@ -17,7 +18,7 @@ const Footer = () => {
               <a
                 key={item}
                 href={`#${item === "Услуги" ? "services" : item === "О клинике" ? "about" : item === "Врачи" ? "doctors" : "contacts"}`}
-                className="text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                className="text-primary-foreground/50 hover:text-primary-foreground transition-colors"
               >
                 {item}
               </a>
