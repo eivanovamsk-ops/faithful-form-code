@@ -29,21 +29,20 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium tracking-widest uppercase text-gold">Контакты</span>
+          <span className="text-sm font-medium tracking-widest uppercase text-brand-blue">Контакты</span>
           <h2 className="mt-3 text-3xl sm:text-4xl font-display font-bold text-foreground">
             Запишитесь на приём
           </h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-card rounded-xl p-8 border border-border space-y-5"
+            className="bg-background rounded-xl p-8 border border-border space-y-5"
           >
             <div>
               <label className="text-sm font-medium text-foreground mb-1.5 block">Ваше имя</label>
@@ -72,12 +71,11 @@ const ContactSection = () => {
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               />
             </div>
-            <Button type="submit" size="lg" className="w-full bg-gradient-gold text-foreground font-semibold hover:opacity-90 transition-opacity">
+            <Button type="submit" size="lg" className="w-full bg-brand-blue text-primary-foreground font-semibold hover:bg-brand-blue/90 transition-colors">
               Отправить заявку
             </Button>
           </motion.form>
 
-          {/* Info */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -92,8 +90,8 @@ const ContactSection = () => {
               { icon: Clock, title: "Режим работы", text: "Пн–Сб: 9:00 – 21:00, Вс: 10:00 – 18:00" },
             ].map((item) => (
               <div key={item.title} className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-gradient-gold flex items-center justify-center shrink-0">
-                  <item.icon className="w-5 h-5 text-foreground" />
+                <div className="w-12 h-12 rounded-lg bg-brand-blue flex items-center justify-center shrink-0">
+                  <item.icon className="w-5 h-5 text-primary-foreground" />
                 </div>
                 <div>
                   <h4 className="font-display font-semibold text-foreground">{item.title}</h4>

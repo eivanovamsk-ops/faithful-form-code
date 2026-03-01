@@ -6,10 +6,9 @@ import heroImage from "@/assets/hero-dental.jpg";
 const HeroSection = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Background image */}
       <div className="absolute inset-0">
         <img src={heroImage} alt="Современный интерьер стоматологии Articon" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
+        <div className="absolute inset-0 bg-foreground/70" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -19,8 +18,8 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block mb-4 text-sm font-medium tracking-widest uppercase text-gold-light">
-              Премиум стоматология
+            <span className="inline-block mb-4 text-sm font-medium tracking-widest uppercase text-brand-orange">
+              Dental Digital Solutions
             </span>
           </motion.div>
 
@@ -31,7 +30,7 @@ const HeroSection = () => {
             className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight text-primary-foreground mb-6"
           >
             Искусство безупречной{" "}
-            <span className="text-gradient-gold">улыбки</span>
+            <span className="text-brand-blue">улыбки</span>
           </motion.h1>
 
           <motion.p
@@ -49,7 +48,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button asChild size="lg" className="bg-gradient-gold text-foreground font-semibold text-base hover:opacity-90 transition-opacity">
+            <Button asChild size="lg" className="bg-brand-blue text-primary-foreground font-semibold text-base hover:bg-brand-blue/90 transition-colors">
               <a href="#contacts">
                 Записаться на приём
                 <ArrowRight className="ml-2 w-5 h-5" />

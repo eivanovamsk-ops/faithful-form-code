@@ -35,7 +35,7 @@ const DoctorsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium tracking-widest uppercase text-gold">Наша команда</span>
+          <span className="text-sm font-medium tracking-widest uppercase text-brand-blue">Наша команда</span>
           <h2 className="mt-3 text-3xl sm:text-4xl font-display font-bold text-foreground">
             Врачи-эксперты
           </h2>
@@ -57,10 +57,9 @@ const DoctorsSection = () => {
                   alt={doctor.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
               </div>
               <h3 className="text-xl font-display font-semibold text-foreground">{doctor.name}</h3>
-              <p className="text-gold font-medium text-sm mt-1">{doctor.role}</p>
+              <p className="text-brand-blue font-medium text-sm mt-1">{doctor.role}</p>
               <p className="text-muted-foreground text-sm mt-1">{doctor.experience}</p>
             </motion.div>
           ))}
