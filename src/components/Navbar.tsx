@@ -106,7 +106,7 @@ const Navbar = () => {
               <Phone className="w-4 h-4 text-brand-blue" />
               +7(495)975-95-98
             </a>
-            <Button asChild className="bg-brand-blue text-primary-foreground font-semibold hover:bg-brand-blue/90 transition-all duration-300 hover:scale-105">
+            <Button asChild className="bg-brand-teal text-primary-foreground font-semibold transition-all duration-500 hover:bg-brand-teal/85 hover:shadow-[0_0_20px_hsl(174,72%,46%,0.3)] hover:scale-[1.03]">
               <Link to="/contacts">Запись на приём</Link>
             </Button>
           </div>
@@ -156,7 +156,7 @@ const Navbar = () => {
                 <Phone className="w-4 h-4 text-brand-blue" />
                 +7(495)975-95-98
               </a>
-              <Button asChild className="bg-brand-blue text-primary-foreground font-semibold w-full mt-2">
+              <Button asChild className="bg-brand-teal text-primary-foreground font-semibold w-full mt-2 transition-all duration-300">
                 <Link to="/contacts" onClick={() => setIsOpen(false)}>Запись на приём</Link>
               </Button>
             </div>

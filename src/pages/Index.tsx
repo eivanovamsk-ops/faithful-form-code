@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Award, Users, Microscope, ShieldCheck, Baby, Zap, Sparkles, Heart, ChevronDown } from "lucide-react";
+import {
+  ArrowRight, Star, Award, Users, Microscope, ShieldCheck, Baby,
+  Zap, Sparkles, Heart, ChevronDown, Cpu, Stethoscope, ScanLine,
+  Syringe, HeartPulse, Smile, Scissors
+} from "lucide-react";
+import heroVideo from "@/assets/hero-video.mp4";
 import heroImage from "@/assets/hero-dental.jpg";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import TechnologiesSection from "@/components/TechnologiesSection";
 import { useRef } from "react";
 
 const advantages = [
@@ -15,16 +22,16 @@ const advantages = [
 ];
 
 const services = [
-  { title: "Цифровая стоматология", desc: "Новые зубы максимально быстро", link: "/uslugi" },
-  { title: "Ортопедия", desc: "Протезирование, виниры, коронки", link: "/uslugi" },
-  { title: "Хирургия и имплантация", desc: "Имплантация по навигационным шаблонам", link: "/uslugi" },
-  { title: "Терапия", desc: "Лечение кариеса, пульпита под микроскопом", link: "/uslugi" },
-  { title: "Детская стоматология", desc: "Адаптация, лечение в игровой форме", link: "/uslugi" },
-  { title: "Ортодонтия", desc: "Брекеты и элайнеры", link: "/uslugi" },
-  { title: "Пародонтология", desc: "Лечение дёсен", link: "/uslugi" },
-  { title: "Диагностика", desc: "КТ, панорамные снимки, 3D-сканирование", link: "/uslugi" },
-  { title: "Проф. гигиена", desc: "GBT протокол, отбеливание", link: "/uslugi" },
-  { title: "Антистресс лечение", desc: "Седация, лечение во сне", link: "/uslugi" },
+  { icon: Cpu, title: "Цифровая стоматология", desc: "Новые зубы максимально быстро", link: "/uslugi" },
+  { icon: Stethoscope, title: "Ортопедия", desc: "Протезирование, виниры, коронки", link: "/uslugi" },
+  { icon: Syringe, title: "Хирургия и имплантация", desc: "Имплантация по навигационным шаблонам", link: "/uslugi" },
+  { icon: HeartPulse, title: "Терапия", desc: "Лечение кариеса, пульпита под микроскопом", link: "/uslugi" },
+  { icon: Baby, title: "Детская стоматология", desc: "Адаптация, лечение в игровой форме", link: "/uslugi" },
+  { icon: Smile, title: "Ортодонтия", desc: "Брекеты и элайнеры", link: "/uslugi" },
+  { icon: Scissors, title: "Пародонтология", desc: "Лечение дёсен", link: "/uslugi" },
+  { icon: ScanLine, title: "Диагностика", desc: "КТ, панорамные снимки, 3D-сканирование", link: "/uslugi" },
+  { icon: Sparkles, title: "Проф. гигиена", desc: "GBT протокол, отбеливание", link: "/uslugi" },
+  { icon: ShieldCheck, title: "Антистресс лечение", desc: "Седация, лечение во сне", link: "/uslugi" },
 ];
 
 const reviews = [
@@ -56,16 +63,25 @@ const staggerItem = {
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <div>
-      {/* Hero — fullscreen */}
+      {/* Hero — fullscreen video */}
       <section ref={heroRef} className="relative h-screen flex items-center overflow-hidden">
         <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-          <img src={heroImage} alt="Клиника Articon" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-foreground/60" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={heroImage}
+            className="w-full h-full object-cover"
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-foreground/55" />
         </motion.div>
 
         <motion.div
@@ -109,10 +125,10 @@ const Index = () => {
               custom={3}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button asChild size="lg" className="bg-brand-blue text-primary-foreground font-semibold text-base h-14 px-10 hover:bg-brand-blue/90 transition-colors">
+              <Button asChild size="lg" className="bg-brand-teal text-primary-foreground font-semibold text-base h-14 px-10 transition-all duration-500 hover:bg-brand-teal/85 hover:shadow-[0_0_30px_hsl(174,72%,46%,0.3)] hover:scale-[1.03]">
                 <Link to="/contacts">Запись на приём <ArrowRight className="ml-2 w-5 h-5" /></Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/50 text-primary-foreground bg-primary-foreground/10 h-14 px-10 hover:bg-primary-foreground/20 transition-colors">
+              <Button asChild size="lg" variant="outline" className="border-brand-teal text-primary-foreground bg-transparent h-14 px-10 transition-all duration-500 hover:bg-brand-teal hover:text-primary-foreground hover:border-brand-teal hover:shadow-[0_0_30px_hsl(174,72%,46%,0.2)]">
                 <Link to="/uslugi">Наши услуги</Link>
               </Button>
             </motion.div>
@@ -133,6 +149,18 @@ const Index = () => {
             <ChevronDown className="w-6 h-6 text-primary-foreground/50" />
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* Animated counters */}
+      <section className="py-20 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+            <AnimatedCounter end={5} suffix=".0" label="Рейтинг на Яндекс и Google" decimals={1} />
+            <AnimatedCounter end={10} label="место StartsmileTop × Forbes" />
+            <AnimatedCounter end={1000} suffix="+" label="отзывов пациентов" />
+            <AnimatedCounter end={70} suffix="%" label="приходят по рекомендации" />
+          </div>
+        </div>
       </section>
 
       {/* About snippet */}
@@ -166,7 +194,7 @@ const Index = () => {
                 Высокий профессионализм врачей, индивидуальный подход,
                 инновации и высокий уровень сервиса — на эти параметры мы делаем ставки.
               </p>
-              <Button asChild variant="outline" size="lg" className="h-12 px-8">
+              <Button asChild variant="outline" size="lg" className="h-12 px-8 transition-all duration-300 hover:scale-[1.03]">
                 <Link to="/about">Читать полностью</Link>
               </Button>
             </motion.div>
@@ -174,7 +202,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services */}
+      {/* Services with icons */}
       <section className="py-28 bg-secondary">
         <div className="container mx-auto px-4">
           <motion.div
@@ -199,9 +227,12 @@ const Index = () => {
               <motion.div key={s.title} variants={staggerItem}>
                 <Link
                   to={s.link}
-                  className="group block p-6 bg-background rounded-xl border border-border hover:border-brand-blue/40 transition-all duration-300 h-full hover:shadow-lg hover:-translate-y-1"
+                  className="group block p-6 bg-background rounded-xl border border-border hover:border-brand-teal/40 transition-all duration-300 h-full hover:shadow-xl hover:scale-[1.04]"
                 >
-                  <h3 className="font-display font-semibold text-foreground mb-2 text-sm group-hover:text-brand-blue transition-colors duration-300">{s.title}</h3>
+                  <div className="w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center mb-4 group-hover:bg-brand-teal/15 group-hover:scale-110 transition-all duration-300">
+                    <s.icon className="w-5 h-5 text-brand-blue group-hover:text-brand-teal transition-colors duration-300" />
+                  </div>
+                  <h3 className="font-display font-semibold text-foreground mb-2 text-sm group-hover:text-brand-teal transition-colors duration-300">{s.title}</h3>
                   <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
                 </Link>
               </motion.div>
@@ -215,15 +246,18 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <Button asChild variant="outline" size="lg" className="h-12 px-8">
+            <Button asChild variant="outline" size="lg" className="h-12 px-8 transition-all duration-300 hover:scale-[1.03]">
               <Link to="/uslugi">Все услуги</Link>
             </Button>
           </motion.div>
         </div>
       </section>
 
+      {/* Technologies — interactive */}
+      <TechnologiesSection />
+
       {/* Advantages */}
-      <section className="py-28 bg-background">
+      <section className="py-28 bg-secondary">
         <div className="container mx-auto px-4">
           <motion.div
             variants={fadeUp}
@@ -247,9 +281,9 @@ const Index = () => {
               <motion.div
                 key={a.title}
                 variants={staggerItem}
-                className="group flex items-start gap-5 p-7 rounded-xl bg-card border border-border hover:border-brand-blue/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="group flex items-start gap-5 p-7 rounded-xl bg-background border border-border hover:border-brand-teal/30 hover:shadow-xl hover:scale-[1.03] transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-brand-blue flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl bg-brand-blue flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-brand-teal transition-all duration-300">
                   <a.icon className="w-5 h-5 text-primary-foreground" />
                 </div>
                 <div>
@@ -263,7 +297,7 @@ const Index = () => {
       </section>
 
       {/* Reviews */}
-      <section className="py-28 bg-secondary">
+      <section className="py-28 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             variants={fadeUp}
@@ -288,7 +322,7 @@ const Index = () => {
               <motion.div
                 key={r.name}
                 variants={staggerItem}
-                className="bg-background rounded-xl p-7 border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="bg-card rounded-xl p-7 border border-border hover:shadow-xl hover:scale-[1.03] transition-all duration-300"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, j) => (
@@ -307,7 +341,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-28 bg-brand-blue">
+      <section className="py-28 bg-brand-teal">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             variants={fadeUp}
@@ -321,7 +355,7 @@ const Index = () => {
             <p className="text-primary-foreground/80 mb-10 max-w-lg mx-auto text-lg">
               Первичная консультация — 3 500 ₽. Составим полный план лечения с точными ценами.
             </p>
-            <Button asChild size="lg" className="bg-background text-foreground font-semibold h-14 px-10 hover:bg-background/90 transition-colors">
+            <Button asChild size="lg" className="bg-background text-foreground font-semibold h-14 px-10 transition-all duration-500 hover:bg-background/90 hover:scale-[1.03] hover:shadow-xl">
               <Link to="/contacts">Записаться <ArrowRight className="ml-2 w-5 h-5" /></Link>
             </Button>
           </motion.div>

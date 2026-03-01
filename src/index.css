@@ -37,6 +37,7 @@
     --radius: 0.5rem;
 
     --brand-blue: 200 100% 42%;
+    --brand-teal: 174 72% 46%;
     --brand-orange: 36 90% 55%;
     --brand-grey: 0 0% 61%;
 
@@ -96,5 +97,18 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[1px] bg-current origin-right scale-x-0 transition-transform duration-300;
+  }
+  .link-underline:hover::after {
+    @apply origin-left scale-x-100;
   }
 }
