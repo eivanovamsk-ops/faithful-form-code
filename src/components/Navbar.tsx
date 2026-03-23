@@ -1,18 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, Clock } from "lucide-react";
+import { Menu, X, Phone, Mail, Clock, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import logoFull from "@/assets/logo-full.png";
 import logoWhite from "@/assets/logo-white.png";
 import { cn } from "@/lib/utils";
 
+const patientSubLinks = [
+  { label: "Программа лояльности", href: "/pacientam/loyalnost" },
+  { label: "Памятки и рекомендации", href: "/pacientam/pamyatki" },
+  { label: "Статьи", href: "/pacientam/stati" },
+];
+
 const navLinks = [
   { label: "Услуги", href: "/uslugi" },
   { label: "Врачи", href: "/vrachi" },
   { label: "Фото работ", href: "/foto-rabot" },
   { label: "Цены", href: "/ceny" },
-  { label: "Пациентам", href: "/pacientam" },
+  { label: "Пациентам", href: "/pacientam", subLinks: patientSubLinks },
   { label: "О клинике", href: "/about" },
   { label: "Контакты", href: "/contacts" },
 ];
@@ -20,6 +26,9 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileSubOpen, setMobileSubOpen] = useState(false);
+  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -76,21 +85,75 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className={cn(
-                  "text-sm font-medium transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-blue after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left",
-                  showSolid
-                    ? "text-muted-foreground hover:text-foreground"
-                    : "text-primary-foreground/80 hover:text-primary-foreground",
-                  location.pathname === link.href && "after:scale-x-100"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => 
+              link.subLinks ? (
+                <div
+                  key={link.href}
+                  className="relative"
+                  onMouseEnter={() => {
+                    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+                    setDropdownOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    dropdownTimeout.current = setTimeout(() => setDropdownOpen(false), 150);
+                  }}
+                >
+                  <button
+                    className={cn(
+                      "text-sm font-medium transition-colors duration-300 flex items-center gap-1",
+                      showSolid
+                        ? "text-muted-foreground hover:text-foreground"
+                        : "text-primary-foreground/80 hover:text-primary-foreground",
+                      location.pathname.startsWith(link.href) && "text-brand-blue"
+                    )}
+                  >
+                    {link.label}
+                    <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-300", dropdownOpen && "rotate-180")} />
+                  </button>
+                  <AnimatePresence>
+                    {dropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
+                      >
+                        <div className="bg-card border border-border rounded-xl shadow-lg py-2 min-w-[220px]">
+                          {link.subLinks.map((sub) => (
+                            <Link
+                              key={sub.href}
+                              to={sub.href}
+                              className={cn(
+                                "block px-5 py-2.5 text-sm transition-colors duration-200 hover:bg-secondary hover:text-brand-blue",
+                                location.pathname === sub.href ? "text-brand-blue font-medium" : "text-muted-foreground"
+                              )}
+                              onClick={() => setDropdownOpen(false)}
+                            >
+                              {sub.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={cn(
+                    "text-sm font-medium transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-blue after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left",
+                    showSolid
+                      ? "text-muted-foreground hover:text-foreground"
+                      : "text-primary-foreground/80 hover:text-primary-foreground",
+                    location.pathname === link.href && "after:scale-x-100"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
@@ -135,16 +198,58 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                 >
-                  <Link
-                    to={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "text-base font-medium transition-colors py-1 block",
-                      location.pathname === link.href ? "text-brand-blue" : "text-muted-foreground hover:text-foreground"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
+                  {link.subLinks ? (
+                    <div>
+                      <button
+                        onClick={() => setMobileSubOpen(!mobileSubOpen)}
+                        className={cn(
+                          "text-base font-medium transition-colors py-1 flex items-center gap-1 w-full",
+                          location.pathname.startsWith(link.href) ? "text-brand-blue" : "text-muted-foreground"
+                        )}
+                      >
+                        {link.label}
+                        <ChevronDown className={cn("w-4 h-4 transition-transform duration-300", mobileSubOpen && "rotate-180")} />
+                      </button>
+                      <AnimatePresence>
+                        {mobileSubOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 pt-1 flex flex-col gap-2">
+                              {link.subLinks.map((sub) => (
+                                <Link
+                                  key={sub.href}
+                                  to={sub.href}
+                                  onClick={() => { setIsOpen(false); setMobileSubOpen(false); }}
+                                  className={cn(
+                                    "text-sm py-1 transition-colors",
+                                    location.pathname === sub.href ? "text-brand-blue font-medium" : "text-muted-foreground hover:text-foreground"
+                                  )}
+                                >
+                                  {sub.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "text-base font-medium transition-colors py-1 block",
+                        location.pathname === link.href ? "text-brand-blue" : "text-muted-foreground hover:text-foreground"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
               <a href="tel:+74959759598" className="flex items-center gap-2 text-sm font-semibold text-foreground pt-2">

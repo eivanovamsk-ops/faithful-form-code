@@ -13,6 +13,9 @@ import AboutPage from "./pages/AboutPage";
 import ContactsPage from "./pages/ContactsPage";
 import PatientsPage from "./pages/PatientsPage";
 import GalleryPage from "./pages/GalleryPage";
+import LoyaltyPage from "./pages/LoyaltyPage";
+import MemosPage from "./pages/MemosPage";
+import ArticlesPage from "./pages/ArticlesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +35,9 @@ const App = () => (
             <Route path="/foto-rabot" element={<GalleryPage />} />
             <Route path="/ceny" element={<PricesPage />} />
             <Route path="/pacientam" element={<PatientsPage />} />
+            <Route path="/pacientam/loyalnost" element={<LoyaltyPage />} />
+            <Route path="/pacientam/pamyatki" element={<MemosPage />} />
+            <Route path="/pacientam/stati" element={<ArticlesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
           </Route>
