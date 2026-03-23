@@ -1,18 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, Clock } from "lucide-react";
+import { Menu, X, Phone, Mail, Clock, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import logoFull from "@/assets/logo-full.png";
 import logoWhite from "@/assets/logo-white.png";
 import { cn } from "@/lib/utils";
 
+const patientSubLinks = [
+  { label: "Программа лояльности", href: "/pacientam/loyalnost" },
+  { label: "Памятки и рекомендации", href: "/pacientam/pamyatki" },
+  { label: "Статьи", href: "/pacientam/stati" },
+];
+
 const navLinks = [
   { label: "Услуги", href: "/uslugi" },
   { label: "Врачи", href: "/vrachi" },
   { label: "Фото работ", href: "/foto-rabot" },
   { label: "Цены", href: "/ceny" },
-  { label: "Пациентам", href: "/pacientam" },
+  { label: "Пациентам", href: "/pacientam", subLinks: patientSubLinks },
   { label: "О клинике", href: "/about" },
   { label: "Контакты", href: "/contacts" },
 ];
