@@ -198,16 +198,58 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                 >
-                  <Link
-                    to={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "text-base font-medium transition-colors py-1 block",
-                      location.pathname === link.href ? "text-brand-blue" : "text-muted-foreground hover:text-foreground"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
+                  {link.subLinks ? (
+                    <div>
+                      <button
+                        onClick={() => setMobileSubOpen(!mobileSubOpen)}
+                        className={cn(
+                          "text-base font-medium transition-colors py-1 flex items-center gap-1 w-full",
+                          location.pathname.startsWith(link.href) ? "text-brand-blue" : "text-muted-foreground"
+                        )}
+                      >
+                        {link.label}
+                        <ChevronDown className={cn("w-4 h-4 transition-transform duration-300", mobileSubOpen && "rotate-180")} />
+                      </button>
+                      <AnimatePresence>
+                        {mobileSubOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 pt-1 flex flex-col gap-2">
+                              {link.subLinks.map((sub) => (
+                                <Link
+                                  key={sub.href}
+                                  to={sub.href}
+                                  onClick={() => { setIsOpen(false); setMobileSubOpen(false); }}
+                                  className={cn(
+                                    "text-sm py-1 transition-colors",
+                                    location.pathname === sub.href ? "text-brand-blue font-medium" : "text-muted-foreground hover:text-foreground"
+                                  )}
+                                >
+                                  {sub.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "text-base font-medium transition-colors py-1 block",
+                        location.pathname === link.href ? "text-brand-blue" : "text-muted-foreground hover:text-foreground"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
               <a href="tel:+74959759598" className="flex items-center gap-2 text-sm font-semibold text-foreground pt-2">
