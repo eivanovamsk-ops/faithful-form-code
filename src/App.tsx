@@ -13,6 +13,9 @@ import AboutPage from "./pages/AboutPage";
 import ContactsPage from "./pages/ContactsPage";
 import PatientsPage from "./pages/PatientsPage";
 import GalleryPage from "./pages/GalleryPage";
+import LoyaltyPage from "./pages/LoyaltyPage";
+import MemosPage from "./pages/MemosPage";
+import ArticlesPage from "./pages/ArticlesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
