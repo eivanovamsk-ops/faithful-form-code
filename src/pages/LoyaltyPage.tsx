@@ -98,7 +98,7 @@ const LoyaltyPage = () => (
           className="text-center mb-14"
         >
           <span className="text-xs font-medium tracking-[0.3em] uppercase text-brand-teal mb-4 block">Чат-бот «Личный помощник»</span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">Дополнительные бонусы в Telegram</h2>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">Дополнительные бонусы</h2>
           <p className="mt-4 text-muted-foreground max-w-lg mx-auto">
             Мы разработали удобный Telegram-бот для участников программы — отслеживайте баланс, получайте бонусы и приглашайте друзей
           </p>
