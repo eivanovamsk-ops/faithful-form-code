@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Award, Heart, ShieldCheck, Sparkles, Users, Cpu, Star } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { ArrowRight, Award, Heart, ShieldCheck, Sparkles, Users, Cpu, Star, Send, CheckCircle } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const values = [
   { icon: Heart, title: "Искренность", desc: "Искренняя заинтересованность в наилучшем результате для каждого пациента" },
@@ -219,28 +222,108 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Contact Form */}
       <section className="py-24 bg-brand-teal">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
+            className="max-w-2xl mx-auto"
           >
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary-foreground mb-6">
-              Познакомьтесь с нами лично
-            </h2>
-            <p className="text-primary-foreground/80 mb-10 max-w-md mx-auto">
-              Запишитесь на первичную консультацию — мы составим индивидуальный план лечения с учётом ваших пожеланий
-            </p>
-            <Button asChild size="lg" className="bg-background text-foreground font-semibold h-14 px-10 transition-all duration-500 hover:bg-background/90 hover:scale-[1.03] hover:shadow-xl">
-              <Link to="/contacts">Записаться на приём <ArrowRight className="ml-2 w-5 h-5" /></Link>
-            </Button>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary-foreground mb-4">
+                Напишите мне лично
+              </h2>
+              <p className="text-primary-foreground/80 max-w-md mx-auto">
+                Если у вас есть вопросы или пожелания к Главному врачу, то буду рада обратной связи!
+              </p>
+            </div>
+
+            <ContactForm />
           </motion.div>
         </div>
       </section>
     </div>
+  );
+};
+
+const ContactForm = () => {
+  const { toast } = useToast();
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ firstName: "", lastName: "", phone: "", email: "", message: "" });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = {
+      firstName: form.firstName.trim(),
+      lastName: form.lastName.trim(),
+      phone: form.phone.trim(),
+      email: form.email.trim(),
+      message: form.message.trim(),
+    };
+    if (!trimmed.firstName || !trimmed.phone) {
+      toast({ title: "Заполните обязательные поля", description: "Имя и телефон обязательны", variant: "destructive" });
+      return;
+    }
+    setSubmitted(true);
+    toast({ title: "Сообщение отправлено!", description: "Мы свяжемся с вами в ближайшее время" });
+  };
+
+  if (submitted) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="text-center py-12 bg-background/10 backdrop-blur-sm rounded-2xl border border-primary-foreground/10"
+      >
+        <CheckCircle className="w-16 h-16 text-primary-foreground mx-auto mb-4" />
+        <h3 className="text-2xl font-display font-bold text-primary-foreground mb-2">Спасибо за обращение!</h3>
+        <p className="text-primary-foreground/70">Елена Артемова свяжется с вами лично</p>
+      </motion.div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="bg-background/10 backdrop-blur-sm rounded-2xl p-8 border border-primary-foreground/10 space-y-5">
+      <div className="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label className="text-primary-foreground/70 text-sm mb-1.5 block">Имя *</label>
+          <Input name="firstName" value={form.firstName} onChange={handleChange} placeholder="Ваше имя" maxLength={100}
+            className="bg-background/20 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-primary-foreground/50" />
+        </div>
+        <div>
+          <label className="text-primary-foreground/70 text-sm mb-1.5 block">Фамилия</label>
+          <Input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Ваша фамилия" maxLength={100}
+            className="bg-background/20 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-primary-foreground/50" />
+        </div>
+      </div>
+      <div className="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label className="text-primary-foreground/70 text-sm mb-1.5 block">Телефон *</label>
+          <Input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+7 (___) ___-__-__" maxLength={20}
+            className="bg-background/20 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-primary-foreground/50" />
+        </div>
+        <div>
+          <label className="text-primary-foreground/70 text-sm mb-1.5 block">Email</label>
+          <Input name="email" type="email" value={form.email} onChange={handleChange} placeholder="your@email.com" maxLength={255}
+            className="bg-background/20 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-primary-foreground/50" />
+        </div>
+      </div>
+      <div>
+        <label className="text-primary-foreground/70 text-sm mb-1.5 block">Ваши пожелания</label>
+        <Textarea name="message" value={form.message} onChange={handleChange} placeholder="Опишите ваш вопрос или пожелание..." rows={4} maxLength={1000}
+          className="bg-background/20 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-primary-foreground/50 resize-none" />
+      </div>
+      <Button type="submit" size="lg" className="w-full bg-background text-foreground font-semibold h-14 transition-all duration-500 hover:bg-background/90 hover:scale-[1.01] hover:shadow-xl">
+        Написать главному врачу <Send className="ml-2 w-5 h-5" />
+      </Button>
+    </form>
   );
 };
 
