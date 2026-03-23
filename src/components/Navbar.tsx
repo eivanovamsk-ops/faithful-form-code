@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const patientSubLinks = [
   { label: "Программа лояльности", href: "/pacientam/loyalnost" },
   { label: "Памятки и рекомендации", href: "/pacientam/pamyatki" },
-  { label: "Статьи", href: "/pacientam/stati" },
+  { label: "Блог", href: "/pacientam/blog" },
 ];
 
 const navLinks = [
