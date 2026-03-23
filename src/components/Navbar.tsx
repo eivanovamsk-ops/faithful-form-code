@@ -85,21 +85,75 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className={cn(
-                  "text-sm font-medium transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-blue after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left",
-                  showSolid
-                    ? "text-muted-foreground hover:text-foreground"
-                    : "text-primary-foreground/80 hover:text-primary-foreground",
-                  location.pathname === link.href && "after:scale-x-100"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => 
+              link.subLinks ? (
+                <div
+                  key={link.href}
+                  className="relative"
+                  onMouseEnter={() => {
+                    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+                    setDropdownOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    dropdownTimeout.current = setTimeout(() => setDropdownOpen(false), 150);
+                  }}
+                >
+                  <button
+                    className={cn(
+                      "text-sm font-medium transition-colors duration-300 flex items-center gap-1",
+                      showSolid
+                        ? "text-muted-foreground hover:text-foreground"
+                        : "text-primary-foreground/80 hover:text-primary-foreground",
+                      location.pathname.startsWith(link.href) && "text-brand-blue"
+                    )}
+                  >
+                    {link.label}
+                    <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-300", dropdownOpen && "rotate-180")} />
+                  </button>
+                  <AnimatePresence>
+                    {dropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
+                      >
+                        <div className="bg-card border border-border rounded-xl shadow-lg py-2 min-w-[220px]">
+                          {link.subLinks.map((sub) => (
+                            <Link
+                              key={sub.href}
+                              to={sub.href}
+                              className={cn(
+                                "block px-5 py-2.5 text-sm transition-colors duration-200 hover:bg-secondary hover:text-brand-blue",
+                                location.pathname === sub.href ? "text-brand-blue font-medium" : "text-muted-foreground"
+                              )}
+                              onClick={() => setDropdownOpen(false)}
+                            >
+                              {sub.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={cn(
+                    "text-sm font-medium transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-blue after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left",
+                    showSolid
+                      ? "text-muted-foreground hover:text-foreground"
+                      : "text-primary-foreground/80 hover:text-primary-foreground",
+                    location.pathname === link.href && "after:scale-x-100"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
