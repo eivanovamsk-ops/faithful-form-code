@@ -36,13 +36,34 @@ const GalleryPage = () => {
         />
       </section>
 
-      {/* Coming Soon */}
+      {/* Full-width Video */}
+      <section className="bg-foreground">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="w-full"
+        >
+          <video
+            className="w-full block"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster=""
+          >
+            <source src="/videos/SmileCloud_case_1.mp4" type="video/mp4" />
+          </video>
+        </motion.div>
+      </section>
+
+      {/* Gallery Content */}
       <section className="py-28 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.7 }}
+            transition={{ delay: 0.4, duration: 0.7 }}
             className="max-w-lg mx-auto text-center"
           >
             <div className="w-20 h-20 rounded-2xl bg-secondary flex items-center justify-center mx-auto mb-8">
