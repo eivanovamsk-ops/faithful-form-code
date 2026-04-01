@@ -223,7 +223,7 @@ const getInitials = (name: string) => {
   return parts.length >= 2 ? parts[0][0] + parts[1][0] : parts[0][0];
 };
 
-const DoctorCard = ({ doc, index, isLeader }: { doc: Doctor; index: number; isLeader?: boolean }) => {
+const DoctorCard = ({ doc, index }: { doc: Doctor; index: number }) => {
   const [expanded, setExpanded] = useState(false);
   const hasDetails = doc.skills || doc.education || doc.reviews;
 
@@ -233,35 +233,36 @@ const DoctorCard = ({ doc, index, isLeader }: { doc: Doctor; index: number; isLe
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className={`group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-500 hover:border-brand-teal/30 hover:shadow-[0_8px_40px_-12px_hsl(var(--brand-teal)/0.15)] ${isLeader ? 'p-10 text-center' : 'p-6'}`}
+      className="group"
     >
-      <div className={`relative z-10 ${isLeader ? '' : 'flex items-start gap-4'}`}>
-        <div className={`rounded-full overflow-hidden bg-brand-teal/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-all duration-500 ${isLeader ? 'w-24 h-24 mx-auto mb-6' : 'w-14 h-14'}`}>
-          {doc.photo ? (
-            <img src={doc.photo} alt={doc.name} className="w-full h-full object-cover" />
-          ) : (
-            <span className={`text-brand-teal font-display font-bold ${isLeader ? 'text-2xl' : 'text-base'}`}>{getInitials(doc.name)}</span>
-          )}
-        </div>
-        <div className={isLeader ? '' : 'flex-1 min-w-0'}>
-          <h3 className={`font-display font-bold text-foreground group-hover:text-brand-teal transition-colors duration-300 ${isLeader ? 'text-lg mb-2' : 'text-sm mb-1'}`}>{doc.name}</h3>
-          <p className={`text-brand-teal font-medium ${isLeader ? 'text-sm' : 'text-xs'}`}>{doc.role}</p>
-          {doc.experience && (
-            <p className="text-muted-foreground text-xs mt-1 flex items-center gap-1">
-              <Briefcase className="w-3 h-3" /> Стаж: {doc.experience}
-            </p>
-          )}
-          {hasDetails && (
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="mt-3 text-xs text-brand-teal/80 hover:text-brand-teal flex items-center gap-1 transition-colors"
-            >
-              {expanded ? 'Свернуть' : 'Подробнее'}
-              <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
-            </button>
-          )}
-        </div>
+      {/* Photo */}
+      <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-muted mb-4">
+        {doc.photo ? (
+          <img src={doc.photo} alt={doc.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-brand-teal/10">
+            <span className="text-4xl text-brand-teal font-display font-bold">{getInitials(doc.name)}</span>
+          </div>
+        )}
       </div>
+
+      {/* Info */}
+      <h3 className="font-display font-bold text-foreground text-lg leading-tight mb-1 group-hover:text-brand-teal transition-colors duration-300">{doc.name}</h3>
+      <p className="text-brand-teal font-medium text-sm">{doc.role}</p>
+      {doc.experience && (
+        <p className="text-muted-foreground text-xs mt-1 flex items-center gap-1">
+          <Briefcase className="w-3 h-3" /> Стаж: {doc.experience}
+        </p>
+      )}
+      {hasDetails && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-3 text-sm text-brand-teal/80 hover:text-brand-teal flex items-center gap-1 transition-colors"
+        >
+          {expanded ? 'Свернуть' : 'Подробнее'}
+          <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
+        </button>
+      )}
 
       <AnimatePresence>
         {expanded && hasDetails && (
@@ -272,7 +273,7 @@ const DoctorCard = ({ doc, index, isLeader }: { doc: Doctor; index: number; isLe
             transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="overflow-hidden"
           >
-            <div className="pt-5 mt-5 border-t border-border space-y-4 text-left">
+            <div className="pt-4 mt-4 border-t border-border space-y-4">
               {doc.skills && (
                 <div>
                   <h4 className="text-xs font-semibold text-foreground flex items-center gap-1.5 mb-2">
@@ -305,8 +306,8 @@ const DoctorCard = ({ doc, index, isLeader }: { doc: Doctor; index: number; isLe
                   </h4>
                   <div className="space-y-2">
                     {doc.reviews.map((review, i) => (
-                      <div key={i} className="bg-secondary/50 rounded-lg p-3">
-                        <p className="text-xs text-muted-foreground italic leading-relaxed">«{review.text}»</p>
+                      <div key={i} className="bg-muted/50 rounded-lg p-3">
+                        <p className="text-xs text-muted-foreground leading-relaxed italic">"{review.text}"</p>
                         <p className="text-xs text-brand-teal/80 font-medium mt-1">— {review.author}</p>
                       </div>
                     ))}
