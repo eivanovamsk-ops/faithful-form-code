@@ -4,9 +4,21 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown, GraduationCap, Award, Star, Briefcase } from "lucide-react";
 
+import artemovaPhoto from "@/assets/doctors/artemova.jpg";
+import borisovPhoto from "@/assets/doctors/borisov.jpg";
+import vasilenkoPhoto from "@/assets/doctors/vasilenko.jpg";
+import zhivlyukPhoto from "@/assets/doctors/zhivlyuk.jpg";
+import kozlovaPhoto from "@/assets/doctors/kozlova.jpg";
+import krasnoslobodtsevaPhoto from "@/assets/doctors/krasnoslobodtseva.jpg";
+import mamedovPhoto from "@/assets/doctors/mamedov.jpg";
+import milyutinaPhoto from "@/assets/doctors/milyutina.jpg";
+import mishchenkoPhoto from "@/assets/doctors/mishchenko.jpg";
+import odintsovPhoto from "@/assets/doctors/odintsov.jpg";
+
 interface Doctor {
   name: string;
   role: string;
+  photo?: string;
   highlight?: boolean;
   experience?: string;
   skills?: string[];
