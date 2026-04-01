@@ -8,6 +8,7 @@ import CustomCursor from "./components/CustomCursor";
 import Index from "./pages/Index";
 import ServicesPage from "./pages/ServicesPage";
 import DoctorsPage from "./pages/DoctorsPage";
+import DoctorProfilePage from "./pages/DoctorProfilePage";
 import PricesPage from "./pages/PricesPage";
 import AboutPage from "./pages/AboutPage";
 import ContactsPage from "./pages/ContactsPage";
