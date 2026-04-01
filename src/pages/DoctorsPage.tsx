@@ -236,8 +236,12 @@ const DoctorCard = ({ doc, index, isLeader }: { doc: Doctor; index: number; isLe
       className={`group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-500 hover:border-brand-teal/30 hover:shadow-[0_8px_40px_-12px_hsl(var(--brand-teal)/0.15)] ${isLeader ? 'p-10 text-center' : 'p-6'}`}
     >
       <div className={`relative z-10 ${isLeader ? '' : 'flex items-start gap-4'}`}>
-        <div className={`rounded-full bg-brand-teal/10 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-brand-teal/20 transition-all duration-500 ${isLeader ? 'w-24 h-24 mx-auto mb-6' : 'w-14 h-14'}`}>
-          <span className={`text-brand-teal font-display font-bold ${isLeader ? 'text-2xl' : 'text-base'}`}>{getInitials(doc.name)}</span>
+        <div className={`rounded-full overflow-hidden bg-brand-teal/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-all duration-500 ${isLeader ? 'w-24 h-24 mx-auto mb-6' : 'w-14 h-14'}`}>
+          {doc.photo ? (
+            <img src={doc.photo} alt={doc.name} className="w-full h-full object-cover" />
+          ) : (
+            <span className={`text-brand-teal font-display font-bold ${isLeader ? 'text-2xl' : 'text-base'}`}>{getInitials(doc.name)}</span>
+          )}
         </div>
         <div className={isLeader ? '' : 'flex-1 min-w-0'}>
           <h3 className={`font-display font-bold text-foreground group-hover:text-brand-teal transition-colors duration-300 ${isLeader ? 'text-lg mb-2' : 'text-sm mb-1'}`}>{doc.name}</h3>
