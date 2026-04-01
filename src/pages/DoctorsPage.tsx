@@ -362,9 +362,9 @@ const DoctorsPage = () => {
       {/* Leadership */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
             {leaders.map((doc, i) => (
-              <DoctorCard key={doc.name} doc={doc} index={i} isLeader />
+              <DoctorCard key={doc.name} doc={doc} index={i} />
             ))}
           </div>
 
