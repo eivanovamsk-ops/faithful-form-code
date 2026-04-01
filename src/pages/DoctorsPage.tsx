@@ -178,6 +178,7 @@ const doctors: Doctor[] = [
   {
     name: "Краснослободцева Елена Павловна",
     role: "Стоматолог-терапевт",
+    photo: krasnoslobodtsevaPhoto,
     experience: "более 15 лет",
     skills: [
       "Прямая реставрация зубов",
