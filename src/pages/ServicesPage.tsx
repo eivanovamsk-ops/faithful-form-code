@@ -1,28 +1,210 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Cpu, Stethoscope, ScanLine, Syringe, HeartPulse, Baby,
-  Smile, Sparkles, ShieldCheck, Scissors, ArrowRight, ChevronRight
+  Smile, Sparkles, ShieldCheck, Scissors, ArrowRight, ArrowUpRight
 } from "lucide-react";
 
 const services = [
-  { icon: Cpu, title: "Цифровая стоматология", desc: "Новые зубы максимально быстро. Цифровые технологии делают лечение точным, быстрым и безопасным.", items: ["Цифровой дизайн улыбки", "Имплантация по навигационным шаблонам", "Коронка + имплантат = 1 день"], accent: "brand-teal" },
-  { icon: Stethoscope, title: "Ортопедия", desc: "Восстановление сильно разрушенных зубов с идеальной эстетикой.", items: ["Протезирование зубов", "Виниры", "Протезирование на имплантатах", "Съемное протезирование", "Антивозрастная стоматология"], accent: "brand-blue" },
-  { icon: ScanLine, title: "Диагностика", desc: "Все виды диагностики в одном месте для точной картины вашего здоровья.", items: ["Прицельные снимки", "Компьютерная томография", "Панорамные снимки (ОПТГ)", "ТРГ", "КТ ВНЧС"], accent: "brand-orange" },
-  { icon: Syringe, title: "Хирургия и имплантация", desc: "Имплантация по хирургическим навигационным шаблонам — гарантия безопасности. Приживляемость 99,6%.", items: ["Имплантация зубов", "Костная пластика", "Удаление кисты зуба", "Удаление зубов"], accent: "brand-teal" },
-  { icon: HeartPulse, title: "Терапия", desc: "Лечение под микроскопом — современный мировой стандарт.", items: ["Лечение кариеса", "Лечение пульпита", "Реставрация зубов"], accent: "brand-blue" },
-  { icon: Baby, title: "Детская стоматология", desc: "Особый подход к детям: адаптация, лечение в игровой форме.", items: ["Адаптационный визит", "Лечение кариеса у детей", "Лечение во сне", "Профилактика"], accent: "brand-orange" },
-  { icon: Scissors, title: "Пародонтология", desc: "Профессиональное лечение заболеваний дёсен.", items: ["Пародонтологическое лечение", "Лечение дёсен"], accent: "brand-teal" },
-  { icon: ShieldCheck, title: "Антистресс лечение", desc: "Лечение зубов без страха и боли.", items: ["Седация", "Лечение во сне", "Безболезненная анестезия"], accent: "brand-blue" },
-  { icon: Smile, title: "Ортодонтия", desc: "Ровные зубы и правильный прикус.", items: ["Исправление прикуса брекетами", "Элайнеры"], accent: "brand-orange" },
-  { icon: Sparkles, title: "Проф. гигиена и отбеливание", desc: "Spa-гигиена по протоколу GBT.", items: ["GBT-гигиена", "Отбеливание"], accent: "brand-teal" },
+  {
+    icon: Cpu,
+    title: "Цифровая стоматология",
+    hook: "нужны новые зубы максимально быстро",
+    desc: "Цифровые технологии делают лечение точным, быстрым и безопасным.",
+    items: ["Цифровой дизайн улыбки", "Имплантация по навигационным шаблонам", "Коронка + имплантат = 1 день"],
+    stat: "1 день",
+    statLabel: "коронка на имплантате",
+    gradient: "from-[hsl(var(--brand-teal))] to-[hsl(213,55%,40%)]",
+  },
+  {
+    icon: Stethoscope,
+    title: "Ортопедия",
+    hook: "сильно разрушены зубы",
+    desc: "Восстановление зубов с идеальной эстетикой и функцией.",
+    items: ["Протезирование зубов", "Виниры", "Протезирование на имплантатах", "Съемное протезирование", "Антивозрастная стоматология"],
+    stat: "5+",
+    statLabel: "видов протезирования",
+    gradient: "from-[hsl(var(--brand-blue))] to-[hsl(210,60%,30%)]",
+  },
+  {
+    icon: ScanLine,
+    title: "Диагностика",
+    hook: "нужно сделать снимки",
+    desc: "Все виды диагностики в одном месте для точной картины здоровья.",
+    items: ["Прицельные снимки", "Компьютерная томография (КТ)", "Панорамные снимки (ОПТГ)", "ТРГ", "КТ ВНЧС"],
+    stat: "5",
+    statLabel: "видов снимков",
+    gradient: "from-[hsl(var(--brand-teal))] to-[hsl(200,50%,35%)]",
+  },
+  {
+    icon: Syringe,
+    title: "Хирургия и имплантация",
+    hook: "нужна хирургия или имплантация",
+    desc: "Имплантация по хирургическим навигационным шаблонам — приживляемость 99,6%.",
+    items: ["Имплантация зубов", "Костная пластика", "Удаление кисты зуба", "Удаление зубов"],
+    stat: "99,6%",
+    statLabel: "приживляемость",
+    gradient: "from-[hsl(var(--brand-blue))] to-[hsl(220,65%,25%)]",
+  },
+  {
+    icon: HeartPulse,
+    title: "Терапия",
+    hook: "болит зуб",
+    desc: "Лечение под микроскопом — современный мировой стандарт.",
+    items: ["Лечение кариеса", "Лечение пульпита", "Лечение периодонтита", "Реставрация зубов"],
+    stat: "×25",
+    statLabel: "увеличение микроскопом",
+    gradient: "from-[hsl(var(--brand-teal))] to-[hsl(195,50%,35%)]",
+  },
+  {
+    icon: Baby,
+    title: "Детская стоматология",
+    hook: "лечиться будет ребёнок",
+    desc: "Адаптация, лечение в игровой форме, возможность лечения во сне.",
+    items: ["Адаптационный визит", "Лечение кариеса у детей", "Лечение во сне", "Профилактика"],
+    stat: "0+",
+    statLabel: "возраст пациентов",
+    gradient: "from-[hsl(var(--brand-blue))] to-[hsl(210,55%,35%)]",
+  },
+  {
+    icon: Scissors,
+    title: "Пародонтология",
+    hook: "требуется лечение дёсен",
+    desc: "Профессиональное лечение заболеваний дёсен и мягких тканей.",
+    items: ["Пародонтологическое лечение", "Лечение дёсен"],
+    stat: "100%",
+    statLabel: "индивидуальный подход",
+    gradient: "from-[hsl(var(--brand-teal))] to-[hsl(205,50%,30%)]",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Антистресс лечение",
+    hook: "нужно лечение зубов без боли",
+    desc: "Лечение без страха: седация, лечение во сне, безболезненная анестезия.",
+    items: ["Седация", "Лечение во сне (наркоз)", "Безболезненная анестезия"],
+    stat: "0",
+    statLabel: "боли",
+    gradient: "from-[hsl(var(--brand-blue))] to-[hsl(215,60%,28%)]",
+  },
+  {
+    icon: Smile,
+    title: "Ортодонтия",
+    hook: "нужно выровнять зубы",
+    desc: "Ровные зубы и правильный прикус с помощью современных систем.",
+    items: ["Исправление прикуса брекетами", "Исправление прикуса элайнерами"],
+    stat: "2",
+    statLabel: "системы выравнивания",
+    gradient: "from-[hsl(var(--brand-teal))] to-[hsl(200,45%,38%)]",
+  },
+  {
+    icon: Sparkles,
+    title: "Гигиена и отбеливание",
+    hook: "хотите свежее дыхание и белоснежную улыбку",
+    desc: "SPA-гигиена по протоколу GBT и профессиональное отбеливание.",
+    items: ["GBT-гигиена", "Профессиональное отбеливание"],
+    stat: "GBT",
+    statLabel: "протокол гигиены",
+    gradient: "from-[hsl(var(--brand-blue))] to-[hsl(210,50%,32%)]",
+  },
 ];
 
-const ServicesPage = () => {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.6, delay: index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group relative"
+    >
+      <div className="relative h-full rounded-3xl border border-border bg-card overflow-hidden transition-all duration-500 hover:border-brand-teal/30 hover:shadow-[0_12px_48px_-12px_hsl(var(--brand-teal)/0.12)]">
+        {/* Top accent gradient bar */}
+        <div className={`h-1 w-full bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+
+        {/* Stat badge — top right */}
+        <div className="absolute top-5 right-5 text-right">
+          <motion.div
+            animate={{ scale: isHovered ? 1.08 : 1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
+            <span className="block text-2xl font-display font-bold text-brand-teal leading-none">
+              {service.stat}
+            </span>
+            <span className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 block">
+              {service.statLabel}
+            </span>
+          </motion.div>
+        </div>
+
+        <div className="p-6 pt-5 flex flex-col h-full">
+          {/* Icon */}
+          <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-brand-teal/10 group-hover:scale-105">
+            <service.icon className="w-5 h-5 text-brand-blue transition-colors duration-500 group-hover:text-brand-teal" />
+          </div>
+
+          {/* Hook */}
+          <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-brand-teal/70 mb-2">
+            если {service.hook}
+          </p>
+
+          {/* Title */}
+          <h2 className="font-display font-bold text-foreground text-lg leading-tight mb-2 transition-colors duration-300 group-hover:text-brand-teal">
+            {service.title}
+          </h2>
+
+          {/* Description */}
+          <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-1">
+            {service.desc}
+          </p>
+
+          {/* Items — revealed on hover */}
+          <div className="overflow-hidden">
+            <motion.div
+              animate={{ height: isHovered ? "auto" : 0, opacity: isHovered ? 1 : 0 }}
+              initial={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <div className="flex flex-wrap gap-1.5 pb-5">
+                {service.items.map((item, j) => (
+                  <motion.span
+                    key={item}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                    transition={{ delay: j * 0.04 }}
+                    className="inline-block px-3 py-1.5 bg-secondary text-foreground text-xs rounded-full border border-border"
+                  >
+                    {item}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* CTA row */}
+          <div className="flex items-center justify-between mt-auto pt-4 border-t border-border">
+            <span className="text-xs text-muted-foreground">
+              {service.items.length} {service.items.length > 4 ? 'направлений' : service.items.length > 1 ? 'направления' : 'направление'}
+            </span>
+            <motion.div
+              animate={{ x: isHovered ? 0 : -4, opacity: isHovered ? 1 : 0.5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ArrowUpRight className="w-4 h-4 text-brand-teal" />
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const ServicesPage = () => {
   return (
     <div>
       {/* Hero Banner */}
@@ -48,99 +230,29 @@ const ServicesPage = () => {
             </p>
           </motion.div>
         </div>
-        {/* Decorative line */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 1.2, delay: 0.3 }}
           className="absolute bottom-0 left-0 right-0 h-px bg-primary-foreground/10 origin-left"
         />
       </section>
 
-      {/* Services List */}
+      {/* Services Grid */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="space-y-4">
-            {services.map((s, i) => {
-              const isExpanded = expandedIndex === i;
-              return (
-                <motion.div
-                  key={s.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-30px" }}
-                  transition={{ duration: 0.6, delay: i * 0.04, ease: [0.25, 0.46, 0.45, 0.94] }}
-                >
-                  <div
-                    onClick={() => setExpandedIndex(isExpanded ? null : i)}
-                    className={`group cursor-pointer rounded-2xl border transition-all duration-500 overflow-hidden ${
-                      isExpanded
-                        ? 'border-brand-teal/30 bg-card shadow-[0_8px_40px_-12px_hsl(var(--brand-teal)/0.15)]'
-                        : 'border-border bg-card hover:border-brand-teal/20 hover:shadow-lg'
-                    }`}
-                  >
-                    {/* Header */}
-                    <div className="flex items-center gap-5 p-7">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 ${
-                        isExpanded ? 'bg-brand-teal scale-110' : 'bg-secondary group-hover:bg-brand-teal/10'
-                      }`}>
-                        <s.icon className={`w-6 h-6 transition-colors duration-500 ${
-                          isExpanded ? 'text-primary-foreground' : 'text-brand-blue group-hover:text-brand-teal'
-                        }`} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h2 className={`font-display font-semibold text-lg transition-colors duration-300 ${
-                          isExpanded ? 'text-brand-teal' : 'text-foreground group-hover:text-brand-teal'
-                        }`}>
-                          {s.title}
-                        </h2>
-                        <p className="text-muted-foreground text-sm mt-1 line-clamp-1">{s.desc}</p>
-                      </div>
-                      <motion.div
-                        animate={{ rotate: isExpanded ? 90 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <ChevronRight className={`w-5 h-5 shrink-0 transition-colors duration-300 ${
-                          isExpanded ? 'text-brand-teal' : 'text-muted-foreground'
-                        }`} />
-                      </motion.div>
-                    </div>
-
-                    {/* Expandable content */}
-                    <AnimatePresence>
-                      {isExpanded && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        >
-                          <div className="px-7 pb-7 pt-0">
-                            <div className="border-t border-border pt-6">
-                              <p className="text-muted-foreground text-sm leading-relaxed mb-5">{s.desc}</p>
-                              <div className="grid sm:grid-cols-2 gap-3">
-                                {s.items.map((it, j) => (
-                                  <motion.div
-                                    key={it}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: j * 0.05 }}
-                                    className="flex items-center gap-3 text-sm text-foreground"
-                                  >
-                                    <span className="w-2 h-2 rounded-full bg-brand-teal shrink-0" />
-                                    {it}
-                                  </motion.div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </motion.div>
-              );
-            })}
+        <div className="container mx-auto px-4">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center text-muted-foreground text-sm uppercase tracking-[0.2em] mb-12"
+          >
+            Мы поможем вам, если…
+          </motion.p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            {services.map((s, i) => (
+              <ServiceCard key={s.title} service={s} index={i} />
+            ))}
           </div>
         </div>
       </section>
