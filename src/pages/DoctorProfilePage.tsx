@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Briefcase, GraduationCap, Award, Star, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { doctors } from "@/data/doctors";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const getInitials = (name: string) => {
   const parts = name.split(" ");
