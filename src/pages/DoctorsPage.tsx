@@ -86,6 +86,7 @@ const doctors: Doctor[] = [
   {
     name: "Борисов Александр Александрович",
     role: "Стоматолог-терапевт",
+    photo: borisovPhoto,
     experience: "10 лет",
     skills: [
       "Прямые эстетические реставрации",
