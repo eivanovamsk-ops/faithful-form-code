@@ -4,9 +4,21 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown, GraduationCap, Award, Star, Briefcase } from "lucide-react";
 
+import artemovaPhoto from "@/assets/doctors/artemova.jpg";
+import borisovPhoto from "@/assets/doctors/borisov.jpg";
+import vasilenkoPhoto from "@/assets/doctors/vasilenko.jpg";
+import zhivlyukPhoto from "@/assets/doctors/zhivlyuk.jpg";
+import kozlovaPhoto from "@/assets/doctors/kozlova.jpg";
+import krasnoslobodtsevaPhoto from "@/assets/doctors/krasnoslobodtseva.jpg";
+import mamedovPhoto from "@/assets/doctors/mamedov.jpg";
+import milyutinaPhoto from "@/assets/doctors/milyutina.jpg";
+import mishchenkoPhoto from "@/assets/doctors/mishchenko.jpg";
+import odintsovPhoto from "@/assets/doctors/odintsov.jpg";
+
 interface Doctor {
   name: string;
   role: string;
+  photo?: string;
   highlight?: boolean;
   experience?: string;
   skills?: string[];
@@ -19,7 +31,7 @@ const doctors: Doctor[] = [
   {
     name: "Артемова Елена Юрьевна",
     role: "Главный врач клиники Артикон, стоматолог-хирург",
-    highlight: true,
+    photo: artemovaPhoto,
     experience: "20 лет",
     skills: [
       "Проведение в условиях седации всех амбулаторных хирургических вмешательств",
@@ -38,6 +50,7 @@ const doctors: Doctor[] = [
   {
     name: "Живлюк Марина Евгеньевна",
     role: "Стоматолог-ортодонт",
+    photo: zhivlyukPhoto,
     experience: "28 лет",
     skills: [
       "Лечение пациентов с аномалиями прикуса в любом возрасте",
@@ -55,6 +68,7 @@ const doctors: Doctor[] = [
   {
     name: "Василенко Анастасия Валерьевна",
     role: "Стоматолог-ортопед",
+    photo: vasilenkoPhoto,
     experience: "12 лет",
     skills: [
       "Несъёмное протезирование (металлокерамика, диоксид циркония, EMAX)",
@@ -72,6 +86,7 @@ const doctors: Doctor[] = [
   {
     name: "Борисов Александр Александрович",
     role: "Стоматолог-терапевт",
+    photo: borisovPhoto,
     experience: "10 лет",
     skills: [
       "Прямые эстетические реставрации",
@@ -90,6 +105,7 @@ const doctors: Doctor[] = [
   {
     name: "Мамедов Джейхун Романович",
     role: "Стоматолог-хирург, имплантолог",
+    photo: mamedovPhoto,
     skills: [
       "Хирургическая стоматология и имплантология",
       "Пародонтология",
@@ -101,6 +117,7 @@ const doctors: Doctor[] = [
   {
     name: "Одинцов Семён Олегович",
     role: "Стоматолог-ортопед, гнатолог",
+    photo: odintsovPhoto,
     experience: "более 11 лет",
     skills: [
       "Несъёмное протезирование (металлокерамика, диоксид циркония, EMAX)",
@@ -118,6 +135,7 @@ const doctors: Doctor[] = [
   {
     name: "Мищенко Александра Александровна",
     role: "Стоматолог-ортодонт, гнатолог",
+    photo: mishchenkoPhoto,
     experience: "более 5 лет",
     skills: [
       "Ортодонтическое лечение детей, подростков и взрослых",
@@ -134,6 +152,7 @@ const doctors: Doctor[] = [
   {
     name: "Козлова Ксения Александровна",
     role: "Стоматолог-ортодонт",
+    photo: kozlovaPhoto,
     skills: [
       "Система Damon",
       "Функциональные несъёмные аппараты при дистальной окклюзии",
@@ -159,6 +178,7 @@ const doctors: Doctor[] = [
   {
     name: "Краснослободцева Елена Павловна",
     role: "Стоматолог-терапевт",
+    photo: krasnoslobodtsevaPhoto,
     experience: "более 15 лет",
     skills: [
       "Прямая реставрация зубов",
@@ -180,6 +200,7 @@ const doctors: Doctor[] = [
   {
     name: "Милютина Алла Андреевна",
     role: "Стоматолог-терапевт, детский стоматолог",
+    photo: milyutinaPhoto,
     experience: "более 14 лет",
     skills: [
       "Ведение терапевтического приёма у взрослых и детей",
@@ -215,8 +236,12 @@ const DoctorCard = ({ doc, index, isLeader }: { doc: Doctor; index: number; isLe
       className={`group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-500 hover:border-brand-teal/30 hover:shadow-[0_8px_40px_-12px_hsl(var(--brand-teal)/0.15)] ${isLeader ? 'p-10 text-center' : 'p-6'}`}
     >
       <div className={`relative z-10 ${isLeader ? '' : 'flex items-start gap-4'}`}>
-        <div className={`rounded-full bg-brand-teal/10 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-brand-teal/20 transition-all duration-500 ${isLeader ? 'w-24 h-24 mx-auto mb-6' : 'w-14 h-14'}`}>
-          <span className={`text-brand-teal font-display font-bold ${isLeader ? 'text-2xl' : 'text-base'}`}>{getInitials(doc.name)}</span>
+        <div className={`rounded-full overflow-hidden bg-brand-teal/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-all duration-500 ${isLeader ? 'w-24 h-24 mx-auto mb-6' : 'w-14 h-14'}`}>
+          {doc.photo ? (
+            <img src={doc.photo} alt={doc.name} className="w-full h-full object-cover" />
+          ) : (
+            <span className={`text-brand-teal font-display font-bold ${isLeader ? 'text-2xl' : 'text-base'}`}>{getInitials(doc.name)}</span>
+          )}
         </div>
         <div className={isLeader ? '' : 'flex-1 min-w-0'}>
           <h3 className={`font-display font-bold text-foreground group-hover:text-brand-teal transition-colors duration-300 ${isLeader ? 'text-lg mb-2' : 'text-sm mb-1'}`}>{doc.name}</h3>
