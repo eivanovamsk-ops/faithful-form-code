@@ -50,6 +50,7 @@ const doctors: Doctor[] = [
   {
     name: "Живлюк Марина Евгеньевна",
     role: "Стоматолог-ортодонт",
+    photo: zhivlyukPhoto,
     experience: "28 лет",
     skills: [
       "Лечение пациентов с аномалиями прикуса в любом возрасте",
