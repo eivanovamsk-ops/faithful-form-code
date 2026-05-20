@@ -77,7 +77,7 @@ const ContactsPage = () => {
               className="bg-card rounded-2xl p-8 sm:p-10 border border-border"
             >
               <h2 className="font-display font-bold text-foreground text-2xl mb-2">Запись на приём</h2>
-              <p className="text-muted-foreground text-sm mb-8">Заполните форму — мы перезвоним в течение 15 минут</p>
+              <p className="text-muted-foreground text-sm mb-8">Заполните форму — мы перезвоним в самое ближайшее время</p>
 
               <div className="space-y-5">
                 <div className="relative">
