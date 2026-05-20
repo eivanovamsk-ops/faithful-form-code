@@ -75,7 +75,7 @@ const Navbar = () => {
             : "bg-background/10 backdrop-blur-md border-primary-foreground/10"
         )}
       >
-        <div className="container mx-auto flex items-center justify-between h-16 px-4">
+        <div className={cn("container mx-auto flex items-center justify-between px-4 transition-all duration-500", showSolid ? "h-14" : "h-16")}>
           <Link to="/" className="flex items-center group">
             <img
               src={showSolid ? logoFull : logoWhite}
