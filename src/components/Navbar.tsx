@@ -71,7 +71,7 @@ const Navbar = () => {
         className={cn(
           "transition-all duration-500 border-b",
           showSolid
-            ? "bg-background/95 backdrop-blur-lg border-border shadow-sm"
+            ? "bg-background/95 backdrop-blur-lg border-border shadow-[0_2px_20px_rgba(0,0,0,0.08)]"
             : "bg-background/10 backdrop-blur-md border-primary-foreground/10"
         )}
       >
