@@ -71,11 +71,11 @@ const Navbar = () => {
         className={cn(
           "transition-all duration-500 border-b",
           showSolid
-            ? "bg-background/95 backdrop-blur-lg border-border shadow-sm"
+            ? "bg-background/95 backdrop-blur-lg border-border shadow-[0_2px_20px_rgba(0,0,0,0.08)]"
             : "bg-background/10 backdrop-blur-md border-primary-foreground/10"
         )}
       >
-        <div className="container mx-auto flex items-center justify-between h-16 px-4">
+        <div className={cn("container mx-auto flex items-center justify-between px-4 transition-all duration-500", showSolid ? "h-14" : "h-16")}>
           <Link to="/" className="flex items-center group">
             <img
               src={showSolid ? logoFull : logoWhite}
