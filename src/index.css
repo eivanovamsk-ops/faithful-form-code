@@ -6,51 +6,51 @@
 
 @layer base {
   :root {
-    /* Surfaces */
-    --background: 0 0% 100%;            /* #FFFFFF */
-    --foreground: 240 4% 11%;           /* #1C1C1E */
+    /* Arctic Luxury palette */
+    --background: 210 17% 98%;          /* #F8F9FA base */
+    --foreground: 220 47% 20%;          /* #1B2A4A navy */
 
-    --card: 36 33% 97%;                 /* warm cream */
-    --card-foreground: 240 4% 11%;
+    --card: 207 60% 96%;                /* #EEF5FB soft background */
+    --card-foreground: 220 47% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 4% 11%;
+    --popover-foreground: 220 47% 20%;
 
-    --primary: 171 56% 23%;             /* #1A5C52 emerald */
+    --primary: 220 47% 20%;             /* #1B2A4A navy */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 33% 97%;            /* #F9F6F2 cream — alt section bg */
-    --secondary-foreground: 240 4% 11%;
+    --secondary: 207 60% 96%;           /* #EEF5FB section alt bg */
+    --secondary-foreground: 220 47% 20%;
 
-    --muted: 36 20% 94%;
-    --muted-foreground: 240 4% 38%;
+    --muted: 210 40% 95%;
+    --muted-foreground: 220 20% 42%;
 
-    --accent: 171 56% 23%;              /* emerald */
+    --accent: 213 67% 54%;              /* #3B7DD8 rich blue accent */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 75% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 36 15% 88%;
-    --input: 36 15% 88%;
-    --ring: 171 56% 23%;
+    --border: 210 35% 88%;
+    --input: 210 35% 88%;
+    --ring: 213 67% 54%;
 
     --radius: 0.5rem;
 
     /* Brand tokens (kept for backwards compatibility) */
-    --brand-blue: 171 56% 23%;          /* emerald, used as deep accent */
-    --brand-teal: 171 56% 23%;          /* emerald, primary CTA */
-    --brand-orange: 38 49% 61%;         /* #C9A96E golden beige accent */
-    --brand-grey: 36 15% 88%;
+    --brand-blue: 220 47% 20%;          /* navy — deep brand */
+    --brand-teal: 213 67% 54%;          /* rich blue — primary CTA */
+    --brand-orange: 210 57% 78%;        /* #A8C8E8 soft blue accent */
+    --brand-grey: 210 35% 88%;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 240 4% 11%;
-    --sidebar-primary: 171 56% 23%;
+    --sidebar-background: 210 17% 98%;
+    --sidebar-foreground: 220 47% 20%;
+    --sidebar-primary: 220 47% 20%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 36 33% 97%;
-    --sidebar-accent-foreground: 240 4% 11%;
-    --sidebar-border: 36 15% 88%;
-    --sidebar-ring: 171 56% 23%;
+    --sidebar-accent: 207 60% 96%;
+    --sidebar-accent-foreground: 220 47% 20%;
+    --sidebar-border: 210 35% 88%;
+    --sidebar-ring: 213 67% 54%;
 
     --font-display: 'Manrope', 'Montserrat', sans-serif;
     --font-body: 'Manrope', 'Montserrat', sans-serif;
