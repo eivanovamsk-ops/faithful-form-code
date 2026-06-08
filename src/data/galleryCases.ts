@@ -1,5 +1,6 @@
 import type { CaseSlide } from "@/components/CaseSlider";
 import type { BeforeAfterPair } from "@/components/BeforeAfterSlider";
+import type { CinematicSlide } from "@/components/CinematicSlider";
 import ortodont1Before from "@/assets/gallery/ortodont-1-before.jpg.asset.json";
 import ortodont1After from "@/assets/gallery/ortodont-1-after.jpg.asset.json";
 import ortho11 from "@/assets/gallery/ortho-1-1.jpg.asset.json";
