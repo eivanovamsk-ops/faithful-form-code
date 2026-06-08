@@ -159,7 +159,21 @@ export const galleryCategories: GalleryCategory[] = [
     id: "ortodontiya",
     title: "Ортодонтия",
     description: "Брекет-системы и элайнеры",
-    cases: [],
+    cases: [
+      {
+        id: "ortodont-case-1",
+        title: "Кейс 1 — Исправление прикуса",
+        description: "Выравнивание зубных рядов и нормализация окклюзии",
+        comparisons: [
+          {
+            before: ortodont1Before.url,
+            after: ortodont1After.url,
+            title: "До / Финальный результат",
+            caption: "Потяните ползунок, чтобы сравнить",
+          },
+        ],
+      },
+    ],
   },
   {
     id: "otbelivanie",
