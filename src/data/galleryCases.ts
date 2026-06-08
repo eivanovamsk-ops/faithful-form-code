@@ -103,6 +103,9 @@ export const galleryCategories: GalleryCategory[] = [
             {
               type: "paragraph",
               text: "✨ Финал: та самая улыбка, которую пациент видел заранее. Без неожиданностей. Без компромиссов. Только вау-результат!",
+            },
+          ],
+        },
       },
       {
         id: "ortho-case-2",
@@ -145,9 +148,6 @@ export const galleryCategories: GalleryCategory[] = [
             },
           ],
         },
-      },
-    ],
-  },
       },
     ],
   },
