@@ -13,11 +13,24 @@ import orthoE31 from "@/assets/gallery/ortho-1-extra-31.jpg.asset.json";
 import orthoE32 from "@/assets/gallery/ortho-1-extra-32.jpg.asset.json";
 import orthoE33 from "@/assets/gallery/ortho-1-extra-33.jpg.asset.json";
 
+export type CaseDetailsBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "heading"; text: string }
+  | { type: "list"; items: string[] }
+  | { type: "highlight"; text: string };
+
+export type CaseDetails = {
+  tagline?: string;
+  duration?: string;
+  blocks: CaseDetailsBlock[];
+};
+
 export type GalleryCase = {
   id: string;
   title: string;
   description?: string;
   slides: CaseSlide[];
+  details?: CaseDetails;
 };
 
 export type GalleryCategory = {
