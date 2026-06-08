@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Award, Heart, ShieldCheck, Sparkles, Users, Cpu, Star, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import artemovaAsset from "@/assets/artemova.jpg.asset.json";
 
 const values = [
   { icon: Heart, title: "Искренность", desc: "Искренняя заинтересованность в наилучшем результате для каждого пациента" },
@@ -63,49 +64,75 @@ const AboutPage = () => {
 
       {/* Founder Letter */}
       <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={0}
-          >
-            <span className="text-xs font-medium tracking-[0.25em] uppercase text-brand-blue mb-4 block">Слово основателя</span>
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground mb-8 leading-tight">
-              Здравствуйте! Рада знакомству с вами
-            </h2>
-          </motion.div>
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid md:grid-cols-[minmax(0,360px)_1fr] gap-10 lg:gap-16 items-start">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0}
+              className="relative md:sticky md:top-28"
+            >
+              <div className="relative rounded-2xl overflow-hidden bg-secondary shadow-xl aspect-[3/4]">
+                <img
+                  src={artemovaAsset.url}
+                  alt="Елена Артемова — основатель и главный врач клиники Articon"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 via-primary/60 to-transparent p-5 text-primary-foreground">
+                  <p className="font-display font-bold text-lg leading-tight">Елена Артемова</p>
+                  <p className="text-xs text-primary-foreground/80 mt-1">Основатель и главный врач</p>
+                </div>
+              </div>
+            </motion.div>
 
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-            className="relative"
-          >
-            <div className="absolute -top-8 -left-4 text-8xl text-brand-teal/15 font-display font-bold select-none">«</div>
-            <blockquote className="relative z-10 pl-8 border-l-2 border-brand-teal/30 space-y-5">
-              <p className="text-lg text-foreground leading-relaxed">
-                Меня зовут <strong className="font-semibold">Елена Артемова</strong>, я основатель и главный врач Центра цифровой стоматологии Articon.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                За моими плечами пятнадцатилетний опыт работы с пациентами. Я всегда стремилась совершенствовать свои знания и двигаться вперёд. В определённый момент пришло понимание — пора воплотить накопленный опыт и создать клинику своей мечты.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Именно тогда поступило предложение от компании Articon — крупнейшего поставщика CAD/CAM оборудования и расходных материалов из Германии, США и Южной Кореи для стоматологических клиник России и стран СНГ.
-              </p>
-              <p className="text-foreground leading-relaxed font-medium bg-secondary/50 p-4 rounded-xl">
-                Опираясь на опыт и ресурсы такой компании, мы создали клинику, где реализованы цифровые протоколы и технологии мирового уровня — всё лучшее, что есть в современной стоматологии.
-              </p>
-              <footer className="text-muted-foreground text-sm pt-2">
-                — Елена Артемова, основатель и главный врач клиники
-              </footer>
-            </blockquote>
-          </motion.div>
+            <div>
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={0}
+              >
+                <span className="text-xs font-medium tracking-[0.25em] uppercase text-brand-blue mb-4 block">Слово основателя</span>
+                <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground mb-8 leading-tight">
+                  Здравствуйте! Рада знакомству с вами
+                </h2>
+              </motion.div>
+
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={1}
+                className="relative"
+              >
+                <div className="absolute -top-8 -left-4 text-8xl text-brand-teal/15 font-display font-bold select-none">«</div>
+                <blockquote className="relative z-10 pl-8 border-l-2 border-brand-teal/30 space-y-5">
+                  <p className="text-lg text-foreground leading-relaxed">
+                    Меня зовут <strong className="font-semibold">Елена Артемова</strong>, я основатель и главный врач Центра цифровой стоматологии Articon.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    За моими плечами пятнадцатилетний опыт работы с пациентами. Я всегда стремилась совершенствовать свои знания и двигаться вперёд. В определённый момент пришло понимание — пора воплотить накопленный опыт и создать клинику своей мечты.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Именно тогда поступило предложение от компании Articon — крупнейшего поставщика CAD/CAM оборудования и расходных материалов из Германии, США и Южной Кореи для стоматологических клиник России и стран СНГ.
+                  </p>
+                  <p className="text-foreground leading-relaxed font-medium bg-secondary/50 p-4 rounded-xl">
+                    Опираясь на опыт и ресурсы такой компании, мы создали клинику, где реализованы цифровые протоколы и технологии мирового уровня — всё лучшее, что есть в современной стоматологии.
+                  </p>
+                  <footer className="text-muted-foreground text-sm pt-2">
+                    — Елена Артемова, основатель и главный врач клиники
+                  </footer>
+                </blockquote>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
+
 
       {/* Mission & Team */}
       <section className="py-24 bg-secondary">
