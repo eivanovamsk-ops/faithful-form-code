@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Camera, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CaseSlider from "@/components/CaseSlider";
+import { galleryCategories } from "@/data/galleryCases";
+
 
 const GalleryPage = () => {
   return (
@@ -57,30 +60,78 @@ const GalleryPage = () => {
         </motion.div>
       </section>
 
-      {/* Gallery Content */}
-      <section className="py-28 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.7 }}
-            className="max-w-lg mx-auto text-center"
-          >
-            <div className="w-20 h-20 rounded-2xl bg-secondary flex items-center justify-center mx-auto mb-8">
-              <Camera className="w-9 h-9 text-muted-foreground/40" />
-            </div>
-            <h2 className="font-display font-bold text-foreground text-2xl mb-4">Галерея обновляется</h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Мы готовим обновлённую галерею работ наших специалистов с примерами «до и после».
-            </p>
-            <Button asChild variant="outline" size="lg" className="h-12 px-8 border-brand-teal/30 text-brand-teal hover:bg-brand-teal hover:text-primary-foreground transition-all duration-400">
+      {/* Categories with case sliders */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 space-y-24">
+          {galleryCategories.map((category, idx) => (
+            <motion.div
+              key={category.id}
+              id={category.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="scroll-mt-28"
+            >
+              <div className="flex items-end justify-between flex-wrap gap-4 mb-10 pb-6 border-b border-border">
+                <div>
+                  <span className="inline-block text-xs font-medium tracking-[0.3em] uppercase text-brand-blue mb-3">
+                    {String(idx + 1).padStart(2, "0")} — Раздел
+                  </span>
+                  <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl">
+                    {category.title}
+                  </h2>
+                  {category.description && (
+                    <p className="text-muted-foreground mt-2 max-w-xl">{category.description}</p>
+                  )}
+                </div>
+                {category.cases.length > 0 && (
+                  <span className="text-sm text-muted-foreground">
+                    {category.cases.length}{" "}
+                    {category.cases.length === 1 ? "кейс" : category.cases.length < 5 ? "кейса" : "кейсов"}
+                  </span>
+                )}
+              </div>
+
+              {category.cases.length === 0 ? (
+                <div className="rounded-2xl border border-dashed border-border bg-secondary/40 p-12 flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-xl bg-background flex items-center justify-center mb-4">
+                    <Camera className="w-6 h-6 text-muted-foreground/50" />
+                  </div>
+                  <p className="text-muted-foreground">
+                    Кейсы скоро появятся — мы готовим материалы
+                  </p>
+                </div>
+              ) : (
+                <div className="grid md:grid-cols-2 gap-8">
+                  {category.cases.map((c) => (
+                    <div key={c.id} className="space-y-4">
+                      <CaseSlider slides={c.slides} />
+                      <div>
+                        <h3 className="font-display font-semibold text-foreground text-lg">
+                          {c.title}
+                        </h3>
+                        {c.description && (
+                          <p className="text-sm text-muted-foreground mt-1">{c.description}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          ))}
+
+          <div className="max-w-lg mx-auto text-center pt-8">
+            <Button asChild variant="outline" size="lg" className="h-12 px-8 border-brand-blue/30 text-brand-blue hover:bg-brand-blue hover:text-primary-foreground transition-all duration-400">
               <a href="https://articon-clinic.ru/albums/" target="_blank" rel="noopener noreferrer">
                 Смотреть на сайте <ExternalLink className="ml-2 w-4 h-4" />
               </a>
             </Button>
-          </motion.div>
+          </div>
         </div>
       </section>
+
     </div>
   );
 };
