@@ -75,7 +75,7 @@ const CinematicSlider = ({ slides, autoplayMs = 5500 }: Props) => {
             style = {
               ...style,
               opacity: 1,
-              transform: "translateY(0) scale(1.18)",
+              transform: "translateY(0) scale(1)",
               clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
               zIndex: 2,
             };
