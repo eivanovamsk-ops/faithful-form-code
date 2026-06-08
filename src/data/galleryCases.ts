@@ -12,6 +12,13 @@ import orthoE30 from "@/assets/gallery/ortho-1-extra-30.jpg.asset.json";
 import orthoE31 from "@/assets/gallery/ortho-1-extra-31.jpg.asset.json";
 import orthoE32 from "@/assets/gallery/ortho-1-extra-32.jpg.asset.json";
 import orthoE33 from "@/assets/gallery/ortho-1-extra-33.jpg.asset.json";
+import ortho21 from "@/assets/gallery/ortho-2-1.jpg.asset.json";
+import ortho22 from "@/assets/gallery/ortho-2-2.jpg.asset.json";
+import ortho23 from "@/assets/gallery/ortho-2-3.jpg.asset.json";
+import ortho24 from "@/assets/gallery/ortho-2-4.jpg.asset.json";
+import ortho25 from "@/assets/gallery/ortho-2-5.jpg.asset.json";
+import ortho26 from "@/assets/gallery/ortho-2-6.jpg.asset.json";
+import ortho27 from "@/assets/gallery/ortho-2-7.jpg.asset.json";
 
 export type CaseDetailsBlock =
   | { type: "paragraph"; text: string }
