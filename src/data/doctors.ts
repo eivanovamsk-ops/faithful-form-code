@@ -8,6 +8,7 @@ import mamedovPhoto from "@/assets/doctors/mamedov.jpg";
 import milyutinaPhoto from "@/assets/doctors/milyutina.jpg";
 import mishchenkoPhoto from "@/assets/doctors/mishchenko.jpg";
 import odintsovPhoto from "@/assets/doctors/odintsov.jpg";
+import romanenkoPhoto from "@/assets/doctors/romanenko.png";
 
 export interface Doctor {
   id: string;
