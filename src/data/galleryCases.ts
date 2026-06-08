@@ -1,4 +1,10 @@
 import type { CaseSlide } from "@/components/CaseSlider";
+import ortho11 from "@/assets/gallery/ortho-1-1.jpg.asset.json";
+import ortho12 from "@/assets/gallery/ortho-1-2.jpg.asset.json";
+import ortho13 from "@/assets/gallery/ortho-1-3.jpg.asset.json";
+import ortho14 from "@/assets/gallery/ortho-1-4.jpg.asset.json";
+import ortho15 from "@/assets/gallery/ortho-1-5.jpg.asset.json";
+import ortho16 from "@/assets/gallery/ortho-1-6.png.asset.json";
 
 export type GalleryCase = {
   id: string;
