@@ -13,11 +13,24 @@ import orthoE31 from "@/assets/gallery/ortho-1-extra-31.jpg.asset.json";
 import orthoE32 from "@/assets/gallery/ortho-1-extra-32.jpg.asset.json";
 import orthoE33 from "@/assets/gallery/ortho-1-extra-33.jpg.asset.json";
 
+export type CaseDetailsBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "heading"; text: string }
+  | { type: "list"; items: string[] }
+  | { type: "highlight"; text: string };
+
+export type CaseDetails = {
+  tagline?: string;
+  duration?: string;
+  blocks: CaseDetailsBlock[];
+};
+
 export type GalleryCase = {
   id: string;
   title: string;
   description?: string;
   slides: CaseSlide[];
+  details?: CaseDetails;
 };
 
 export type GalleryCategory = {
@@ -54,6 +67,38 @@ export const galleryCategories: GalleryCategory[] = [
           { src: orthoE32.url, title: "До / После", caption: "Боковой вид слева", position: "top-left" },
           { src: orthoE33.url, title: "Этапы лечения", caption: "До → 3D → После", position: "bottom-right" },
         ],
+        details: {
+          tagline: "Умная стоматология: искусственный интеллект + команда Articon = точное попадание 🎯",
+          duration: "1,5 года",
+          blocks: [
+            { type: "paragraph", text: "К нам обратился пациент с жалобами на отсутствие зубов и эстетику улыбки." },
+            { type: "paragraph", text: "Задача: не просто решить проблему, а сделать всё быстро, комфортно и чётко." },
+            { type: "heading", text: "Этапы лечения" },
+            {
+              type: "list",
+              items: [
+                "Исправление прикуса на элайнерах",
+                "Имплантация по навигационным шаблонам во сне для максимального комфорта пациента",
+                "Моделирование будущей улыбки",
+                "Одновременная обточка верхней и нижней челюстей",
+                "Изготовление цельноциркониевых реставраций",
+                "С момента препарирования до фиксации постоянных реставраций — всего 2 недели",
+              ],
+            },
+            {
+              type: "paragraph",
+              text: "Особенный этап — первичное моделирование улыбки с помощью искусственного интеллекта в Smile Cloud. Технология предполагает тесное сотрудничество пациента, стоматолога и зубного техника при планировании лечения. Искусственный интеллект в онлайн-режиме позволяет создать огромное количество вариантов улыбки, ориентируясь на черты лица, образ жизни и пожелания пациента. Это гарантирует результат, который полностью удовлетворит пациента 👍",
+            },
+            {
+              type: "highlight",
+              text: "Интересно 🧐: в этом кейсе вариант, который пациент выбрал из предложенных ИИ, в итоге на 99% совпал с финальной работой. Цифровые технологии + опыт врача и зубного техника = мощный тандем.",
+            },
+            {
+              type: "paragraph",
+              text: "✨ Финал: та самая улыбка, которую пациент видел заранее. Без неожиданностей. Без компромиссов. Только вау-результат!",
+            },
+          ],
+        },
       },
     ],
   },
