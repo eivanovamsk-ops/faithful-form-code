@@ -30,6 +30,26 @@ export const galleryCategories: GalleryCategory[] = [
     cases: [],
   },
   {
+    id: "ortopediya",
+    title: "Ортопедия",
+    description: "Виниры, коронки, протезирование на имплантах",
+    cases: [
+      {
+        id: "ortho-case-1",
+        title: "Кейс 1 — Тотальная реабилитация",
+        description: "Комплексное протезирование верхней и нижней челюсти",
+        slides: [
+          { src: ortho11.url, title: "Улыбка после", caption: "Финальный результат", position: "top-left" },
+          { src: ortho12.url, title: "До / После", caption: "Фронтальный вид", position: "top-left" },
+          { src: ortho13.url, title: "До / После", caption: "Боковой вид справа", position: "top-left" },
+          { src: ortho14.url, title: "До / После", caption: "Боковой вид слева", position: "top-left" },
+          { src: ortho15.url, title: "Улыбка крупно", caption: "Эстетика фронтальной зоны", position: "bottom-right" },
+          { src: ortho16.url, title: "Модель и результат", caption: "Цифровое планирование", position: "top-left" },
+        ],
+      },
+    ],
+  },
+  {
     id: "ortodontiya",
     title: "Ортодонтия",
     description: "Брекет-системы и элайнеры",
