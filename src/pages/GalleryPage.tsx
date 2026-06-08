@@ -103,9 +103,9 @@ const GalleryPage = () => {
                   </p>
                 </div>
               ) : (
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 gap-10 max-w-4xl mx-auto">
                   {category.cases.map((c) => (
-                    <div key={c.id} className="space-y-4">
+                    <div key={c.id} className="space-y-5">
                       <CaseSlider slides={c.slides} />
                       <div>
                         <h3 className="font-display font-semibold text-foreground text-lg">
@@ -115,6 +115,7 @@ const GalleryPage = () => {
                           <p className="text-sm text-muted-foreground mt-1">{c.description}</p>
                         )}
                       </div>
+                      {c.details && <CaseDetails details={c.details} />}
                     </div>
                   ))}
                 </div>
