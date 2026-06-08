@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Briefcase } from "lucide-react";
 import { doctors } from "@/data/doctors";
+import teamPhoto from "@/assets/doctors-team.png.asset.json";
 
 const getInitials = (name: string) => {
   const parts = name.split(" ");
@@ -61,21 +62,35 @@ const DoctorsPage = () => {
           backgroundSize: '40px 40px'
         }} />
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <span className="inline-block text-xs font-medium tracking-[0.3em] uppercase text-brand-teal mb-6">
-              Команда
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-[1.1] max-w-xl">
-              Наши врачи
-            </h1>
-            <p className="mt-6 text-primary-foreground/60 text-lg max-w-lg leading-relaxed">
-              Сплочённая команда профессионалов — главная гордость клиники Articon
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <span className="inline-block text-xs font-medium tracking-[0.3em] uppercase text-brand-teal mb-6">
+                Команда
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-[1.1]">
+                Наши врачи
+              </h1>
+              <p className="mt-6 text-primary-foreground/60 text-lg max-w-lg leading-relaxed">
+                Сплочённая команда профессионалов — главная гордость клиники Articon
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <img
+                src={teamPhoto.url}
+                alt="Команда врачей клиники Articon"
+                className="w-full h-auto object-cover"
+              />
+            </motion.div>
+          </div>
         </div>
         <motion.div
           initial={{ scaleX: 0 }}
