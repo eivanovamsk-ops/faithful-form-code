@@ -187,7 +187,35 @@ export const galleryCategories: GalleryCategory[] = [
     id: "gigiena",
     title: "Профессиональная гигиена",
     description: "Чистка Air Flow и ультразвук",
-    cases: [],
+    cases: [
+      {
+        id: "gigiena-demo",
+        title: "Демо-слайдер",
+        description: "Образец — пришлите фото, и я заменю изображения",
+        cinematic: [
+          {
+            src: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1600&q=80",
+            title: "Air Flow",
+            subhead: "Бережная чистка, мягкое отбеливание",
+          },
+          {
+            src: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1600&q=80",
+            title: "Ультразвук",
+            subhead: "Удаление зубного камня без боли",
+          },
+          {
+            src: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1600&q=80",
+            title: "Полировка",
+            subhead: "Гладкая поверхность эмали",
+          },
+          {
+            src: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?auto=format&fit=crop&w=1600&q=80",
+            title: "Реминерализация",
+            subhead: "Укрепление эмали после чистки",
+          },
+        ],
+      },
+    ],
   },
   {
     id: "hirurgiya",
