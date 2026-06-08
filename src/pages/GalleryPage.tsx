@@ -119,6 +119,9 @@ const GalleryPage = () => {
                           ))}
                         </div>
                       )}
+                      {c.cinematic && c.cinematic.length > 0 && (
+                        <CinematicSlider slides={c.cinematic} />
+                      )}
                       <div>
                         <h3 className="font-display font-semibold text-foreground text-lg">
                           {c.title}
