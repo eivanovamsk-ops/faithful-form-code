@@ -37,7 +37,8 @@ export type GalleryCase = {
   id: string;
   title: string;
   description?: string;
-  slides: CaseSlide[];
+  slides?: CaseSlide[];
+  comparisons?: BeforeAfterPair[];
   details?: CaseDetails;
 };
 
