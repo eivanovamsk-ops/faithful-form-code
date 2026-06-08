@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Award, Heart, ShieldCheck, Sparkles, Users, Cpu, Star, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import artemovaAsset from "@/assets/artemova.jpg.asset.json";
+import AboutHeroSlider from "@/components/AboutHeroSlider";
 
 const values = [
   { icon: Heart, title: "Искренность", desc: "Искренняя заинтересованность в наилучшем результате для каждого пациента" },
@@ -31,36 +32,9 @@ const fadeUp = {
 const AboutPage = () => {
   return (
     <div>
-      {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 bg-foreground overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }} />
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <span className="inline-block text-xs font-medium tracking-[0.3em] uppercase text-brand-teal mb-6">
-              О клинике
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-[1.1] max-w-2xl">
-              Центр цифровой стоматологии Articon
-            </h1>
-            <p className="mt-6 text-primary-foreground/60 text-lg max-w-lg leading-relaxed">
-              Современная стоматология с 15-летним опытом, передовыми технологиями и искренней заботой о каждом пациенте
-            </p>
-          </motion.div>
-        </div>
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="absolute bottom-0 left-0 right-0 h-px bg-primary-foreground/10 origin-left"
-        />
-      </section>
+      {/* Hero Slider */}
+      <AboutHeroSlider />
+
 
       {/* Founder Letter */}
       <section className="py-24 bg-background">

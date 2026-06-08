@@ -167,3 +167,7 @@
 @media (max-width: 1023px), (pointer: coarse) {
   .custom-cursor-layer { display: none !important; }
 }
+
+/* Scrollbar hide utility */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
