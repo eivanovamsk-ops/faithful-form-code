@@ -397,6 +397,7 @@ export const doctors: Doctor[] = [
     id: "takvel",
     name: "Таквель Виктория Александровна",
     role: "Стоматолог-хирург, пародонтолог",
+    photo: takvelPhoto,
   },
   {
     id: "milyutina",
