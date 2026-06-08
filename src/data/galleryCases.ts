@@ -42,6 +42,7 @@ export type GalleryCase = {
   description?: string;
   slides?: CaseSlide[];
   comparisons?: BeforeAfterPair[];
+  cinematic?: CinematicSlide[];
   details?: CaseDetails;
 };
 
