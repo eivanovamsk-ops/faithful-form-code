@@ -323,6 +323,7 @@ export const doctors: Doctor[] = [
     id: "romanenko",
     name: "Романенко Анастасия Николаевна",
     role: "Стоматолог-терапевт, детский стоматолог",
+    photo: romanenkoPhoto,
     experience: "более 6 лет",
     workDays: "четверг, суббота",
     skills: [
