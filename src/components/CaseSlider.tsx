@@ -23,14 +23,23 @@ const positionClasses: Record<NonNullable<CaseSlide["position"]>, string> = {
 
 const CaseSlider = ({ slides, className }: CaseSliderProps) => {
   const [active, setActive] = useState(0);
+  const [ratios, setRatios] = useState<Record<number, number>>({});
   const total = slides.length;
 
   if (total === 0) return null;
 
   const go = (i: number) => setActive((i + total) % total);
 
+  const activeRatio = ratios[active] ?? 16 / 10;
+
   return (
-    <div className={cn("relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-foreground/5 group", className)}>
+    <div
+      className={cn(
+        "relative w-full rounded-2xl overflow-hidden bg-foreground/5 group transition-[aspect-ratio] duration-500",
+        className
+      )}
+      style={{ aspectRatio: activeRatio }}
+    >
       {/* Slides */}
       <div className="absolute inset-0">
         {slides.map((s, i) => (
@@ -41,13 +50,25 @@ const CaseSlider = ({ slides, className }: CaseSliderProps) => {
               i === active ? "opacity-100" : "opacity-0 pointer-events-none"
             )}
           >
+            {/* blurred backdrop fills any letterbox area without cropping the real photo */}
+            <img
+              src={s.src}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-60"
+            />
             <img
               src={s.src}
               alt={s.title ?? `Кейс ${i + 1}`}
-              className={cn(
-                "w-full h-full object-cover transition-transform duration-[1200ms] ease-out",
-                i === active ? "scale-100" : "scale-105"
-              )}
+              onLoad={(e) => {
+                const img = e.currentTarget;
+                if (img.naturalWidth && img.naturalHeight) {
+                  setRatios((r) =>
+                    r[i] ? r : { ...r, [i]: img.naturalWidth / img.naturalHeight }
+                  );
+                }
+              }}
+              className="relative w-full h-full object-contain"
               loading="lazy"
             />
             {(s.title || s.caption) && (
@@ -58,19 +79,17 @@ const CaseSlider = ({ slides, className }: CaseSliderProps) => {
                 )}
               >
                 {s.title && (
-                  <h3 className="text-primary-foreground text-lg sm:text-xl font-display font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+                  <h3 className="text-primary-foreground text-lg sm:text-xl font-display font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                     {s.title}
                   </h3>
                 )}
                 {s.caption && (
-                  <p className="text-primary-foreground/85 text-sm drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+                  <p className="text-primary-foreground/85 text-sm drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                     {s.caption}
                   </p>
                 )}
               </div>
             )}
-            {/* subtle gradient for legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/20 pointer-events-none" />
           </div>
         ))}
       </div>
