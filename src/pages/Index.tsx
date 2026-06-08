@@ -253,6 +253,53 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Treatment Coordinator */}
+      <section className="py-28 bg-secondary">
+        <div className="container mx-auto px-4">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16"
+          >
+            <span className="text-xs font-medium tracking-[0.25em] uppercase text-brand-blue">Персональный подход</span>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight">
+              Ваш координатор лечения
+            </h2>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="grid md:grid-cols-[280px_1fr] gap-10 items-center bg-background rounded-2xl border border-border p-8 md:p-12">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-48 h-60 rounded-xl bg-brand-blue/10 border-2 border-dashed border-brand-blue/30 flex items-center justify-center mb-6">
+                  <span className="text-brand-blue/50 text-sm font-medium">Фото координатора</span>
+                </div>
+                <h3 className="font-display font-bold text-foreground text-xl mb-2">Гусейнова Эльмира</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Заместитель главного врача по работе с пациентами, координатор лечения
+                </p>
+              </div>
+
+              <div className="relative">
+                <svg className="absolute -top-4 -left-2 w-10 h-10 text-brand-blue/20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <blockquote className="text-foreground text-base sm:text-lg leading-relaxed pl-8">
+                  Для меня важно обеспечить комфортное лечение для наших пациентов. Подберу для вас команду специалистов, у которых вы будете в надежных руках. На всех этапах вашего лечения с большим удовольствием буду вас сопровождать и поддерживать. Предлагаю пройти путь к здоровой улыбке вместе!
+                </blockquote>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Technologies — interactive */}
       <TechnologiesSection />
 
