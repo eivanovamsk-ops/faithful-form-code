@@ -8,6 +8,7 @@ import mamedovPhoto from "@/assets/doctors/mamedov.jpg";
 import milyutinaPhoto from "@/assets/doctors/milyutina.jpg";
 import mishchenkoPhoto from "@/assets/doctors/mishchenko.jpg";
 import odintsovPhoto from "@/assets/doctors/odintsov.jpg";
+import romanenkoPhoto from "@/assets/doctors/romanenko.png";
 
 export interface Doctor {
   id: string;
@@ -322,6 +323,7 @@ export const doctors: Doctor[] = [
     id: "romanenko",
     name: "Романенко Анастасия Николаевна",
     role: "Стоматолог-терапевт, детский стоматолог",
+    photo: romanenkoPhoto,
     experience: "более 6 лет",
     workDays: "четверг, суббота",
     skills: [
