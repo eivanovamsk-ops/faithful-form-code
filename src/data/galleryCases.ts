@@ -1,5 +1,7 @@
 import type { CaseSlide } from "@/components/CaseSlider";
 import type { BeforeAfterPair } from "@/components/BeforeAfterSlider";
+import ortodont1Before from "@/assets/gallery/ortodont-1-before.jpg.asset.json";
+import ortodont1After from "@/assets/gallery/ortodont-1-after.jpg.asset.json";
 import ortho11 from "@/assets/gallery/ortho-1-1.jpg.asset.json";
 import ortho12 from "@/assets/gallery/ortho-1-2.jpg.asset.json";
 import ortho13 from "@/assets/gallery/ortho-1-3.jpg.asset.json";
@@ -157,7 +159,21 @@ export const galleryCategories: GalleryCategory[] = [
     id: "ortodontiya",
     title: "Ортодонтия",
     description: "Брекет-системы и элайнеры",
-    cases: [],
+    cases: [
+      {
+        id: "ortodont-case-1",
+        title: "Кейс 1 — Исправление прикуса",
+        description: "Выравнивание зубных рядов и нормализация окклюзии",
+        comparisons: [
+          {
+            before: ortodont1Before.url,
+            after: ortodont1After.url,
+            title: "До / Финальный результат",
+            caption: "Потяните ползунок, чтобы сравнить",
+          },
+        ],
+      },
+    ],
   },
   {
     id: "otbelivanie",
