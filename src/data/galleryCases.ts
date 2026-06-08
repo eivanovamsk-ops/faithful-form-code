@@ -27,12 +27,6 @@ export const galleryCategories: GalleryCategory[] = [
     id: "ortopediya",
     title: "Ортопедия",
     description: "Виниры, коронки, протезирование на имплантах",
-    cases: [],
-  },
-  {
-    id: "ortopediya",
-    title: "Ортопедия",
-    description: "Виниры, коронки, протезирование на имплантах",
     cases: [
       {
         id: "ortho-case-1",
