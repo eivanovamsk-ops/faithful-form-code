@@ -23,6 +23,10 @@ import ortho24 from "@/assets/gallery/ortho-2-4.jpg.asset.json";
 import ortho25 from "@/assets/gallery/ortho-2-5.jpg.asset.json";
 import ortho26 from "@/assets/gallery/ortho-2-6.jpg.asset.json";
 import ortho27 from "@/assets/gallery/ortho-2-7.jpg.asset.json";
+import gigiena11 from "@/assets/gallery/gigiena-1-1.jpeg.asset.json";
+import gigiena12 from "@/assets/gallery/gigiena-1-2.jpeg.asset.json";
+import gigiena13 from "@/assets/gallery/gigiena-1-3.jpeg.asset.json";
+import gigiena14 from "@/assets/gallery/gigiena-1-4.jpeg.asset.json";
 
 export type CaseDetailsBlock =
   | { type: "paragraph"; text: string }
@@ -189,29 +193,29 @@ export const galleryCategories: GalleryCategory[] = [
     description: "Чистка Air Flow и ультразвук",
     cases: [
       {
-        id: "gigiena-demo",
-        title: "Демо-слайдер",
-        description: "Образец — пришлите фото, и я заменю изображения",
+        id: "gigiena-case-1",
+        title: "Кейс 1 — Профессиональная гигиена",
+        description: "Удаление поддесневого камня за 1 посещение",
         cinematic: [
           {
-            src: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1600&q=80",
-            title: "Air Flow",
-            subhead: "Бережная чистка, мягкое отбеливание",
+            src: gigiena11.url,
+            title: "У пациентки хороший уровень гигиены",
+            subhead: "Но есть жалобы на кровоточивость десны",
           },
           {
-            src: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1600&q=80",
-            title: "Ультразвук",
-            subhead: "Удаление зубного камня без боли",
+            src: gigiena12.url,
+            title: "Причина на фото — поддесневой камень",
+            subhead: "Выявлен при диагностике",
           },
           {
-            src: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1600&q=80",
-            title: "Полировка",
-            subhead: "Гладкая поверхность эмали",
+            src: gigiena13.url,
+            title: "Избавиться от него самостоятельно невозможно",
+            subhead: "Только профессиональная чистка",
           },
           {
-            src: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?auto=format&fit=crop&w=1600&q=80",
-            title: "Реминерализация",
-            subhead: "Укрепление эмали после чистки",
+            src: gigiena14.url,
+            title: "Срок лечения — 1 посещение",
+            subhead: "Результат сразу после процедуры",
           },
         ],
       },
