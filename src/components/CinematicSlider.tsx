@@ -53,7 +53,7 @@ const CinematicSlider = ({ slides, autoplayMs = 5500 }: Props) => {
   if (!slides.length) return null;
 
   return (
-    <div className="relative w-full h-[78vh] min-h-[520px] bg-foreground rounded-2xl overflow-hidden">
+    <div className="relative w-full bg-foreground rounded-2xl overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
       {/* Slide stage */}
       <div className="absolute inset-6 overflow-hidden rounded-xl">
         {slides.map((s, i) => {
@@ -61,10 +61,9 @@ const CinematicSlider = ({ slides, autoplayMs = 5500 }: Props) => {
           const isNext = i === nextIdx && i !== index;
           const isPrevious = prevIndex !== null && i === prevIndex;
 
-          let cls = "absolute inset-0 bg-center bg-cover bg-no-repeat will-change-transform";
+          let cls = "absolute inset-0 bg-center bg-contain bg-no-repeat will-change-transform";
           let style: React.CSSProperties = {
             backgroundImage: `url(${s.src})`,
-            filter: "grayscale(100%)",
             opacity: 0,
             transform: "translateY(-100%)",
             transition:
@@ -76,7 +75,7 @@ const CinematicSlider = ({ slides, autoplayMs = 5500 }: Props) => {
             style = {
               ...style,
               opacity: 1,
-              transform: "translateY(0) scale(1.18)",
+              transform: "translateY(0) scale(1)",
               clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
               zIndex: 2,
             };
