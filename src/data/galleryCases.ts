@@ -5,6 +5,13 @@ import ortho13 from "@/assets/gallery/ortho-1-3.jpg.asset.json";
 import ortho14 from "@/assets/gallery/ortho-1-4.jpg.asset.json";
 import ortho15 from "@/assets/gallery/ortho-1-5.jpg.asset.json";
 import ortho16 from "@/assets/gallery/ortho-1-6.png.asset.json";
+import orthoE26 from "@/assets/gallery/ortho-1-extra-26.jpg.asset.json";
+import orthoE28 from "@/assets/gallery/ortho-1-extra-28.jpg.asset.json";
+import orthoE29 from "@/assets/gallery/ortho-1-extra-29.jpg.asset.json";
+import orthoE30 from "@/assets/gallery/ortho-1-extra-30.jpg.asset.json";
+import orthoE31 from "@/assets/gallery/ortho-1-extra-31.jpg.asset.json";
+import orthoE32 from "@/assets/gallery/ortho-1-extra-32.jpg.asset.json";
+import orthoE33 from "@/assets/gallery/ortho-1-extra-33.jpg.asset.json";
 
 export type GalleryCase = {
   id: string;
