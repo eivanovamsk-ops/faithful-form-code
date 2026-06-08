@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import heroVideo from "@/assets/hero-video.mp4";
 import heroImage from "@/assets/hero-dental.jpg";
+import guseynovaAsset from "@/assets/guseynova.jpg.asset.json";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import TechnologiesSection from "@/components/TechnologiesSection";
 import { useRef } from "react";
@@ -278,8 +279,8 @@ const Index = () => {
           >
             <div className="grid md:grid-cols-[280px_1fr] gap-10 items-center bg-background rounded-2xl border border-border p-8 md:p-12">
               <div className="flex flex-col items-center text-center">
-                <div className="w-48 h-60 rounded-xl bg-brand-blue/10 border-2 border-dashed border-brand-blue/30 flex items-center justify-center mb-6">
-                  <span className="text-brand-blue/50 text-sm font-medium">Фото координатора</span>
+                <div className="w-48 h-60 rounded-xl overflow-hidden mb-6 bg-secondary shadow-md">
+                  <img src={guseynovaAsset.url} alt="Гусейнова Эльмира" className="w-full h-full object-cover object-top" />
                 </div>
                 <h3 className="font-display font-bold text-foreground text-xl mb-2">Гусейнова Эльмира</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
