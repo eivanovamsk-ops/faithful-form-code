@@ -12,6 +12,13 @@ import orthoE30 from "@/assets/gallery/ortho-1-extra-30.jpg.asset.json";
 import orthoE31 from "@/assets/gallery/ortho-1-extra-31.jpg.asset.json";
 import orthoE32 from "@/assets/gallery/ortho-1-extra-32.jpg.asset.json";
 import orthoE33 from "@/assets/gallery/ortho-1-extra-33.jpg.asset.json";
+import ortho21 from "@/assets/gallery/ortho-2-1.jpg.asset.json";
+import ortho22 from "@/assets/gallery/ortho-2-2.jpg.asset.json";
+import ortho23 from "@/assets/gallery/ortho-2-3.jpg.asset.json";
+import ortho24 from "@/assets/gallery/ortho-2-4.jpg.asset.json";
+import ortho25 from "@/assets/gallery/ortho-2-5.jpg.asset.json";
+import ortho26 from "@/assets/gallery/ortho-2-6.jpg.asset.json";
+import ortho27 from "@/assets/gallery/ortho-2-7.jpg.asset.json";
 
 export type CaseDetailsBlock =
   | { type: "paragraph"; text: string }
@@ -96,6 +103,48 @@ export const galleryCategories: GalleryCategory[] = [
             {
               type: "paragraph",
               text: "✨ Финал: та самая улыбка, которую пациент видел заранее. Без неожиданностей. Без компромиссов. Только вау-результат!",
+            },
+          ],
+        },
+      },
+      {
+        id: "ortho-case-2",
+        title: "Кейс 2 — Замена несостоятельных коронок",
+        description: "Полная реабилитация: 14 коронок на верхней и 5 на нижней челюсти",
+        slides: [
+          { src: ortho21.url, title: "До / После", caption: "Замена коронок с имплантацией", position: "top-left" },
+          { src: ortho22.url, title: "Улыбка До / После", caption: "Эстетика фронтальной зоны", position: "top-left" },
+          { src: ortho23.url, title: "Smile Design", caption: "До → Smile Design → Wax-up → После", position: "top-left" },
+          { src: ortho24.url, title: "3D моделирование", caption: "Цифровое планирование реставраций", position: "top-left" },
+          { src: ortho25.url, title: "Этапы лечения", caption: "До → 3D моделирование → После", position: "top-left" },
+          { src: ortho26.url, title: "Результат", caption: "До → улыбка → крупный план", position: "top-left" },
+          { src: ortho27.url, title: "До / После", caption: "Цельноциркониевые реставрации", position: "top-left" },
+        ],
+        details: {
+          tagline: "Полная эстетическая реабилитация с заменой несостоятельных коронок 🦷✨",
+          duration: "от 3 посещений",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "К нам обратилась пациентка с целью улучшить эстетику улыбки. В процессе диагностики была выявлена несостоятельность ранее установленных (в сторонней клинике) ортопедических конструкций.",
+            },
+            { type: "heading", text: "Этапы лечения" },
+            {
+              type: "list",
+              items: [
+                "Диагностика",
+                "Санация полости рта и профессиональная гигиена",
+                "Снятие старых несостоятельных коронок",
+                "Имплантация по навигационному шаблону с немедленной нагрузкой",
+                "Через полгода — 3D моделирование будущей улыбки с согласованием формы и цвета зубов",
+                "Mock-up — примерка будущей улыбки с помощью быстротвердеющей пластмассы",
+                "После согласования — бережное препарирование и цифровое сканирование",
+                "Финальный штрих: фиксация 14 коронок на верхней челюсти и 5 на нижней, изготовленных по цифровым протоколам в зуботехнической лаборатории Articon",
+              ],
+            },
+            {
+              type: "highlight",
+              text: "Все реставрации изготовлены in-house по цифровым протоколам — точная посадка, предсказуемая эстетика и единый стиль улыбки.",
             },
           ],
         },
