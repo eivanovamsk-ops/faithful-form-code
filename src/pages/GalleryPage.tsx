@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import CaseSlider from "@/components/CaseSlider";
 import CaseDetails from "@/components/CaseDetails";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import CinematicSlider from "@/components/CinematicSlider";
 import { galleryCategories } from "@/data/galleryCases";
 
 
@@ -117,6 +118,9 @@ const GalleryPage = () => {
                             <BeforeAfterSlider key={i} pair={p} />
                           ))}
                         </div>
+                      )}
+                      {c.cinematic && c.cinematic.length > 0 && (
+                        <CinematicSlider slides={c.cinematic} />
                       )}
                       <div>
                         <h3 className="font-display font-semibold text-foreground text-lg">
