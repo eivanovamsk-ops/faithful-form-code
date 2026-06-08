@@ -3,6 +3,7 @@ import { Camera, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CaseSlider from "@/components/CaseSlider";
 import CaseDetails from "@/components/CaseDetails";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { galleryCategories } from "@/data/galleryCases";
 
 
@@ -107,7 +108,16 @@ const GalleryPage = () => {
                 <div className="grid grid-cols-1 gap-10 max-w-4xl mx-auto">
                   {category.cases.map((c) => (
                     <div key={c.id} className="space-y-5">
-                      <CaseSlider slides={c.slides} />
+                      {c.slides && c.slides.length > 0 && (
+                        <CaseSlider slides={c.slides} />
+                      )}
+                      {c.comparisons && c.comparisons.length > 0 && (
+                        <div className="space-y-5">
+                          {c.comparisons.map((p, i) => (
+                            <BeforeAfterSlider key={i} pair={p} />
+                          ))}
+                        </div>
+                      )}
                       <div>
                         <h3 className="font-display font-semibold text-foreground text-lg">
                           {c.title}

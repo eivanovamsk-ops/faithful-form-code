@@ -1,4 +1,5 @@
 import type { CaseSlide } from "@/components/CaseSlider";
+import type { BeforeAfterPair } from "@/components/BeforeAfterSlider";
 import ortho11 from "@/assets/gallery/ortho-1-1.jpg.asset.json";
 import ortho12 from "@/assets/gallery/ortho-1-2.jpg.asset.json";
 import ortho13 from "@/assets/gallery/ortho-1-3.jpg.asset.json";
@@ -36,7 +37,8 @@ export type GalleryCase = {
   id: string;
   title: string;
   description?: string;
-  slides: CaseSlide[];
+  slides?: CaseSlide[];
+  comparisons?: BeforeAfterPair[];
   details?: CaseDetails;
 };
 
