@@ -6,7 +6,8 @@ import {
   Zap, Sparkles, Heart, ChevronDown, Cpu, Stethoscope, ScanLine,
   Syringe, HeartPulse, Smile, Scissors
 } from "lucide-react";
-import heroVideo from "@/assets/hero-video.mp4";
+import heroVideoAsset from "@/assets/hero-functional.mp4.asset.json";
+const heroVideo = heroVideoAsset.url;
 import heroImage from "@/assets/hero-dental.jpg";
 import guseynovaAsset from "@/assets/guseynova.jpg.asset.json";
 import AnimatedCounter from "@/components/AnimatedCounter";
