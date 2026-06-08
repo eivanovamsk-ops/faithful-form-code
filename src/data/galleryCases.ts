@@ -219,6 +219,8 @@ export const galleryCategories: GalleryCategory[] = [
           },
         ],
       },
+    ],
+  },
   {
     id: "hirurgiya",
     title: "Хирургия",
