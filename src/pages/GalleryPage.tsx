@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Camera, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CaseSlider from "@/components/CaseSlider";
+import CaseDetails from "@/components/CaseDetails";
 import { galleryCategories } from "@/data/galleryCases";
 
 
