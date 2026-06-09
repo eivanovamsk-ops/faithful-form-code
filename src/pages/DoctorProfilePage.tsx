@@ -200,12 +200,24 @@ const DoctorProfilePage = () => {
             <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground mb-8">
               Видео-интервью
             </h2>
-            <div className="aspect-video rounded-2xl bg-foreground/5 border border-border flex items-center justify-center group cursor-pointer hover:bg-foreground/10 transition-colors duration-500 relative overflow-hidden">
-              <div className="w-20 h-20 rounded-full bg-brand-teal/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                <Play className="w-8 h-8 text-primary-foreground ml-1" />
+            {doctor.videoUrl ? (
+              <div className="aspect-video rounded-2xl overflow-hidden bg-black shadow-xl">
+                <video
+                  src={doctor.videoUrl}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <p className="absolute bottom-6 text-sm text-muted-foreground">Видео скоро будет добавлено</p>
-            </div>
+            ) : (
+              <div className="aspect-video rounded-2xl bg-foreground/5 border border-border flex items-center justify-center group cursor-pointer hover:bg-foreground/10 transition-colors duration-500 relative overflow-hidden">
+                <div className="w-20 h-20 rounded-full bg-brand-teal/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                  <Play className="w-8 h-8 text-primary-foreground ml-1" />
+                </div>
+                <p className="absolute bottom-6 text-sm text-muted-foreground">Видео скоро будет добавлено</p>
+              </div>
+            )}
           </motion.div>
         </div>
       </section>
