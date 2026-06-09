@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
-  Cpu, Stethoscope, ScanLine, Syringe, HeartPulse, Baby,
-  Smile, Sparkles, ShieldCheck, Scissors, ArrowRight, ArrowUpRight
+  Monitor, ScanLine, Baby, Smile, Sparkles, ShieldCheck, Scissors,
+  Gem, Pill, Moon, ArrowRight, ArrowUpRight
 } from "lucide-react";
 
 const services = [
