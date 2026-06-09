@@ -9,7 +9,7 @@ import mamedovInterview from "@/assets/mamedov-interview.mp4.asset.json";
 import milyutinaPhoto from "@/assets/doctors/milyutina.jpg";
 import mishchenkoPhoto from "@/assets/doctors/mishchenko.jpg";
 import odintsovPhoto from "@/assets/doctors/odintsov.jpg";
-import romanenkoPhoto from "@/assets/doctors/romanenko.png";
+
 import takvelPhoto from "@/assets/doctors/takvel.png";
 
 export interface Doctor {
