@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Star, Award, Users, Microscope, ShieldCheck, Baby,
   Zap, Sparkles, Heart, ChevronDown, Cpu, Stethoscope, ScanLine,
-  Syringe, HeartPulse, Smile, Scissors
+  Syringe, HeartPulse, Smile, Scissors, HelpCircle
 } from "lucide-react";
+import { symptoms } from "@/data/symptoms";
 import heroVideoAsset from "@/assets/hero-functional.mp4.asset.json";
 const heroVideo = heroVideoAsset.url;
 import heroImage from "@/assets/hero-dental.jpg";
@@ -250,6 +251,64 @@ const Index = () => {
           >
             <Button asChild variant="outline" size="lg" className="h-12 px-8 transition-all duration-300 hover:scale-[1.03]">
               <Link to="/uslugi">Все услуги</Link>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Symptoms */}
+      <section className="py-28 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-14"
+          >
+            <span className="text-xs font-medium tracking-[0.25em] uppercase text-brand-blue">Справочник пациента</span>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight">Что вас беспокоит?</h2>
+            <p className="mt-5 text-muted-foreground text-lg max-w-2xl mx-auto">
+              Найдите свою проблему и узнайте, как мы можем помочь
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 max-w-6xl mx-auto"
+          >
+            {symptoms.map((s) => (
+              <motion.div key={s.id} variants={staggerItem}>
+                <Link
+                  to={`/symptoms#${s.id}`}
+                  className="group flex flex-col items-start gap-4 h-full p-6 bg-card rounded-2xl border border-border hover:border-brand-blue/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center group-hover:bg-brand-blue group-hover:scale-110 transition-all duration-300">
+                    <s.icon className="w-5 h-5 text-brand-blue group-hover:text-primary-foreground transition-colors duration-300" />
+                  </div>
+                  <h3 className="font-display font-semibold text-foreground text-base leading-snug group-hover:text-brand-blue transition-colors duration-300">
+                    {s.cardTitle}
+                  </h3>
+                  <span className="mt-auto text-xs font-medium text-brand-blue inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Подробнее <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <Button asChild variant="outline" size="lg" className="h-12 px-8 transition-all duration-300 hover:scale-[1.03]">
+              <Link to="/symptoms"><HelpCircle className="mr-2 w-4 h-4" /> Все симптомы</Link>
             </Button>
           </motion.div>
         </div>
