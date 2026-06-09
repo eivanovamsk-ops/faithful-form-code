@@ -19,7 +19,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-teal))] to-[hsl(213,55%,40%)]",
   },
   {
-    icon: Stethoscope,
+    icon: Gem,
     title: "Ортопедия",
     hook: "сильно разрушены зубы",
     desc: "Восстановление зубов с идеальной эстетикой и функцией.",
@@ -39,7 +39,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-teal))] to-[hsl(200,50%,35%)]",
   },
   {
-    icon: Syringe,
+    icon: Scissors,
     title: "Хирургия и имплантация",
     hook: "нужна хирургия или имплантация",
     desc: "Имплантация по хирургическим навигационным шаблонам — приживляемость 99,6%.",
@@ -49,7 +49,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-blue))] to-[hsl(220,65%,25%)]",
   },
   {
-    icon: HeartPulse,
+    icon: Pill,
     title: "Терапия",
     hook: "болит зуб",
     desc: "Лечение под микроскопом — современный мировой стандарт.",
@@ -69,7 +69,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-blue))] to-[hsl(210,55%,35%)]",
   },
   {
-    icon: Scissors,
+    icon: ShieldCheck,
     title: "Пародонтология",
     hook: "требуется лечение дёсен",
     desc: "Профессиональное лечение заболеваний дёсен и мягких тканей.",
@@ -79,7 +79,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-teal))] to-[hsl(205,50%,30%)]",
   },
   {
-    icon: ShieldCheck,
+    icon: Moon,
     title: "Антистресс лечение",
     hook: "нужно лечение зубов без боли",
     desc: "Лечение без страха: седация, лечение во сне, безболезненная анестезия.",
