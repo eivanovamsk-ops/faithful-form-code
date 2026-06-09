@@ -25,6 +25,7 @@ export interface Doctor {
   education?: string[];
   additionalEducation?: string[];
   reviews?: { author: string; text: string; date?: string }[];
+  videoUrl?: string;
 }
 
 export const doctors: Doctor[] = [
