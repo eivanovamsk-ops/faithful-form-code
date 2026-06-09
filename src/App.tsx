@@ -17,6 +17,7 @@ import GalleryPage from "./pages/GalleryPage";
 import LoyaltyPage from "./pages/LoyaltyPage";
 import MemosPage from "./pages/MemosPage";
 import ArticlesPage from "./pages/ArticlesPage";
+import SymptomsPage from "./pages/SymptomsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
             <Route path="/uslugi" element={<ServicesPage />} />
+            <Route path="/symptoms" element={<SymptomsPage />} />
             <Route path="/vrachi" element={<DoctorsPage />} />
             <Route path="/vrachi/:id" element={<DoctorProfilePage />} />
             <Route path="/foto-rabot" element={<GalleryPage />} />
