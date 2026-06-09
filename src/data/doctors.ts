@@ -5,6 +5,7 @@ import zhivlyukPhoto from "@/assets/doctors/zhivlyuk.jpg";
 import kozlovaPhoto from "@/assets/doctors/kozlova.jpg";
 import krasnoslobodtsevaPhoto from "@/assets/doctors/krasnoslobodtseva.jpg";
 import mamedovPhoto from "@/assets/doctors/mamedov.jpg";
+import mamedovInterview from "@/assets/mamedov-interview.mp4.asset.json";
 import milyutinaPhoto from "@/assets/doctors/milyutina.jpg";
 import mishchenkoPhoto from "@/assets/doctors/mishchenko.jpg";
 import odintsovPhoto from "@/assets/doctors/odintsov.jpg";
@@ -183,6 +184,7 @@ export const doctors: Doctor[] = [
     name: "Мамедов Джейхун Романович",
     role: "Стоматолог-хирург, имплантолог, пародонтолог",
     photo: mamedovPhoto,
+    videoUrl: mamedovInterview.url,
     experience: "более 10 лет",
     skills: [
       "Удаление зубов любой сложности",
