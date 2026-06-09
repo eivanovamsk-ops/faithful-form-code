@@ -8,6 +8,7 @@ import logoWhite from "@/assets/logo-white.png";
 import { cn } from "@/lib/utils";
 
 const patientSubLinks = [
+  { label: "Симптомы", href: "/symptoms" },
   { label: "Программа лояльности", href: "/pacientam/loyalnost" },
   { label: "Памятки и рекомендации", href: "/pacientam/pamyatki" },
   { label: "Блог", href: "/pacientam/blog" },
@@ -15,10 +16,9 @@ const patientSubLinks = [
 
 const navLinks = [
   { label: "Услуги", href: "/uslugi" },
-  { label: "Симптомы", href: "/symptoms" },
+  { label: "Цены", href: "/ceny" },
   { label: "Врачи", href: "/vrachi" },
   { label: "Фото работ", href: "/foto-rabot" },
-  { label: "Цены", href: "/ceny" },
   { label: "Пациентам", href: "/pacientam", subLinks: patientSubLinks },
   { label: "О клинике", href: "/about" },
   { label: "Контакты", href: "/contacts" },
