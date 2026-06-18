@@ -308,6 +308,21 @@ const ContactsPage = () => {
               </div>
             </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-10 text-center"
+          >
+            <Link to="/privacy">
+              <Button variant="outline" size="lg" className="h-14 px-8 border-border hover:border-brand-blue hover:text-brand-blue transition-all duration-300">
+                <Shield className="w-5 h-5 mr-2" />
+                Политика конфиденциальности
+              </Button>
+            </Link>
+          </motion.div>
         </div>
       </section>
     </div>
