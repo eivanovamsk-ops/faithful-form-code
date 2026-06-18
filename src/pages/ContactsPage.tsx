@@ -323,6 +323,21 @@ const ContactsPage = () => {
               </Button>
             </Link>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-4 text-center"
+          >
+            <Link to="/patient-rules">
+              <Button variant="outline" size="lg" className="h-14 px-8 border-border hover:border-brand-teal hover:text-brand-teal transition-all duration-300">
+                <ClipboardList className="w-5 h-5 mr-2" />
+                Правила поведения пациента
+              </Button>
+            </Link>
+          </motion.div>
         </div>
       </section>
     </div>
