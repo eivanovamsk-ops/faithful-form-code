@@ -9,6 +9,10 @@ import ortodont1Process from "@/assets/gallery/ortodont-1-process.jpg.asset.json
 import ortodont1Final from "@/assets/gallery/ortodont-1-final.jpg.asset.json";
 import ortodont1DoPosle from "@/assets/gallery/ortodont-1-doposle.jpg.asset.json";
 import ortho11 from "@/assets/gallery/ortho-1-1.jpg.asset.json";
+import otbel1 from "@/assets/gallery/otbel-1.jpeg.asset.json";
+import otbel2 from "@/assets/gallery/otbel-2.jpeg.asset.json";
+import otbel3 from "@/assets/gallery/otbel-3.jpeg.asset.json";
+import otbel4 from "@/assets/gallery/otbel-4.jpeg.asset.json";
 import ortho12 from "@/assets/gallery/ortho-1-2.jpg.asset.json";
 import ortho13 from "@/assets/gallery/ortho-1-3.jpg.asset.json";
 import ortho14 from "@/assets/gallery/ortho-1-4.jpg.asset.json";
