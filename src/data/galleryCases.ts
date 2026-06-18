@@ -220,33 +220,6 @@ export const galleryCategories: GalleryCategory[] = [
     description: "Чистка Air Flow и ультразвук",
     cases: [
       {
-        id: "gigiena-case-1",
-        title: "Кейс 1 — Профессиональная гигиена",
-        description: "Удаление поддесневого камня за 1 посещение",
-        cinematic: [
-          {
-            src: gigiena11.url,
-            title: "У пациентки хороший уровень гигиены",
-            subhead: "Но есть жалобы на кровоточивость десны",
-          },
-          {
-            src: gigiena12.url,
-            title: "Причина на фото — поддесневой камень",
-            subhead: "Выявлен при диагностике",
-          },
-          {
-            src: gigiena13.url,
-            title: "Избавиться от него самостоятельно невозможно",
-            subhead: "Только профессиональная чистка",
-          },
-          {
-            src: gigiena14.url,
-            title: "Срок лечения — 1 посещение",
-            subhead: "Результат сразу после процедуры",
-          },
-        ],
-      },
-      {
         id: "gigiena-case-2",
         title: "Кейс 2 — Профессиональная гигиена",
         slides: [
