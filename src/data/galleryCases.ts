@@ -175,6 +175,13 @@ export const galleryCategories: GalleryCategory[] = [
         id: "ortodont-case-1",
         title: "Кейс 1 — Исправление прикуса",
         description: "Выравнивание зубных рядов и нормализация окклюзии",
+        slides: [
+          { src: ortodont1Articon.url, title: "Кейс Articon", caption: "До и после ортодонтического лечения", position: "bottom-right" },
+          { src: ortodont1DoPosle.url, title: "До / После", caption: "Фронтальный вид", position: "top-left" },
+          { src: ortodont1Do.url, title: "До лечения", caption: "Боковой вид — исходная ситуация", position: "top-left" },
+          { src: ortodont1Process.url, title: "Процесс лечения", caption: "На брекет-системе", position: "top-left" },
+          { src: ortodont1Final.url, title: "Финальный результат", caption: "Ровные зубные ряды, корректная окклюзия", position: "top-left" },
+        ],
         comparisons: [
           {
             before: ortodont1Before.url,
