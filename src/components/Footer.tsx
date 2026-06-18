@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import priceListAsset from "@/assets/prajs2026.xlsx.asset.json";
 import logoWhite from "@/assets/logo-white.png";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
