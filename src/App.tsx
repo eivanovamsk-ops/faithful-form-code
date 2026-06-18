@@ -19,6 +19,7 @@ import MemosPage from "./pages/MemosPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import SymptomsPage from "./pages/SymptomsPage";
 import PrivacyPage from "./pages/PrivacyPage";
+import PatientRulesPage from "./pages/PatientRulesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/patient-rules" element={<PatientRulesPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
