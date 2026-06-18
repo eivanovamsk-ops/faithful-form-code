@@ -1,3 +1,4 @@
+import licenseAsset from "@/assets/license.jpg.asset.json";
 import priceListAsset from "@/assets/prajs2026.xlsx.asset.json";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -5,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Phone, Clock, Mail, ArrowRight, Building2, User, CalendarDays, Landmark, CreditCard, Shield, ClipboardList, FileSignature, Download } from "lucide-react";
+import { MapPin, Phone, Clock, Mail, ArrowRight, Building2, User, CalendarDays, Landmark, CreditCard, Shield, ClipboardList, FileSignature, Download, Award } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -307,6 +308,31 @@ const ContactsPage = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </motion.div>
+
+          {/* License */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-12 text-center"
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-medium mb-6">
+              <Award className="w-4 h-4" />
+              <span>Лицензия</span>
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-8">Лицензия на медицинскую деятельность</h2>
+            <div className="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-sm inline-block max-w-lg w-full">
+              <img
+                src={licenseAsset.url}
+                alt="Лицензия на осуществление медицинской деятельности № ЛО-77-01-019104"
+                className="w-full h-auto rounded-xl"
+              />
+              <p className="mt-4 text-muted-foreground text-sm">
+                Лицензия № ЛО-77-01-019104 от 15 ноября 2019 г.
+              </p>
             </div>
           </motion.div>
 
