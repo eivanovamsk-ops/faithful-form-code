@@ -1,10 +1,11 @@
+import priceListAsset from "@/assets/prajs2026.xlsx.asset.json";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Phone, Clock, Mail, ArrowRight, Building2, User, CalendarDays, Landmark, CreditCard, Shield, ClipboardList, FileSignature } from "lucide-react";
+import { MapPin, Phone, Clock, Mail, ArrowRight, Building2, User, CalendarDays, Landmark, CreditCard, Shield, ClipboardList, FileSignature, Download } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -316,6 +317,21 @@ const ContactsPage = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-10 text-center"
           >
+            <a href={priceListAsset.url} download="prajs2026.xlsx">
+              <Button variant="outline" size="lg" className="h-14 px-8 border-border hover:border-brand-blue hover:text-brand-blue transition-all duration-300">
+                <Download className="w-5 h-5 mr-2" />
+                Прайс-лист 2026
+              </Button>
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-4 text-center"
+          >
             <Link to="/patient-rules">
               <Button variant="outline" size="lg" className="h-14 px-8 border-border hover:border-brand-teal hover:text-brand-teal transition-all duration-300">
                 <ClipboardList className="w-5 h-5 mr-2" />
@@ -328,7 +344,7 @@ const ContactsPage = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-4 text-center"
           >
             <Link to="/privacy">
@@ -343,7 +359,7 @@ const ContactsPage = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-4 text-center"
           >
             <Link to="/consent">
