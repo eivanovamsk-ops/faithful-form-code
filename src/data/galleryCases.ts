@@ -36,6 +36,12 @@ import ortho24 from "@/assets/gallery/ortho-2-4.jpg.asset.json";
 import ortho25 from "@/assets/gallery/ortho-2-5.jpg.asset.json";
 import ortho26 from "@/assets/gallery/ortho-2-6.jpg.asset.json";
 import ortho27 from "@/assets/gallery/ortho-2-7.jpg.asset.json";
+import impl1 from "@/assets/gallery/impl-1.jpeg.asset.json";
+import impl2 from "@/assets/gallery/impl-2.jpeg.asset.json";
+import impl3 from "@/assets/gallery/impl-3.jpeg.asset.json";
+import impl4 from "@/assets/gallery/impl-4.jpeg.asset.json";
+import impl5 from "@/assets/gallery/impl-5.jpeg.asset.json";
+import impl6 from "@/assets/gallery/impl-6.jpeg.asset.json";
 
 export type CaseDetailsBlock =
   | { type: "paragraph"; text: string }
