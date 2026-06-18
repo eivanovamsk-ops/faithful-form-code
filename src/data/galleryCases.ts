@@ -3,6 +3,11 @@ import type { BeforeAfterPair } from "@/components/BeforeAfterSlider";
 import type { CinematicSlide } from "@/components/CinematicSlider";
 import ortodont1Before from "@/assets/gallery/ortodont-1-before.jpg.asset.json";
 import ortodont1After from "@/assets/gallery/ortodont-1-after.jpg.asset.json";
+import ortodont1Articon from "@/assets/gallery/ortodont-1-articon.jpg.asset.json";
+import ortodont1Do from "@/assets/gallery/ortodont-1-do.jpg.asset.json";
+import ortodont1Process from "@/assets/gallery/ortodont-1-process.jpg.asset.json";
+import ortodont1Final from "@/assets/gallery/ortodont-1-final.jpg.asset.json";
+import ortodont1DoPosle from "@/assets/gallery/ortodont-1-doposle.jpg.asset.json";
 import ortho11 from "@/assets/gallery/ortho-1-1.jpg.asset.json";
 import ortho12 from "@/assets/gallery/ortho-1-2.jpg.asset.json";
 import ortho13 from "@/assets/gallery/ortho-1-3.jpg.asset.json";
@@ -170,6 +175,13 @@ export const galleryCategories: GalleryCategory[] = [
         id: "ortodont-case-1",
         title: "Кейс 1 — Исправление прикуса",
         description: "Выравнивание зубных рядов и нормализация окклюзии",
+        slides: [
+          { src: ortodont1Articon.url, title: "Кейс Articon", caption: "До и после ортодонтического лечения", position: "bottom-right" },
+          { src: ortodont1DoPosle.url, title: "До / После", caption: "Фронтальный вид", position: "top-left" },
+          { src: ortodont1Do.url, title: "До лечения", caption: "Боковой вид — исходная ситуация", position: "top-left" },
+          { src: ortodont1Process.url, title: "Процесс лечения", caption: "На брекет-системе", position: "top-left" },
+          { src: ortodont1Final.url, title: "Финальный результат", caption: "Ровные зубные ряды, корректная окклюзия", position: "top-left" },
+        ],
         comparisons: [
           {
             before: ortodont1Before.url,
