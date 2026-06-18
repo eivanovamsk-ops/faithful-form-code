@@ -20,6 +20,7 @@ import ArticlesPage from "./pages/ArticlesPage";
 import SymptomsPage from "./pages/SymptomsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import PatientRulesPage from "./pages/PatientRulesPage";
+import ConsentPage from "./pages/ConsentPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ const App = () => (
             <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/patient-rules" element={<PatientRulesPage />} />
+            <Route path="/consent" element={<ConsentPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
