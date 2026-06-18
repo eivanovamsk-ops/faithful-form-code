@@ -36,10 +36,6 @@ import ortho24 from "@/assets/gallery/ortho-2-4.jpg.asset.json";
 import ortho25 from "@/assets/gallery/ortho-2-5.jpg.asset.json";
 import ortho26 from "@/assets/gallery/ortho-2-6.jpg.asset.json";
 import ortho27 from "@/assets/gallery/ortho-2-7.jpg.asset.json";
-import gigiena11 from "@/assets/gallery/gigiena-1-1.jpeg.asset.json";
-import gigiena12 from "@/assets/gallery/gigiena-1-2.jpeg.asset.json";
-import gigiena13 from "@/assets/gallery/gigiena-1-3.jpeg.asset.json";
-import gigiena14 from "@/assets/gallery/gigiena-1-4.jpeg.asset.json";
 
 export type CaseDetailsBlock =
   | { type: "paragraph"; text: string }
@@ -223,33 +219,6 @@ export const galleryCategories: GalleryCategory[] = [
     title: "Профессиональная гигиена",
     description: "Чистка Air Flow и ультразвук",
     cases: [
-      {
-        id: "gigiena-case-1",
-        title: "Кейс 1 — Профессиональная гигиена",
-        description: "Удаление поддесневого камня за 1 посещение",
-        cinematic: [
-          {
-            src: gigiena11.url,
-            title: "У пациентки хороший уровень гигиены",
-            subhead: "Но есть жалобы на кровоточивость десны",
-          },
-          {
-            src: gigiena12.url,
-            title: "Причина на фото — поддесневой камень",
-            subhead: "Выявлен при диагностике",
-          },
-          {
-            src: gigiena13.url,
-            title: "Избавиться от него самостоятельно невозможно",
-            subhead: "Только профессиональная чистка",
-          },
-          {
-            src: gigiena14.url,
-            title: "Срок лечения — 1 посещение",
-            subhead: "Результат сразу после процедуры",
-          },
-        ],
-      },
       {
         id: "gigiena-case-2",
         title: "Кейс 2 — Профессиональная гигиена",
