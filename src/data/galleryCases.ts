@@ -308,7 +308,18 @@ export const galleryCategories: GalleryCategory[] = [
     id: "terapiya",
     title: "Терапия",
     description: "Лечение кариеса и реставрации",
-    cases: [],
+    cases: [
+      {
+        id: "ter-case-1",
+        title: "Кейс 1 — Лечение кариеса и реставрации",
+        slides: [
+          { src: ter1.url, position: "top-left" },
+          { src: ter2.url, position: "top-left" },
+          { src: ter3.url, position: "top-left" },
+          { src: ter4.url, position: "top-left" },
+        ],
+      },
+    ],
   },
   {
     id: "detskaya",
