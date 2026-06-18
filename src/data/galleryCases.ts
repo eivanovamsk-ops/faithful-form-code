@@ -42,6 +42,12 @@ import impl3 from "@/assets/gallery/impl-3.jpeg.asset.json";
 import impl4 from "@/assets/gallery/impl-4.jpeg.asset.json";
 import impl5 from "@/assets/gallery/impl-5.jpeg.asset.json";
 import impl6 from "@/assets/gallery/impl-6.jpeg.asset.json";
+import endo1 from "@/assets/gallery/endo-1.jpeg.asset.json";
+import endo2 from "@/assets/gallery/endo-2.jpeg.asset.json";
+import endo3 from "@/assets/gallery/endo-3.jpeg.asset.json";
+import endo4 from "@/assets/gallery/endo-4.jpeg.asset.json";
+import endo5 from "@/assets/gallery/endo-5.jpeg.asset.json";
+import endo6 from "@/assets/gallery/endo-6.jpeg.asset.json";
 
 export type CaseDetailsBlock =
   | { type: "paragraph"; text: string }
