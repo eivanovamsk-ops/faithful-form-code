@@ -36,10 +36,6 @@ import ortho24 from "@/assets/gallery/ortho-2-4.jpg.asset.json";
 import ortho25 from "@/assets/gallery/ortho-2-5.jpg.asset.json";
 import ortho26 from "@/assets/gallery/ortho-2-6.jpg.asset.json";
 import ortho27 from "@/assets/gallery/ortho-2-7.jpg.asset.json";
-import gigiena11 from "@/assets/gallery/gigiena-1-1.jpeg.asset.json";
-import gigiena12 from "@/assets/gallery/gigiena-1-2.jpeg.asset.json";
-import gigiena13 from "@/assets/gallery/gigiena-1-3.jpeg.asset.json";
-import gigiena14 from "@/assets/gallery/gigiena-1-4.jpeg.asset.json";
 
 export type CaseDetailsBlock =
   | { type: "paragraph"; text: string }
