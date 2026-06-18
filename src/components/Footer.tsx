@@ -69,6 +69,9 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-primary-foreground/30 text-sm">© 2025 Articon. Все права защищены.</p>
           <div className="flex items-center gap-6">
+            <Link to="/patient-rules" className="text-primary-foreground/30 text-sm hover:text-primary-foreground/50 transition-colors duration-300">
+              Правила поведения
+            </Link>
             <Link to="/privacy" className="text-primary-foreground/30 text-sm hover:text-primary-foreground/50 transition-colors duration-300">
               Политика конфиденциальности
             </Link>
