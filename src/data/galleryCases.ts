@@ -250,6 +250,16 @@ export const galleryCategories: GalleryCategory[] = [
           },
         ],
       },
+      {
+        id: "gigiena-case-2",
+        title: "Кейс 2 — Профессиональная гигиена",
+        slides: [
+          { src: gigiena21.url, position: "top-left" },
+          { src: gigiena22.url, position: "top-left" },
+          { src: gigiena23.url, position: "top-left" },
+          { src: gigiena24.url, position: "top-left" },
+        ],
+      },
     ],
   },
   {
