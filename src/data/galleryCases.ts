@@ -36,6 +36,12 @@ import ortho24 from "@/assets/gallery/ortho-2-4.jpg.asset.json";
 import ortho25 from "@/assets/gallery/ortho-2-5.jpg.asset.json";
 import ortho26 from "@/assets/gallery/ortho-2-6.jpg.asset.json";
 import ortho27 from "@/assets/gallery/ortho-2-7.jpg.asset.json";
+import impl1 from "@/assets/gallery/impl-1.jpeg.asset.json";
+import impl2 from "@/assets/gallery/impl-2.jpeg.asset.json";
+import impl3 from "@/assets/gallery/impl-3.jpeg.asset.json";
+import impl4 from "@/assets/gallery/impl-4.jpeg.asset.json";
+import impl5 from "@/assets/gallery/impl-5.jpeg.asset.json";
+import impl6 from "@/assets/gallery/impl-6.jpeg.asset.json";
 
 export type CaseDetailsBlock =
   | { type: "paragraph"; text: string }
@@ -235,7 +241,39 @@ export const galleryCategories: GalleryCategory[] = [
     id: "hirurgiya",
     title: "Хирургия",
     description: "Имплантация и удаление",
-    cases: [],
+    cases: [
+      {
+        id: "hirurgiya-case-1",
+        title: "Кейс 1 — Имплантация 4.6 и 4.7 с ортодонтической подготовкой",
+        slides: [
+          { src: impl1.url, position: "top-left" },
+          { src: impl2.url, position: "top-left" },
+          { src: impl3.url, position: "top-left" },
+          { src: impl4.url, position: "top-left" },
+          { src: impl5.url, position: "top-left" },
+          { src: impl6.url, position: "top-left" },
+        ],
+        details: {
+          blocks: [
+            { type: "paragraph", text: "Пациент обратился с жалобами на разрушение зуба 4.7 (нижняя челюсть справа)." },
+            { type: "paragraph", text: "4.6 зуб отсутствует более 20 лет." },
+            { type: "paragraph", text: "В сторонней клинике предложили удалить 4.7, поставить имплантат в этой позиции и запротезировать на одном имплантате коронки в количестве двух за 4.6 и 4.7, поскольку имплантат в области 4.6 никак не поставить — слишком давно отсутствует зуб." },
+            { type: "paragraph", text: "Зубы 4.8, 4.7 поменяли положение за длительный период отсутствия 4.6-соседа, разрушились. 1.6 и 1.7 — зубы-антагонисты на верхней челюсти — выдвинулись вниз и лишили нас места для протезирования на имплантатах внизу. Это к вопросу о том, как природа не терпит пустоты и как усложняется ситуация клинически и финансово, пока мы откладываем лечение!" },
+            { type: "heading", text: "Какое решение нашли наши специалисты?" },
+            {
+              type: "list",
+              items: [
+                "Удаление 4.8, 4.7 и имплантация в позициях 4.6, 4.7 по хирургическому шаблону",
+                "Установка межкорневого минивинта между 1.6, 1.7 для интрузии (задвижение зубов вверх в исходное положение для создания места для будущего протезирования)",
+                "Ждём интеграцию имплантатов 3 месяца, используя это время для ортодонтического лечения",
+                "Устанавливаем формирователи десны и снимаем ортодонтическую аппаратуру. Цель достигнута — место для протезирования есть!",
+                "Протезирование через 3 недели после установки формирователей десны",
+              ],
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     id: "endodontiya",
