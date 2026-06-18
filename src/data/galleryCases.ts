@@ -285,7 +285,20 @@ export const galleryCategories: GalleryCategory[] = [
     id: "endodontiya",
     title: "Эндодонтия",
     description: "Лечение каналов под микроскопом",
-    cases: [],
+    cases: [
+      {
+        id: "endo-case-1",
+        title: "Кейс 1 — Эндодонтическое лечение под микроскопом",
+        slides: [
+          { src: endo1.url, position: "top-left" },
+          { src: endo2.url, position: "top-left" },
+          { src: endo3.url, position: "top-left" },
+          { src: endo4.url, position: "top-left" },
+          { src: endo5.url, position: "top-left" },
+          { src: endo6.url, position: "top-left" },
+        ],
+      },
+    ],
   },
   {
     id: "terapiya",
