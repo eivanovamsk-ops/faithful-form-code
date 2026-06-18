@@ -48,6 +48,10 @@ import endo3 from "@/assets/gallery/endo-3.jpeg.asset.json";
 import endo4 from "@/assets/gallery/endo-4.jpeg.asset.json";
 import endo5 from "@/assets/gallery/endo-5.jpeg.asset.json";
 import endo6 from "@/assets/gallery/endo-6.jpeg.asset.json";
+import ter1 from "@/assets/gallery/ter-1.jpeg.asset.json";
+import ter2 from "@/assets/gallery/ter-2.jpeg.asset.json";
+import ter3 from "@/assets/gallery/ter-3.jpeg.asset.json";
+import ter4 from "@/assets/gallery/ter-4.jpeg.asset.json";
 
 export type CaseDetailsBlock =
   | { type: "paragraph"; text: string }
