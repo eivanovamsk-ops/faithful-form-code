@@ -52,6 +52,9 @@ import ter1 from "@/assets/gallery/ter-1.jpeg.asset.json";
 import ter2 from "@/assets/gallery/ter-2.jpeg.asset.json";
 import ter3 from "@/assets/gallery/ter-3.jpeg.asset.json";
 import ter4 from "@/assets/gallery/ter-4.jpeg.asset.json";
+import kids1 from "@/assets/gallery/kids-1.jpg.asset.json";
+import kids2 from "@/assets/gallery/kids-2.jpg.asset.json";
+import kids3 from "@/assets/gallery/kids-3.jpg.asset.json";
 
 export type CaseDetailsBlock =
   | { type: "paragraph"; text: string }
@@ -325,6 +328,16 @@ export const galleryCategories: GalleryCategory[] = [
     id: "detskaya",
     title: "Детская стоматология",
     description: "Лечение зубов у детей",
-    cases: [],
+    cases: [
+      {
+        id: "kids-case-1",
+        title: "Кейс 1 — Лечение кариеса у ребёнка",
+        slides: [
+          { src: kids1.url, position: "top-left" },
+          { src: kids2.url, position: "top-left" },
+          { src: kids3.url, position: "top-left" },
+        ],
+      },
+    ],
   },
 ];
