@@ -18,6 +18,7 @@ import LoyaltyPage from "./pages/LoyaltyPage";
 import MemosPage from "./pages/MemosPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import SymptomsPage from "./pages/SymptomsPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="/pacientam/blog" element={<ArticlesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
