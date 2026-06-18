@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Phone, Clock, Mail, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Clock, Mail, ArrowRight, Building2, User, CalendarDays, Landmark, CreditCard } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -183,6 +183,130 @@ const ContactsPage = () => {
               </motion.div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Requisites */}
+      <section className="py-20 bg-secondary">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-12"
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-medium mb-6">
+              <Landmark className="w-4 h-4" />
+              <span>Юридическая информация</span>
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">Реквизиты</h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="bg-card border border-border rounded-2xl p-8 sm:p-10 shadow-sm"
+          >
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Left column */}
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center shrink-0">
+                    <Building2 className="w-5 h-5 text-brand-blue" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-semibold text-foreground text-sm mb-1">Юридическое наименование</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">ООО Центр цифровой стоматологии «Артикон»</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center shrink-0">
+                    <User className="w-5 h-5 text-brand-blue" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-semibold text-foreground text-sm mb-1">Главный врач</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">Артемова Елена Юрьевна</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center shrink-0">
+                    <CalendarDays className="w-5 h-5 text-brand-blue" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-semibold text-foreground text-sm mb-1">Дни и часы приёма главного врача</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">Вторник с 10:00 до 15:00 (по предварительной записи)</p>
+                    <p className="text-muted-foreground text-sm mt-1">Предварительная запись по телефону: <a href="tel:+74959759598" className="text-brand-blue hover:underline">+7 (495) 975-95-98</a></p>
+                    <p className="text-muted-foreground text-sm mt-1">Email: <a href="mailto:dr.elena@articon.pro" className="text-brand-blue hover:underline">dr.elena@articon.pro</a></p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-brand-blue" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-semibold text-foreground text-sm mb-1">Юридический адрес</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">115191, г. Москва, ул. Серпуховский вал, д. 21, корп. 4, эт. 1, пом. II</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-brand-blue" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-semibold text-foreground text-sm mb-1">Фактический адрес</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">115191, г. Москва, ул. Серпуховский вал, д. 21, корп. 4, эт. 1, пом. II</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right column — Banking */}
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center shrink-0">
+                    <CreditCard className="w-5 h-5 text-brand-blue" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-semibold text-foreground text-sm mb-3">Банковские реквизиты</h4>
+                    <div className="space-y-2 text-sm text-muted-foreground">
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground/70">ОГРН</span>
+                        <span className="text-foreground font-medium tabular-nums">1187746789867</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground/70">ИНН</span>
+                        <span className="text-foreground font-medium tabular-nums">7725496942</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground/70">КПП</span>
+                        <span className="text-foreground font-medium tabular-nums">772501001</span>
+                      </div>
+                      <div className="h-px bg-border my-3" />
+                      <p className="text-foreground font-medium">ПАО СБЕРБАНК г. Москва</p>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground/70">БИК</span>
+                        <span className="text-foreground font-medium tabular-nums">044525225</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground/70">Расчётный счёт</span>
+                        <span className="text-foreground font-medium tabular-nums">40702810438000017086</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground/70">Корр. счёт</span>
+                        <span className="text-foreground font-medium tabular-nums">30101810400000000225</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
