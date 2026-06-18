@@ -19,6 +19,7 @@ import MemosPage from "./pages/MemosPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import SymptomsPage from "./pages/SymptomsPage";
 import PrivacyPage from "./pages/PrivacyPage";
+import PatientRulesPage from "./pages/PatientRulesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
