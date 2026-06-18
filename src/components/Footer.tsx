@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import priceListAsset from "@/assets/prajs2026.xlsx.asset.json";
 import logoWhite from "@/assets/logo-white.png";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
@@ -69,6 +70,9 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-primary-foreground/30 text-sm">© 2025 Articon. Все права защищены.</p>
           <div className="flex items-center gap-6">
+            <a href={priceListAsset.url} download="prajs2026.xlsx" className="text-primary-foreground/30 text-sm hover:text-primary-foreground/50 transition-colors duration-300">
+              Прайс-лист 2026
+            </a>
             <Link to="/patient-rules" className="text-primary-foreground/30 text-sm hover:text-primary-foreground/50 transition-colors duration-300">
               Правила поведения
             </Link>
