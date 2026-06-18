@@ -13,6 +13,10 @@ import otbel1 from "@/assets/gallery/otbel-1.jpeg.asset.json";
 import otbel2 from "@/assets/gallery/otbel-2.jpeg.asset.json";
 import otbel3 from "@/assets/gallery/otbel-3.jpeg.asset.json";
 import otbel4 from "@/assets/gallery/otbel-4.jpeg.asset.json";
+import gigiena21 from "@/assets/gallery/gigiena-2-1.jpeg.asset.json";
+import gigiena22 from "@/assets/gallery/gigiena-2-2.jpeg.asset.json";
+import gigiena23 from "@/assets/gallery/gigiena-2-3.jpeg.asset.json";
+import gigiena24 from "@/assets/gallery/gigiena-2-4.jpeg.asset.json";
 import ortho12 from "@/assets/gallery/ortho-1-2.jpg.asset.json";
 import ortho13 from "@/assets/gallery/ortho-1-3.jpg.asset.json";
 import ortho14 from "@/assets/gallery/ortho-1-4.jpg.asset.json";
@@ -244,6 +248,16 @@ export const galleryCategories: GalleryCategory[] = [
             title: "Срок лечения — 1 посещение",
             subhead: "Результат сразу после процедуры",
           },
+        ],
+      },
+      {
+        id: "gigiena-case-2",
+        title: "Кейс 2 — Профессиональная гигиена",
+        slides: [
+          { src: gigiena21.url, position: "top-left" },
+          { src: gigiena22.url, position: "top-left" },
+          { src: gigiena23.url, position: "top-left" },
+          { src: gigiena24.url, position: "top-left" },
         ],
       },
     ],
