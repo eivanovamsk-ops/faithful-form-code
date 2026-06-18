@@ -336,65 +336,67 @@ const ContactsPage = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-10 text-center"
-          >
-            <a href={priceListAsset.url} download="prajs2026.xlsx">
-              <Button variant="outline" size="lg" className="h-14 px-8 border-border hover:border-brand-blue hover:text-brand-blue transition-all duration-300">
-                <Download className="w-5 h-5 mr-2" />
-                Прайс-лист 2026
-              </Button>
-            </a>
-          </motion.div>
+          <div className="grid sm:grid-cols-2 gap-4 mt-10 max-w-2xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-center"
+            >
+              <a href={priceListAsset.url} download="prajs2026.xlsx" className="w-full">
+                <Button variant="outline" size="lg" className="h-14 px-6 border-border hover:border-brand-blue hover:text-brand-blue transition-all duration-300 w-full">
+                  <Download className="w-5 h-5 mr-2" />
+                  Прайс-лист 2026
+                </Button>
+              </a>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-4 text-center"
-          >
-            <Link to="/patient-rules">
-              <Button variant="outline" size="lg" className="h-14 px-8 border-border hover:border-brand-teal hover:text-brand-teal transition-all duration-300">
-                <ClipboardList className="w-5 h-5 mr-2" />
-                Правила поведения пациента
-              </Button>
-            </Link>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-center"
+            >
+              <Link to="/patient-rules" className="w-full">
+                <Button variant="outline" size="lg" className="h-14 px-6 border-border hover:border-brand-teal hover:text-brand-teal transition-all duration-300 w-full">
+                  <ClipboardList className="w-5 h-5 mr-2" />
+                  Правила поведения пациента
+                </Button>
+              </Link>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-4 text-center"
-          >
-            <Link to="/privacy">
-              <Button variant="outline" size="lg" className="h-14 px-8 border-border hover:border-brand-blue hover:text-brand-blue transition-all duration-300">
-                <Shield className="w-5 h-5 mr-2" />
-                Политика конфиденциальности
-              </Button>
-            </Link>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-center"
+            >
+              <Link to="/privacy" className="w-full">
+                <Button variant="outline" size="lg" className="h-14 px-6 border-border hover:border-brand-blue hover:text-brand-blue transition-all duration-300 w-full">
+                  <Shield className="w-5 h-5 mr-2" />
+                  Политика конфиденциальности
+                </Button>
+              </Link>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-4 text-center"
-          >
-            <Link to="/consent">
-              <Button variant="outline" size="lg" className="h-14 px-8 border-border hover:border-brand-blue hover:text-brand-blue transition-all duration-300">
-                <FileSignature className="w-5 h-5 mr-2" />
-                Согласие на обработку персональных данных
-              </Button>
-            </Link>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-center"
+            >
+              <Link to="/consent" className="w-full">
+                <Button variant="outline" size="lg" className="h-14 px-6 border-border hover:border-brand-blue hover:text-brand-blue transition-all duration-300 w-full">
+                  <FileSignature className="w-5 h-5 mr-2" />
+                  Согласие на обработку персональных данных
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>
