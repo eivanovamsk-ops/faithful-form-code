@@ -201,7 +201,18 @@ export const galleryCategories: GalleryCategory[] = [
     id: "otbelivanie",
     title: "Отбеливание",
     description: "Профессиональное отбеливание зубов",
-    cases: [],
+    cases: [
+      {
+        id: "otbel-case-1",
+        title: "Кейс 1 — Отбеливание зубов",
+        slides: [
+          { src: otbel1.url, position: "top-left" },
+          { src: otbel2.url, position: "top-left" },
+          { src: otbel3.url, position: "top-left" },
+          { src: otbel4.url, position: "top-left" },
+        ],
+      },
+    ],
   },
   {
     id: "gigiena",
