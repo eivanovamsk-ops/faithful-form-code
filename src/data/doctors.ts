@@ -10,7 +10,7 @@ import milyutinaPhoto from "@/assets/doctors/milyutina.jpg";
 import mishchenkoPhoto from "@/assets/doctors/mishchenko.jpg";
 import odintsovPhoto from "@/assets/doctors/odintsov.jpg";
 
-import takvelPhoto from "@/assets/doctors/takvel.png";
+
 
 export interface Doctor {
   id: string;
@@ -363,12 +363,6 @@ export const doctors: Doctor[] = [
       { author: "Пациент", text: "Приехала в центр цифровой стоматологии «Артикон» к врачу Краснослободцевой Елене Павловне из Липецка. Очень довольна результатом.", date: "декабрь 2019" },
       { author: "Пациент", text: "Очень внимательный и профессиональный коллектив! Быстро и не больно. Лечимся всей семьёй.", date: "05.02.2021" },
     ],
-  },
-  {
-    id: "takvel",
-    name: "Таквель Виктория Александровна",
-    role: "Стоматолог-хирург, пародонтолог",
-    photo: takvelPhoto,
   },
   {
     id: "milyutina",
