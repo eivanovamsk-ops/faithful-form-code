@@ -113,7 +113,7 @@ const priceCategories = [
 ];
 
 const PricesPage = () => {
-  const [openCategories, setOpenCategories] = useState<Set<number>>(new Set([0]));
+  const [openCategories, setOpenCategories] = useState<Set<number>>(new Set(priceCategories.map((_, i) => i)));
 
   const toggleCategory = (index: number) => {
     setOpenCategories(prev => {
