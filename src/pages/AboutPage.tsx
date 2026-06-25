@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Award, Heart, ShieldCheck, Sparkles, Users, Cpu, Star, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import artemovaAsset from "@/assets/artemova.jpg.asset.json";
-import AboutHeroSlider from "@/components/AboutHeroSlider";
+
 
 const values = [
   { icon: Heart, title: "Искренность", desc: "Искренняя заинтересованность в наилучшем результате для каждого пациента" },
@@ -32,10 +32,6 @@ const fadeUp = {
 const AboutPage = () => {
   return (
     <div>
-      {/* Hero Slider */}
-      <AboutHeroSlider />
-
-
       {/* Founder Letter */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 max-w-6xl">
