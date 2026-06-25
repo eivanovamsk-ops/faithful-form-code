@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Briefcase } from "lucide-react";
 import { doctors } from "@/data/doctors";
-import teamPhoto from "@/assets/doctors-team.png.asset.json";
 
 const getInitials = (name: string) => {
   const parts = name.split(" ");
