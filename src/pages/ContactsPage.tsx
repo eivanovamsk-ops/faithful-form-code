@@ -139,7 +139,20 @@ const ContactsPage = () => {
                 </div>
               </div>
 
-              <p className="text-xs text-muted-foreground mt-6 mb-5">Нажимая «Записаться», вы соглашаетесь с условиями обработки персональных данных</p>
+              <div className="flex items-start gap-3 mt-6 mb-5">
+                <Checkbox
+                  id="consent"
+                  checked={formData.consent}
+                  onCheckedChange={(checked) => setFormData({ ...formData, consent: checked as boolean })}
+                  className="mt-0.5"
+                />
+                <label htmlFor="consent" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                  Я согласен(а) с{" "}
+                  <Link to="/consent" className="text-brand-blue hover:underline">
+                    условиями обработки персональных данных
+                  </Link>
+                </label>
+              </div>
               <Button type="submit" size="lg" className="w-full bg-brand-teal text-primary-foreground font-semibold h-14 transition-all duration-500 hover:bg-brand-teal/85 hover:shadow-[0_0_30px_hsl(174,72%,46%,0.2)] hover:scale-[1.02]">
                 Записаться <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
