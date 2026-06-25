@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Award, Heart, ShieldCheck, Sparkles, Users, Cpu, Star, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import artemovaAsset from "@/assets/artemova.jpg.asset.json";
-import AboutHeroSlider from "@/components/AboutHeroSlider";
+
 
 const values = [
   { icon: Heart, title: "Искренность", desc: "Искренняя заинтересованность в наилучшем результате для каждого пациента" },
