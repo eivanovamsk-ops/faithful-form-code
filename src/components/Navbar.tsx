@@ -16,7 +16,7 @@ const patientSubLinks = [
 
 const navLinks = [
   { label: "Услуги", href: "/uslugi" },
-  { label: "Цены", href: "/ceny" },
+  { label: "Цены", href: "/prices" },
   { label: "Врачи", href: "/vrachi" },
   { label: "Фото работ", href: "/foto-rabot" },
   { label: "Пациентам", href: "/pacientam", subLinks: patientSubLinks },

@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 const footerLinks = [
   { label: "Услуги", href: "/uslugi" },
   { label: "Врачи", href: "/vrachi" },
-  { label: "Цены", href: "/ceny" },
+  { label: "Цены", href: "/prices" },
   { label: "О клинике", href: "/about" },
   { label: "Контакты", href: "/contacts" },
   { label: "Пациентам", href: "/pacientam" },
