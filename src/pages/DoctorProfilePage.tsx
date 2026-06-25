@@ -188,40 +188,6 @@ const DoctorProfilePage = () => {
         </section>
       )}
 
-      {/* Video Interview placeholder */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground mb-8">
-              Видео-интервью
-            </h2>
-            {doctor.videoUrl ? (
-              <div className="aspect-video rounded-2xl overflow-hidden bg-black shadow-xl">
-                <video
-                  src={doctor.videoUrl}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ) : (
-              <div className="aspect-video rounded-2xl bg-foreground/5 border border-border flex items-center justify-center group cursor-pointer hover:bg-foreground/10 transition-colors duration-500 relative overflow-hidden">
-                <div className="w-20 h-20 rounded-full bg-brand-teal/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                  <Play className="w-8 h-8 text-primary-foreground ml-1" />
-                </div>
-                <p className="absolute bottom-6 text-sm text-muted-foreground">Видео скоро будет добавлено</p>
-              </div>
-            )}
-          </motion.div>
-        </div>
-      </section>
-
       {/* Works Gallery placeholder */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 max-w-6xl">
