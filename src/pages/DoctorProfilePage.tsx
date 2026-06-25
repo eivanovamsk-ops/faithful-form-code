@@ -118,7 +118,7 @@ const DoctorProfilePage = () => {
 
               <Button asChild size="lg" className="h-14 px-10 rounded-full font-semibold transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
                 <Link to="/contacts">
-                  Записаться к врачу <ArrowRight className="ml-2 w-5 h-5" />
+                  {doctor.id === "artemova" ? "Написать Главному врачу" : "Записаться к врачу"} <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
             </motion.div>
