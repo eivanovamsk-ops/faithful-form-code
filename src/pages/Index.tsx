@@ -155,8 +155,12 @@ const Index = () => {
         </motion.div>
       </section>
 
+      {/* Award banner — StartSmile TOP 2026 */}
+      <AwardBanner />
+
       {/* Animated counters */}
       <section className="py-20 bg-secondary">
+
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
             <AnimatedCounter end={5} suffix=".0" label="Рейтинг на Яндекс и Google" decimals={1} />
