@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Clock, Mail, ArrowRight, Building2, User, CalendarDays, Landmark, CreditCard, Shield, ClipboardList, FileSignature, Download, Award } from "lucide-react";
 import { useState } from "react";
@@ -25,13 +26,17 @@ const contactInfo = [
 
 const ContactsPage = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({ name: "", phone: "", specialist: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", specialist: "", message: "", consent: false });
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.consent) {
+      toast({ title: "Требуется согласие", description: "Поставьте галочку, чтобы продолжить.", variant: "destructive" });
+      return;
+    }
     toast({ title: "Заявка отправлена!", description: "Администратор свяжется с вами в ближайшее время." });
-    setFormData({ name: "", phone: "", specialist: "", message: "" });
+    setFormData({ name: "", phone: "", specialist: "", message: "", consent: false });
   };
 
   return (
@@ -134,7 +139,20 @@ const ContactsPage = () => {
                 </div>
               </div>
 
-              <p className="text-xs text-muted-foreground mt-6 mb-5">Нажимая «Записаться», вы соглашаетесь с условиями обработки персональных данных</p>
+              <div className="flex items-start gap-3 mt-6 mb-5">
+                <Checkbox
+                  id="consent"
+                  checked={formData.consent}
+                  onCheckedChange={(checked) => setFormData({ ...formData, consent: checked as boolean })}
+                  className="mt-0.5"
+                />
+                <label htmlFor="consent" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                  Я согласен(а) с{" "}
+                  <Link to="/consent" className="text-brand-blue hover:underline">
+                    условиями обработки персональных данных
+                  </Link>
+                </label>
+              </div>
               <Button type="submit" size="lg" className="w-full bg-brand-teal text-primary-foreground font-semibold h-14 transition-all duration-500 hover:bg-brand-teal/85 hover:shadow-[0_0_30px_hsl(174,72%,46%,0.2)] hover:scale-[1.02]">
                 Записаться <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
