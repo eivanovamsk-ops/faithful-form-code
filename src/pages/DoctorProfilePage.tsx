@@ -1,6 +1,6 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Briefcase, GraduationCap, Award, Star, Play, ChevronLeft, ChevronRight, Calendar, BookOpen } from "lucide-react";
+import { ArrowLeft, ArrowRight, Briefcase, GraduationCap, Award, Star, ChevronLeft, ChevronRight, Calendar, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { doctors } from "@/data/doctors";
 import { useState } from "react";
