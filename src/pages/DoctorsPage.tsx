@@ -61,7 +61,7 @@ const DoctorsPage = () => {
           backgroundSize: '40px 40px'
         }} />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -76,18 +76,6 @@ const DoctorsPage = () => {
               <p className="mt-6 text-primary-foreground/60 text-lg max-w-lg leading-relaxed">
                 Сплочённая команда профессионалов — главная гордость клиники Articon
               </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="relative rounded-2xl overflow-hidden shadow-2xl"
-            >
-              <img
-                src={teamPhoto.url}
-                alt="Команда врачей клиники Articon"
-                className="w-full h-auto object-cover"
-              />
             </motion.div>
           </div>
         </div>
