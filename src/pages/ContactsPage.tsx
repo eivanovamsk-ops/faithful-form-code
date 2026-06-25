@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Clock, Mail, ArrowRight, Building2, User, CalendarDays, Landmark, CreditCard, Shield, ClipboardList, FileSignature, Download, Award } from "lucide-react";
 import { useState } from "react";
