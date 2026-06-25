@@ -80,7 +80,7 @@ const Footer = () => {
               Политика конфиденциальности
             </Link>
             <Link to="/consent" className="text-primary-foreground/30 text-sm hover:text-primary-foreground/50 transition-colors duration-300">
-              Согласие на обработку ПДн
+              Согласие на обработку ПД
             </Link>
           </div>
         </div>

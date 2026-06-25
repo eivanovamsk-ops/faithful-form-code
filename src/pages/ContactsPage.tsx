@@ -410,7 +410,7 @@ const ContactsPage = () => {
               <Link to="/consent" className="w-full">
                 <Button variant="outline" size="lg" className="h-14 px-6 border-border hover:border-brand-blue hover:text-brand-blue transition-all duration-300 w-full">
                   <FileSignature className="w-5 h-5 mr-2" />
-                  Согласие на обработку персональных данных
+                  Согласие на обработку ПД
                 </Button>
               </Link>
             </motion.div>
