@@ -21,6 +21,7 @@ import SymptomsPage from "./pages/SymptomsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import PatientRulesPage from "./pages/PatientRulesPage";
 import ConsentPage from "./pages/ConsentPage";
+import ThankYouPage from "./pages/ThankYouPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
