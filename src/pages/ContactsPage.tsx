@@ -1,7 +1,7 @@
 import licenseAsset from "@/assets/license.jpg.asset.json";
 import priceListAsset from "@/assets/prajs2026.xlsx.asset.json";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -26,6 +26,7 @@ const contactInfo = [
 
 const ContactsPage = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ name: "", phone: "", specialist: "", message: "", consent: false });
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
@@ -35,8 +36,7 @@ const ContactsPage = () => {
       toast({ title: "Требуется согласие", description: "Поставьте галочку, чтобы продолжить.", variant: "destructive" });
       return;
     }
-    toast({ title: "Заявка отправлена!", description: "Администратор свяжется с вами в ближайшее время." });
-    setFormData({ name: "", phone: "", specialist: "", message: "", consent: false });
+    navigate("/thank-you");
   };
 
   return (
