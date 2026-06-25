@@ -13,6 +13,7 @@ import heroImage from "@/assets/hero-dental.jpg";
 import guseynovaAsset from "@/assets/guseynova.jpg.asset.json";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import TechnologiesSection from "@/components/TechnologiesSection";
+import AwardBanner from "@/components/AwardBanner";
 import { useRef } from "react";
 
 const advantages = [
