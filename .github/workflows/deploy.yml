@@ -1,0 +1,69 @@
+name: Deploy to Timeweb
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Create .htaccess
+        run: |
+          cat > dist/.htaccess << 'EOF'
+          Options -MultiViews
+          RewriteEngine On
+          RewriteCond %{REQUEST_FILENAME} !-f
+          RewriteCond %{REQUEST_FILENAME} !-d
+          RewriteRule ^ index.html [QSA,L]
+
+          # 301 Redirects from old site structure
+          Redirect 301 /nashi-vrachi/ /vrachi
+          Redirect 301 /nashi-vrachi /vrachi
+          Redirect 301 /albums/ /foto-rabot
+          Redirect 301 /albums /foto-rabot
+          Redirect 301 /prices/ /ceny
+          Redirect 301 /contact/ /contacts
+          Redirect 301 /about/ /about
+          Redirect 301 /reviews/ /pacientam
+          Redirect 301 /offers/ /pacientam
+          Redirect 301 /programma-lojalnosti/ /pacientam
+          Redirect 301 /uslugi/implantatsiya-zubov/ /uslugi
+          Redirect 301 /uslugi/viniry/ /uslugi
+          Redirect 301 /uslugi/lechenie-kariesa/ /uslugi
+          Redirect 301 /uslugi/ortodontiya/ /uslugi
+          Redirect 301 /uslugi/protezirovanie/ /uslugi
+          Redirect 301 /uslugi/otbelivanie/ /uslugi
+          Redirect 301 /uslugi/gigiyena/ /uslugi
+          Redirect 301 /uslugi/khirurgiya/ /uslugi
+          Redirect 301 /uslugi/parodontologiya/ /uslugi
+          Redirect 301 /uslugi/detskaya-stomatologiya/ /uslugi
+          Redirect 301 /category/articles/ /pacientam
+          EOF
+
+      - name: Deploy to Timeweb via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.timeweb.ru
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /articon-clinic.ru/
+          dangerous-clean-slate: true
