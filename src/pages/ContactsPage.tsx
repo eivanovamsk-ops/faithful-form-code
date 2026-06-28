@@ -150,8 +150,8 @@ const ContactsPage = () => {
                   </Link>
                 </label>
               </div>
-              <Button type="submit" size="lg" className="w-full bg-brand-teal text-primary-foreground font-semibold h-14 transition-all duration-500 hover:bg-brand-teal/85 hover:shadow-[0_0_30px_hsl(174,72%,46%,0.2)] hover:scale-[1.02]">
-                Записаться <ArrowRight className="ml-2 w-5 h-5" />
+              <Button type="submit" size="lg" disabled={submitting} className="w-full bg-brand-teal text-primary-foreground font-semibold h-14 transition-all duration-500 hover:bg-brand-teal/85 hover:shadow-[0_0_30px_hsl(174,72%,46%,0.2)] hover:scale-[1.02] disabled:opacity-70">
+                {submitting ? "Отправляем..." : <>Записаться <ArrowRight className="ml-2 w-5 h-5" /></>}
               </Button>
             </motion.form>
 
