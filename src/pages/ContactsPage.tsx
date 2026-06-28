@@ -6,16 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Clock, Mail, ArrowRight, Building2, User, CalendarDays, Landmark, CreditCard, Shield, ClipboardList, FileSignature, Download, Award } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
-const specialists = [
-  "Стоматолог-ортопед", "Детский врач-стоматолог", "Стоматолог-терапевт",
-  "Стоматолог-ортодонт", "Стоматолог-имплантолог", "Стоматолог-хирург",
-  "Детский стоматолог-хирург", "Стоматолог-пародонтолог",
-];
 
 const contactInfo = [
   { icon: MapPin, title: "Адрес", text: "г. Москва, ул. Серпуховский вал 21, корп 4" },
@@ -27,16 +22,37 @@ const contactInfo = [
 const ContactsPage = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ name: "", phone: "", specialist: "", message: "", consent: false });
+  const [formData, setFormData] = useState({ name: "", phone: "", consent: false });
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.consent) {
       toast({ title: "Требуется согласие", description: "Поставьте галочку, чтобы продолжить.", variant: "destructive" });
       return;
     }
-    navigate("/thank-you");
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-notification",
+          idempotencyKey: `contact-${Date.now()}`,
+          templateData: {
+            name: formData.name,
+            phone: formData.phone,
+            submittedAt: new Date().toLocaleString("ru-RU", { timeZone: "Europe/Moscow" }),
+          },
+        },
+      });
+      if (error) throw error;
+      navigate("/thank-you");
+    } catch (err) {
+      console.error(err);
+      toast({ title: "Не удалось отправить", description: "Попробуйте ещё раз или позвоните нам.", variant: "destructive" });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -116,25 +132,6 @@ const ContactsPage = () => {
                     onBlur={() => setFocusedField(null)}
                     required
                     className="h-14 pt-5 bg-secondary/50 border-border focus:border-brand-teal focus:ring-brand-teal/20 transition-all duration-300"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-medium text-muted-foreground mb-2 block tracking-wider uppercase">Специалист</label>
-                  <Select value={formData.specialist} onValueChange={(v) => setFormData({ ...formData, specialist: v })}>
-                    <SelectTrigger className="h-14 bg-secondary/50 border-border focus:border-brand-teal"><SelectValue placeholder="Выберите специалиста" /></SelectTrigger>
-                    <SelectContent>
-                      {specialists.map((s) => (<SelectItem key={s} value={s}>{s}</SelectItem>))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="text-xs font-medium text-muted-foreground mb-2 block tracking-wider uppercase">Сообщение</label>
-                  <Textarea
-                    placeholder="Опишите вашу проблему или пожелания..."
-                    rows={3}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-secondary/50 border-border focus:border-brand-teal focus:ring-brand-teal/20 transition-all duration-300"
                   />
                 </div>
               </div>
