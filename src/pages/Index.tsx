@@ -239,8 +239,8 @@ const Index = () => {
                   to={s.link}
                   className="group block p-6 bg-background rounded-xl border border-border hover:border-brand-teal/40 transition-all duration-300 h-full hover:shadow-xl hover:scale-[1.04]"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center mb-4 group-hover:bg-brand-teal/15 group-hover:scale-110 transition-all duration-300">
-                    <s.icon className="w-5 h-5 text-brand-blue group-hover:text-brand-teal transition-colors duration-300" />
+                  <div className="w-14 h-14 rounded-lg bg-brand-blue/5 flex items-center justify-center mb-4 group-hover:bg-brand-blue/10 group-hover:scale-110 transition-all duration-300">
+                    <img src={s.icon} alt={s.title} className="w-10 h-10 object-contain" />
                   </div>
                   <h3 className="font-display font-semibold text-foreground mb-2 text-sm group-hover:text-brand-teal transition-colors duration-300">{s.title}</h3>
                   <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
