@@ -109,13 +109,6 @@ const GalleryPage = () => {
             </motion.div>
           ))}
 
-          <div className="max-w-lg mx-auto text-center pt-8">
-            <Button asChild variant="outline" size="lg" className="h-12 px-8 border-brand-blue/30 text-brand-blue hover:bg-brand-blue hover:text-primary-foreground transition-all duration-400">
-              <a href="https://articon-clinic.ru/albums/" target="_blank" rel="noopener noreferrer">
-                Смотреть на сайте <ExternalLink className="ml-2 w-4 h-4" />
-              </a>
-            </Button>
-          </div>
         </div>
       </section>
 
