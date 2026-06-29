@@ -20,7 +20,7 @@ const GalleryPage = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="container mx-auto px-4"
         >
-          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-foreground">
+          <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-foreground">
             <video
               className="w-full block"
               autoPlay
@@ -28,7 +28,7 @@ const GalleryPage = () => {
               loop
               playsInline
             >
-              <source src="/videos/SmileCloud_case_1.mp4" type="video/mp4" />
+              <source src="/cdn-assets/gallery-showcase.mp4" type="video/mp4" />
             </video>
           </div>
         </motion.div>
