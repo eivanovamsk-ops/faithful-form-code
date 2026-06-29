@@ -93,7 +93,7 @@ const Index = () => {
               custom={0}
               className="inline-block mb-6 text-xs font-medium tracking-[0.25em] uppercase text-brand-orange"
             >
-              Центр цифровой стоматологии
+              Центр цифровой стоматологии АРТИКОН
             </motion.span>
             <motion.h1
               variants={fadeUp}
