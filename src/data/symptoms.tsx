@@ -87,7 +87,7 @@ export const symptoms: Symptom[] = [
           question: "Сколько стоит лечение кариеса?",
           answer: (
             <>
-              Стоимость зависит от глубины поражения и объёма работы. Ориентировочные цены смотрите на <Link to="/prices" className="text-brand-blue hover:underline">странице с ценами</Link>, точную стоимость скажем после осмотра.
+              Стоимость зависит от глубины поражения и объёма работы. Ориентировочные цены смотрите на <Link to="/prices" className="text-brand-blue hover:underline font-bold">странице с ценами</Link>, точную стоимость скажем после осмотра.
             </>
           ),
         },
