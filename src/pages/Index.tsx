@@ -3,8 +3,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Star, Award, Users, Microscope, ShieldCheck, Baby,
-  Zap, Sparkles, Heart, ChevronDown, Cpu, Stethoscope, ScanLine,
-  Syringe, HeartPulse, Smile, Scissors, HelpCircle
+  Zap, Sparkles, Heart, ChevronDown, HelpCircle,
+  Workflow, Crown, Bone, Braces, Leaf, ScanSearch, SprayCan, Moon
 } from "lucide-react";
 import { symptoms } from "@/data/symptoms";
 const heroReception = "/cdn-assets/f99706ed-2584-4c60-91b4-88a8e71ec5ce-hero-reception.jpg";
@@ -24,16 +24,16 @@ const advantages = [
 ];
 
 const services = [
-  { icon: Cpu, title: "Цифровая стоматология", desc: "Новые зубы максимально быстро", link: "/uslugi" },
-  { icon: Stethoscope, title: "Ортопедия", desc: "Протезирование, виниры, коронки", link: "/uslugi" },
-  { icon: Syringe, title: "Хирургия и имплантация", desc: "Имплантация по навигационным шаблонам", link: "/uslugi" },
-  { icon: HeartPulse, title: "Терапия", desc: "Лечение кариеса, пульпита под микроскопом", link: "/uslugi" },
+  { icon: Workflow, title: "Цифровая стоматология", desc: "Новые зубы максимально быстро", link: "/uslugi" },
+  { icon: Crown, title: "Ортопедия", desc: "Протезирование, виниры, коронки", link: "/uslugi" },
+  { icon: Bone, title: "Хирургия и имплантация", desc: "Имплантация по навигационным шаблонам", link: "/uslugi" },
+  { icon: Microscope, title: "Терапия", desc: "Лечение кариеса, пульпита под микроскопом", link: "/uslugi" },
   { icon: Baby, title: "Детская стоматология", desc: "Адаптация, лечение в игровой форме", link: "/uslugi" },
-  { icon: Smile, title: "Ортодонтия", desc: "Брекеты и элайнеры", link: "/uslugi" },
-  { icon: Scissors, title: "Пародонтология", desc: "Лечение дёсен", link: "/uslugi" },
-  { icon: ScanLine, title: "Диагностика", desc: "КТ, панорамные снимки, 3D-сканирование", link: "/uslugi" },
-  { icon: Sparkles, title: "Проф. гигиена", desc: "GBT протокол, отбеливание", link: "/uslugi" },
-  { icon: ShieldCheck, title: "Антистресс лечение", desc: "Седация, лечение во сне", link: "/uslugi" },
+  { icon: Braces, title: "Ортодонтия", desc: "Брекеты и элайнеры", link: "/uslugi" },
+  { icon: Leaf, title: "Пародонтология", desc: "Лечение дёсен", link: "/uslugi" },
+  { icon: ScanSearch, title: "Диагностика", desc: "КТ, панорамные снимки, 3D-сканирование", link: "/uslugi" },
+  { icon: SprayCan, title: "Проф. гигиена", desc: "GBT протокол, отбеливание", link: "/uslugi" },
+  { icon: Moon, title: "Антистресс лечение", desc: "Седация, лечение во сне", link: "/uslugi" },
 ];
 
 const reviews = [
