@@ -89,9 +89,6 @@ const AboutPage = () => {
                   <p className="text-foreground leading-relaxed font-medium bg-secondary/50 p-4 rounded-xl">
                     Опираясь на опыт и ресурсы такой компании, мы создали клинику, где реализованы цифровые протоколы и технологии мирового уровня — всё лучшее, что есть в современной стоматологии.
                   </p>
-                  <footer className="text-muted-foreground text-sm pt-2">
-                    — Елена Артемова, основатель и главный врач клиники
-                  </footer>
                 </blockquote>
               </motion.div>
             </div>
