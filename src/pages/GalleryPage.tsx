@@ -12,24 +12,25 @@ const GalleryPage = () => {
   return (
     <div>
 
-      {/* Full-width Video */}
-      <section className="bg-foreground">
+      {/* Video */}
+      <section className="bg-background pt-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="w-full"
+          className="container mx-auto px-4"
         >
-          <video
-            className="w-full block"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster=""
-          >
-            <source src="/videos/SmileCloud_case_1.mp4" type="video/mp4" />
-          </video>
+          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-foreground">
+            <video
+              className="w-full block"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src="/videos/SmileCloud_case_1.mp4" type="video/mp4" />
+            </video>
+          </div>
         </motion.div>
       </section>
 
