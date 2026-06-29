@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, AlertTriangle, HelpCircle, Stethoscope, ListChecks } from "lucide-react";
+import { ArrowRight, CheckCircle, AlertTriangle, HelpCircle, ListChecks } from "lucide-react";
+import solutionIcon from "@/assets/symptom-solution/symptom-solution.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { symptoms } from "@/data/symptoms";
@@ -165,7 +166,7 @@ const SymptomsPage = () => {
 
                     <div>
                       <div className="flex items-center gap-2 mb-3">
-                        <Stethoscope className="w-5 h-5 text-brand-teal" />
+                        <img src={solutionIcon.url} alt="" className="w-5 h-5 object-contain" />
                         <h3 className="font-display font-semibold text-foreground text-lg">Как мы решаем проблему в Articon</h3>
                       </div>
                       <p className="text-foreground/80 leading-relaxed">{s.content.solution}</p>
