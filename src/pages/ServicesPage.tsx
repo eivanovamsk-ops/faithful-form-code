@@ -152,7 +152,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         <div className="p-6 pt-5 flex flex-col h-full">
           {/* Icon */}
           <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-brand-teal/10 group-hover:scale-105">
-            <service.icon className="w-5 h-5 text-brand-blue transition-colors duration-500 group-hover:text-brand-teal" />
+            <img src={service.iconUrl} alt={service.title} className="w-8 h-8 object-contain" />
           </div>
 
           {/* Hook */}
