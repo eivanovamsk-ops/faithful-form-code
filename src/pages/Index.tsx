@@ -157,7 +157,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
             <AnimatedCounter end={5} label="Рейтинг на Яндекс и Google" decimals={1} />
-            <AnimatedCounter end={10} label="ТОП StartsmileTop × Forbes" />
+            <AnimatedCounter text="ТОП" label="StartsmileTop × Forbes" />
             <AnimatedCounter end={1000} suffix="+" label="отзывов пациентов" />
             <AnimatedCounter end={70} suffix="%" label="приходят по рекомендации" />
           </div>
