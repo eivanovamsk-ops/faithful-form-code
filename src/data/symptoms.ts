@@ -1,4 +1,9 @@
 import { Sparkles, Moon, Droplet, Smile, Activity, LucideIcon } from "lucide-react";
+import iconTooth from "@/assets/symptom-icons/tooth-pain.png.asset.json";
+import iconNight from "@/assets/symptom-icons/night-pain.png.asset.json";
+import iconGums from "@/assets/symptom-icons/gums.png.asset.json";
+import iconMissing from "@/assets/symptom-icons/missing.png.asset.json";
+import iconJaw from "@/assets/symptom-icons/jaw.png.asset.json";
 
 export interface SymptomSection {
   symptoms: string[];
@@ -13,11 +18,13 @@ export interface Symptom {
   cardTitle: string;
   title: string;
   icon: LucideIcon;
+  iconImage?: string;
   meta: { title: string; description: string };
   content: SymptomSection;
 }
 
 export const symptoms: Symptom[] = [
+
   {
     id: "karies",
     shortTitle: "Кариес",
