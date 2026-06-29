@@ -75,7 +75,7 @@ export const symptoms: Symptom[] = [
           question: "Можно ли остановить кариес без сверления?",
           answer: (
             <>
-              Да, если поймать его на стадии пятна — часто достаточно <Link to="/uslugi" className="text-brand-blue hover:underline">профессиональной гигиены</Link> и укрепления эмали.
+              Да, если поймать его на стадии пятна — часто достаточно <Link to="/uslugi" className="text-brand-blue hover:underline font-bold">профессиональной гигиены</Link> и укрепления эмали.
             </>
           ),
         },
