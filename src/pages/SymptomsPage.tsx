@@ -82,7 +82,18 @@ const SymptomsPage = () => {
                           : "bg-card border-border text-foreground hover:border-brand-blue/40 hover:bg-secondary"
                       )}
                     >
-                      <Icon className={cn("w-4 h-4 shrink-0", isActive ? "text-primary-foreground" : "text-brand-blue")} />
+                      {s.iconImage ? (
+                        <img
+                          src={s.iconImage}
+                          alt=""
+                          className={cn(
+                            "w-6 h-6 shrink-0 object-contain transition-all",
+                            isActive ? "brightness-0 invert" : ""
+                          )}
+                        />
+                      ) : (
+                        <Icon className={cn("w-4 h-4 shrink-0", isActive ? "text-primary-foreground" : "text-brand-blue")} />
+                      )}
                       <span className="text-sm font-medium">{s.shortTitle}</span>
                     </button>
                   );
@@ -103,8 +114,12 @@ const SymptomsPage = () => {
                   className="scroll-mt-28"
                 >
                   <div className="flex items-start gap-4 mb-8">
-                    <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center shrink-0">
-                      <s.icon className="w-6 h-6 text-brand-blue" />
+                    <div className="w-16 h-16 rounded-2xl bg-brand-blue/5 flex items-center justify-center shrink-0">
+                      {s.iconImage ? (
+                        <img src={s.iconImage} alt="" className="w-12 h-12 object-contain" />
+                      ) : (
+                        <s.icon className="w-6 h-6 text-brand-blue" />
+                      )}
                     </div>
                     <div>
                       <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-teal">
