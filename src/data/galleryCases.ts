@@ -95,7 +95,7 @@ export const galleryCategories: GalleryCategory[] = [
     cases: [
       {
         id: "ortho-case-1",
-        title: "Кейс 1 — Тотальная реабилитация",
+        title: "Тотальная реабилитация",
         description: "Комплексное протезирование верхней и нижней челюсти",
         slides: [
           { src: ortho11.url, title: "Улыбка после", caption: "Финальный результат", position: "top-left" },
@@ -147,7 +147,7 @@ export const galleryCategories: GalleryCategory[] = [
       },
       {
         id: "ortho-case-2",
-        title: "Кейс 2 — Замена несостоятельных коронок",
+        title: "Замена несостоятельных коронок",
         description: "Полная реабилитация: 14 коронок на верхней и 5 на нижней челюсти",
         slides: [
           { src: ortho21.url, title: "До / После", caption: "Замена коронок с имплантацией", position: "top-left" },
@@ -196,7 +196,7 @@ export const galleryCategories: GalleryCategory[] = [
     cases: [
       {
         id: "ortodont-case-1",
-        title: "Кейс 1 — Исправление прикуса",
+        title: "Исправление прикуса",
         description: "Выравнивание зубных рядов и нормализация окклюзии",
         slides: [
           { src: ortodont1Articon.url, title: "Кейс Articon", caption: "До и после ортодонтического лечения", position: "bottom-right" },
@@ -223,7 +223,7 @@ export const galleryCategories: GalleryCategory[] = [
     cases: [
       {
         id: "otbel-case-1",
-        title: "Кейс 1 — Отбеливание зубов",
+        title: "Отбеливание зубов",
         slides: [
           { src: otbel1.url, position: "top-left" },
           { src: otbel2.url, position: "top-left" },
@@ -240,7 +240,7 @@ export const galleryCategories: GalleryCategory[] = [
     cases: [
       {
         id: "gigiena-case-2",
-        title: "Кейс 2 — Профессиональная гигиена",
+        title: "Профессиональная гигиена",
         slides: [
           { src: gigiena21.url, position: "top-left" },
           { src: gigiena22.url, position: "top-left" },
@@ -257,7 +257,7 @@ export const galleryCategories: GalleryCategory[] = [
     cases: [
       {
         id: "hirurgiya-case-1",
-        title: "Кейс 1 — Имплантация 4.6 и 4.7 с ортодонтической подготовкой",
+        title: "Имплантация 4.6 и 4.7 с ортодонтической подготовкой",
         slides: [
           { src: impl1.url, position: "top-left" },
           { src: impl2.url, position: "top-left" },
@@ -295,7 +295,7 @@ export const galleryCategories: GalleryCategory[] = [
     cases: [
       {
         id: "endo-case-1",
-        title: "Кейс 1 — Эндодонтическое лечение под микроскопом",
+        title: "Эндодонтическое лечение под микроскопом",
         slides: [
           { src: endo1.url, position: "top-left" },
           { src: endo2.url, position: "top-left" },
@@ -314,7 +314,7 @@ export const galleryCategories: GalleryCategory[] = [
     cases: [
       {
         id: "ter-case-1",
-        title: "Кейс 1 — Лечение кариеса и реставрации",
+        title: "Лечение кариеса и реставрации",
         slides: [
           { src: ter1.url, position: "top-left" },
           { src: ter2.url, position: "top-left" },
@@ -331,7 +331,7 @@ export const galleryCategories: GalleryCategory[] = [
     cases: [
       {
         id: "kids-case-1",
-        title: "Кейс 1 — Лечение кариеса у ребёнка",
+        title: "Лечение кариеса у ребёнка",
         slides: [
           { src: kids1.url, position: "top-left" },
           { src: kids2.url, position: "top-left" },
