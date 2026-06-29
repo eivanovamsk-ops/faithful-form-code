@@ -1,3 +1,4 @@
+import clinicBuildingAsset from "@/assets/clinic-building.jpg.asset.json";
 import licenseAsset from "@/assets/license.jpg.asset.json";
 import priceListAsset from "@/assets/prajs2026.xlsx.asset.json";
 import { motion } from "framer-motion";
@@ -58,7 +59,13 @@ const ContactsPage = () => {
   return (
     <div>
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 bg-foreground overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <img
+          src={clinicBuildingAsset.url}
+          alt="Центр цифровой стоматологии Артикон"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-foreground/75" />
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
           backgroundSize: '40px 40px'
