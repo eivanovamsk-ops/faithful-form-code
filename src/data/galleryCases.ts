@@ -205,6 +205,11 @@ export const galleryCategories: GalleryCategory[] = [
           { src: ortodont1Process.url, title: "Процесс лечения", caption: "На брекет-системе", position: "top-left" },
           { src: ortodont1Final.url, title: "Финальный результат", caption: "Ровные зубные ряды, корректная окклюзия", position: "top-left" },
         ],
+      },
+      {
+        id: "ortodont-case-2",
+        title: "До / Финальный результат",
+        description: "Потяните ползунок, чтобы сравнить",
         comparisons: [
           {
             before: ortodont1Before.url,
@@ -215,6 +220,7 @@ export const galleryCategories: GalleryCategory[] = [
         ],
       },
     ],
+
   },
   {
     id: "otbelivanie",
