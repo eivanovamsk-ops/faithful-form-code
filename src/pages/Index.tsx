@@ -16,7 +16,7 @@ import iconDiagnostics from "@/assets/service-icons/diagnostics.png.asset.json";
 import iconHygiene from "@/assets/service-icons/hygiene.png.asset.json";
 import iconSedation from "@/assets/service-icons/sedation.png.asset.json";
 import { symptoms } from "@/data/symptoms";
-const heroReception = "/cdn-assets/f99706ed-2584-4c60-91b4-88a8e71ec5ce-hero-reception.jpg";
+const heroReception = "/cdn-assets/hero-main.jpg";
 import guseynovaAsset from "@/assets/guseynova.jpg.asset.json";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import TechnologiesSection from "@/components/TechnologiesSection";
