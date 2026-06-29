@@ -112,7 +112,7 @@ const Index = () => {
               className="space-y-3 text-primary-foreground/80 mb-10 text-sm sm:text-base"
             >
               <li className="flex items-center gap-3"><Star className="w-4 h-4 text-brand-orange shrink-0" /> Рейтинг 5.0 — более 1 000 отзывов</li>
-              <li className="flex items-center gap-3"><Award className="w-4 h-4 text-brand-orange shrink-0" /> 10 место StartsmileTop × Forbes</li>
+              <li className="flex items-center gap-3"><Award className="w-4 h-4 text-brand-orange shrink-0" /> в ТОП рейтинга StartsmileTop × Forbes</li>
               <li className="flex items-center gap-3"><Users className="w-4 h-4 text-brand-orange shrink-0" /> 70% пациентов приходят по рекомендации</li>
             </motion.ul>
             <motion.div
