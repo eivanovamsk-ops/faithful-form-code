@@ -33,16 +33,16 @@ const advantages = [
 ];
 
 const services = [
-  { icon: Workflow, title: "Цифровая стоматология", desc: "Новые зубы максимально быстро", link: "/uslugi" },
-  { icon: Crown, title: "Ортопедия", desc: "Протезирование, виниры, коронки", link: "/uslugi" },
-  { icon: Bone, title: "Хирургия и имплантация", desc: "Имплантация по навигационным шаблонам", link: "/uslugi" },
-  { icon: Microscope, title: "Терапия", desc: "Лечение кариеса, пульпита под микроскопом", link: "/uslugi" },
-  { icon: Baby, title: "Детская стоматология", desc: "Адаптация, лечение в игровой форме", link: "/uslugi" },
-  { icon: Braces, title: "Ортодонтия", desc: "Брекеты и элайнеры", link: "/uslugi" },
-  { icon: Leaf, title: "Пародонтология", desc: "Лечение дёсен", link: "/uslugi" },
-  { icon: ScanSearch, title: "Диагностика", desc: "КТ, панорамные снимки, 3D-сканирование", link: "/uslugi" },
-  { icon: SprayCan, title: "Проф. гигиена", desc: "GBT протокол, отбеливание", link: "/uslugi" },
-  { icon: Moon, title: "Антистресс лечение", desc: "Седация, лечение во сне", link: "/uslugi" },
+  { icon: iconDigital.url, title: "Цифровая стоматология", desc: "Новые зубы максимально быстро", link: "/uslugi" },
+  { icon: iconOrthopedics.url, title: "Ортопедия", desc: "Протезирование, виниры, коронки", link: "/uslugi" },
+  { icon: iconSurgery.url, title: "Хирургия и имплантация", desc: "Имплантация по навигационным шаблонам", link: "/uslugi" },
+  { icon: iconTherapy.url, title: "Терапия", desc: "Лечение кариеса, пульпита под микроскопом", link: "/uslugi" },
+  { icon: iconPediatric.url, title: "Детская стоматология", desc: "Адаптация, лечение в игровой форме", link: "/uslugi" },
+  { icon: iconOrthodontics.url, title: "Ортодонтия", desc: "Брекеты и элайнеры", link: "/uslugi" },
+  { icon: iconPeriodontology.url, title: "Пародонтология", desc: "Лечение дёсен", link: "/uslugi" },
+  { icon: iconDiagnostics.url, title: "Диагностика", desc: "КТ, панорамные снимки, 3D-сканирование", link: "/uslugi" },
+  { icon: iconHygiene.url, title: "Проф. гигиена", desc: "GBT протокол, отбеливание", link: "/uslugi" },
+  { icon: iconSedation.url, title: "Антистресс лечение", desc: "Седация, лечение во сне", link: "/uslugi" },
 ];
 
 const reviews = [
