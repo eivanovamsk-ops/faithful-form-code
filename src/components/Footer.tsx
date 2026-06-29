@@ -23,7 +23,7 @@ const Footer = () => {
               <img src={logoWhite} alt="Articon Dental Digital Solutions" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
             </Link>
             <p className="text-primary-foreground/50 text-sm leading-relaxed">
-              Центр цифровой стоматологии. 10 место в рейтинге StartsmileTop при поддержке Forbes.
+              Центр цифровой стоматологии. В ТОП рейтинга StartsmileTop при поддержке Forbes.
             </p>
           </div>
 
