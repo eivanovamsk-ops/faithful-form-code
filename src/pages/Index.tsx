@@ -111,7 +111,7 @@ const Index = () => {
               custom={1}
               className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] text-primary-foreground mb-8"
             >
-              Улыбка — это просто
+              Цифровые технологии — предсказуемый результат
             </motion.h1>
             <motion.ul
               variants={fadeUp}
