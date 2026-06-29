@@ -77,7 +77,7 @@ const GalleryPage = () => {
                   </p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 gap-10 max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 gap-10 max-w-2xl mx-auto">
                   {category.cases.map((c) => (
                     <div key={c.id} className="space-y-5">
                       {c.slides && c.slides.length > 0 && (
