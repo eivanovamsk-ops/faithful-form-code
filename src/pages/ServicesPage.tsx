@@ -2,14 +2,21 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Monitor, ScanLine, Baby, Smile, Sparkles, ShieldCheck, Scissors,
-  Gem, Pill, Moon, ArrowRight, ArrowUpRight
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import iconDigital from "@/assets/service-icons/digital.png.asset.json";
+import iconOrthopedics from "@/assets/service-icons/orthopedics.png.asset.json";
+import iconDiagnostics from "@/assets/service-icons/diagnostics.png.asset.json";
+import iconSurgery from "@/assets/service-icons/surgery.png.asset.json";
+import iconTherapy from "@/assets/service-icons/therapy.png.asset.json";
+import iconPediatric from "@/assets/service-icons/pediatric.png.asset.json";
+import iconPeriodontology from "@/assets/service-icons/periodontology.png.asset.json";
+import iconSedation from "@/assets/service-icons/sedation.png.asset.json";
+import iconOrthodontics from "@/assets/service-icons/orthodontics.png.asset.json";
+import iconHygiene from "@/assets/service-icons/hygiene.png.asset.json";
 
 const services = [
   {
-    icon: Monitor,
+    iconUrl: iconDigital.url,
     title: "Цифровая стоматология",
     hook: "нужны новые зубы максимально быстро",
     desc: "Цифровые технологии делают лечение точным, быстрым и безопасным.",
@@ -19,7 +26,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-teal))] to-[hsl(213,55%,40%)]",
   },
   {
-    icon: Gem,
+    iconUrl: iconOrthopedics.url,
     title: "Ортопедия",
     hook: "сильно разрушены зубы",
     desc: "Восстановление зубов с идеальной эстетикой и функцией.",
@@ -29,7 +36,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-blue))] to-[hsl(210,60%,30%)]",
   },
   {
-    icon: ScanLine,
+    iconUrl: iconDiagnostics.url,
     title: "Диагностика",
     hook: "нужно сделать снимки",
     desc: "Все виды диагностики в одном месте для точной картины здоровья.",
@@ -39,7 +46,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-teal))] to-[hsl(200,50%,35%)]",
   },
   {
-    icon: Scissors,
+    iconUrl: iconSurgery.url,
     title: "Хирургия и имплантация",
     hook: "нужна хирургия или имплантация",
     desc: "Имплантация по хирургическим навигационным шаблонам — приживляемость 99,6%.",
@@ -49,7 +56,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-blue))] to-[hsl(220,65%,25%)]",
   },
   {
-    icon: Pill,
+    iconUrl: iconTherapy.url,
     title: "Терапия",
     hook: "болит зуб",
     desc: "Лечение под микроскопом — современный мировой стандарт.",
@@ -59,7 +66,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-teal))] to-[hsl(195,50%,35%)]",
   },
   {
-    icon: Baby,
+    iconUrl: iconPediatric.url,
     title: "Детская стоматология",
     hook: "лечиться будет ребёнок",
     desc: "Адаптация, лечение в игровой форме, возможность лечения во сне.",
@@ -69,7 +76,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-blue))] to-[hsl(210,55%,35%)]",
   },
   {
-    icon: ShieldCheck,
+    iconUrl: iconPeriodontology.url,
     title: "Пародонтология",
     hook: "требуется лечение дёсен",
     desc: "Профессиональное лечение заболеваний дёсен и мягких тканей.",
@@ -79,7 +86,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-teal))] to-[hsl(205,50%,30%)]",
   },
   {
-    icon: Moon,
+    iconUrl: iconSedation.url,
     title: "Антистресс лечение",
     hook: "нужно лечение зубов без боли",
     desc: "Лечение без страха: седация, лечение во сне, безболезненная анестезия.",
@@ -89,7 +96,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-blue))] to-[hsl(215,60%,28%)]",
   },
   {
-    icon: Smile,
+    iconUrl: iconOrthodontics.url,
     title: "Ортодонтия",
     hook: "нужно выровнять зубы",
     desc: "Ровные зубы и правильный прикус с помощью современных систем.",
@@ -99,7 +106,7 @@ const services = [
     gradient: "from-[hsl(var(--brand-teal))] to-[hsl(200,45%,38%)]",
   },
   {
-    icon: Sparkles,
+    iconUrl: iconHygiene.url,
     title: "Гигиена и отбеливание",
     hook: "хотите свежее дыхание и белоснежную улыбку",
     desc: "SPA-гигиена по протоколу GBT и профессиональное отбеливание.",
@@ -145,7 +152,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         <div className="p-6 pt-5 flex flex-col h-full">
           {/* Icon */}
           <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-brand-teal/10 group-hover:scale-105">
-            <service.icon className="w-5 h-5 text-brand-blue transition-colors duration-500 group-hover:text-brand-teal" />
+            <img src={service.iconUrl} alt={service.title} className="w-8 h-8 object-contain" />
           </div>
 
           {/* Hook */}
