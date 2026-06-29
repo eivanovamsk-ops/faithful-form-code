@@ -7,9 +7,8 @@ import {
   Syringe, HeartPulse, Smile, Scissors, HelpCircle
 } from "lucide-react";
 import { symptoms } from "@/data/symptoms";
-import heroVideoAsset from "@/assets/hero-functional.mp4.asset.json";
-const heroVideo = heroVideoAsset.url;
-import heroImage from "@/assets/hero-dental.jpg";
+import heroReceptionAsset from "@/assets/hero-reception.jpg.asset.json";
+const heroReception = heroReceptionAsset.url;
 import guseynovaAsset from "@/assets/guseynova.jpg.asset.json";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import TechnologiesSection from "@/components/TechnologiesSection";
@@ -75,16 +74,11 @@ const Index = () => {
       {/* Hero — fullscreen video */}
       <section ref={heroRef} className="relative h-screen flex items-center overflow-hidden">
         <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={heroImage}
+          <img
+            src={heroReception}
+            alt="Ресепшн клиники Articon"
             className="w-full h-full object-cover"
-          >
-            <source src={heroVideo} type="video/mp4" />
-          </video>
+          />
           <div className="absolute inset-0 bg-foreground/55" />
         </motion.div>
 
