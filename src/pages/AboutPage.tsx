@@ -50,10 +50,6 @@ const AboutPage = () => {
                   alt="Елена Артемова — основатель и главный врач клиники Articon"
                   className="w-full h-full object-cover object-top"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 via-primary/60 to-transparent p-5 text-primary-foreground">
-                  <p className="font-display font-bold text-lg leading-tight">Елена Артемова</p>
-                  <p className="text-xs text-primary-foreground/80 mt-1">Основатель и главный врач</p>
-                </div>
               </div>
             </motion.div>
 
@@ -93,9 +89,6 @@ const AboutPage = () => {
                   <p className="text-foreground leading-relaxed font-medium bg-secondary/50 p-4 rounded-xl">
                     Опираясь на опыт и ресурсы такой компании, мы создали клинику, где реализованы цифровые протоколы и технологии мирового уровня — всё лучшее, что есть в современной стоматологии.
                   </p>
-                  <footer className="text-muted-foreground text-sm pt-2">
-                    — Елена Артемова, основатель и главный врач клиники
-                  </footer>
                 </blockquote>
               </motion.div>
             </div>
