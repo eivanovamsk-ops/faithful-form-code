@@ -4,8 +4,17 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Star, Award, Users, Microscope, ShieldCheck, Baby,
   Zap, Sparkles, Heart, ChevronDown, HelpCircle,
-  Workflow, Crown, Bone, Braces, Leaf, ScanSearch, SprayCan, Moon
 } from "lucide-react";
+import iconDigital from "@/assets/service-icons/digital.png.asset.json";
+import iconOrthopedics from "@/assets/service-icons/orthopedics.png.asset.json";
+import iconSurgery from "@/assets/service-icons/surgery.png.asset.json";
+import iconTherapy from "@/assets/service-icons/therapy.png.asset.json";
+import iconPediatric from "@/assets/service-icons/pediatric.png.asset.json";
+import iconOrthodontics from "@/assets/service-icons/orthodontics.png.asset.json";
+import iconPeriodontology from "@/assets/service-icons/periodontology.png.asset.json";
+import iconDiagnostics from "@/assets/service-icons/diagnostics.png.asset.json";
+import iconHygiene from "@/assets/service-icons/hygiene.png.asset.json";
+import iconSedation from "@/assets/service-icons/sedation.png.asset.json";
 import { symptoms } from "@/data/symptoms";
 const heroReception = "/cdn-assets/f99706ed-2584-4c60-91b4-88a8e71ec5ce-hero-reception.jpg";
 import guseynovaAsset from "@/assets/guseynova.jpg.asset.json";
