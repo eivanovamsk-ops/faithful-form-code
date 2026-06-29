@@ -50,10 +50,6 @@ const AboutPage = () => {
                   alt="Елена Артемова — основатель и главный врач клиники Articon"
                   className="w-full h-full object-cover object-top"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 via-primary/60 to-transparent p-5 text-primary-foreground">
-                  <p className="font-display font-bold text-lg leading-tight">Елена Артемова</p>
-                  <p className="text-xs text-primary-foreground/80 mt-1">Основатель и главный врач</p>
-                </div>
               </div>
             </motion.div>
 
