@@ -4,8 +4,17 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Star, Award, Users, Microscope, ShieldCheck, Baby,
   Zap, Sparkles, Heart, ChevronDown, HelpCircle,
-  Workflow, Crown, Bone, Braces, Leaf, ScanSearch, SprayCan, Moon
 } from "lucide-react";
+import iconDigital from "@/assets/service-icons/digital.png.asset.json";
+import iconOrthopedics from "@/assets/service-icons/orthopedics.png.asset.json";
+import iconSurgery from "@/assets/service-icons/surgery.png.asset.json";
+import iconTherapy from "@/assets/service-icons/therapy.png.asset.json";
+import iconPediatric from "@/assets/service-icons/pediatric.png.asset.json";
+import iconOrthodontics from "@/assets/service-icons/orthodontics.png.asset.json";
+import iconPeriodontology from "@/assets/service-icons/periodontology.png.asset.json";
+import iconDiagnostics from "@/assets/service-icons/diagnostics.png.asset.json";
+import iconHygiene from "@/assets/service-icons/hygiene.png.asset.json";
+import iconSedation from "@/assets/service-icons/sedation.png.asset.json";
 import { symptoms } from "@/data/symptoms";
 const heroReception = "/cdn-assets/f99706ed-2584-4c60-91b4-88a8e71ec5ce-hero-reception.jpg";
 import guseynovaAsset from "@/assets/guseynova.jpg.asset.json";
@@ -24,16 +33,16 @@ const advantages = [
 ];
 
 const services = [
-  { icon: Workflow, title: "Цифровая стоматология", desc: "Новые зубы максимально быстро", link: "/uslugi" },
-  { icon: Crown, title: "Ортопедия", desc: "Протезирование, виниры, коронки", link: "/uslugi" },
-  { icon: Bone, title: "Хирургия и имплантация", desc: "Имплантация по навигационным шаблонам", link: "/uslugi" },
-  { icon: Microscope, title: "Терапия", desc: "Лечение кариеса, пульпита под микроскопом", link: "/uslugi" },
-  { icon: Baby, title: "Детская стоматология", desc: "Адаптация, лечение в игровой форме", link: "/uslugi" },
-  { icon: Braces, title: "Ортодонтия", desc: "Брекеты и элайнеры", link: "/uslugi" },
-  { icon: Leaf, title: "Пародонтология", desc: "Лечение дёсен", link: "/uslugi" },
-  { icon: ScanSearch, title: "Диагностика", desc: "КТ, панорамные снимки, 3D-сканирование", link: "/uslugi" },
-  { icon: SprayCan, title: "Проф. гигиена", desc: "GBT протокол, отбеливание", link: "/uslugi" },
-  { icon: Moon, title: "Антистресс лечение", desc: "Седация, лечение во сне", link: "/uslugi" },
+  { icon: iconDigital.url, title: "Цифровая стоматология", desc: "Новые зубы максимально быстро", link: "/uslugi" },
+  { icon: iconOrthopedics.url, title: "Ортопедия", desc: "Протезирование, виниры, коронки", link: "/uslugi" },
+  { icon: iconSurgery.url, title: "Хирургия и имплантация", desc: "Имплантация по навигационным шаблонам", link: "/uslugi" },
+  { icon: iconTherapy.url, title: "Терапия", desc: "Лечение кариеса, пульпита под микроскопом", link: "/uslugi" },
+  { icon: iconPediatric.url, title: "Детская стоматология", desc: "Адаптация, лечение в игровой форме", link: "/uslugi" },
+  { icon: iconOrthodontics.url, title: "Ортодонтия", desc: "Брекеты и элайнеры", link: "/uslugi" },
+  { icon: iconPeriodontology.url, title: "Пародонтология", desc: "Лечение дёсен", link: "/uslugi" },
+  { icon: iconDiagnostics.url, title: "Диагностика", desc: "КТ, панорамные снимки, 3D-сканирование", link: "/uslugi" },
+  { icon: iconHygiene.url, title: "Проф. гигиена", desc: "GBT протокол, отбеливание", link: "/uslugi" },
+  { icon: iconSedation.url, title: "Антистресс лечение", desc: "Седация, лечение во сне", link: "/uslugi" },
 ];
 
 const reviews = [
@@ -230,8 +239,8 @@ const Index = () => {
                   to={s.link}
                   className="group block p-6 bg-background rounded-xl border border-border hover:border-brand-teal/40 transition-all duration-300 h-full hover:shadow-xl hover:scale-[1.04]"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center mb-4 group-hover:bg-brand-teal/15 group-hover:scale-110 transition-all duration-300">
-                    <s.icon className="w-5 h-5 text-brand-blue group-hover:text-brand-teal transition-colors duration-300" />
+                  <div className="w-14 h-14 rounded-lg bg-brand-blue/5 flex items-center justify-center mb-4 group-hover:bg-brand-blue/10 group-hover:scale-110 transition-all duration-300">
+                    <img src={s.icon} alt={s.title} className="w-10 h-10 object-contain" />
                   </div>
                   <h3 className="font-display font-semibold text-foreground mb-2 text-sm group-hover:text-brand-teal transition-colors duration-300">{s.title}</h3>
                   <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
