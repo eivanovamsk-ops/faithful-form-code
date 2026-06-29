@@ -259,7 +259,6 @@ const ContactsPage = () => {
                     <h4 className="font-display font-semibold text-foreground text-sm mb-1">Дни и часы приёма главного врача</h4>
                     <p className="text-muted-foreground text-sm leading-relaxed">Вторник с 10:00 до 15:00 (по предварительной записи)</p>
                     <p className="text-muted-foreground text-sm mt-1">Предварительная запись по телефону: <a href="tel:+74959759598" className="text-brand-blue hover:underline">+7 (495) 975-95-98</a></p>
-                    <p className="text-muted-foreground text-sm mt-1">Email: <a href="mailto:dr.elena@articon.pro" className="text-brand-blue hover:underline">dr.elena@articon.pro</a></p>
                   </div>
                 </div>
 
