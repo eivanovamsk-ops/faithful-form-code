@@ -149,7 +149,7 @@ const SymptomsPage = () => {
 
                     <div>
                       <div className="flex items-center gap-2 mb-3">
-                        <AlertTriangle className="w-5 h-5 text-brand-blue" />
+                        <HelpCircle className="w-5 h-5 text-brand-blue" />
                         <h3 className="font-display font-semibold text-foreground text-lg">Причины возникновения</h3>
                       </div>
                       <p className="text-foreground/80 leading-relaxed">{s.content.causes}</p>
