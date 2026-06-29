@@ -11,13 +11,13 @@ interface AnimatedCounterProps {
   decimals?: number;
 }
 
-const AnimatedCounter = ({ end, suffix = "", prefix = "", duration = 2, label, decimals = 0 }: AnimatedCounterProps) => {
+const AnimatedCounter = ({ end = 0, text, suffix = "", prefix = "", duration = 2, label, decimals = 0 }: AnimatedCounterProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (text || !isInView) return;
 
     let start = 0;
     const startTime = performance.now();
@@ -31,9 +31,13 @@ const AnimatedCounter = ({ end, suffix = "", prefix = "", duration = 2, label, d
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
-  }, [isInView, end, duration]);
+  }, [isInView, end, duration, text]);
 
-  const display = decimals > 0 ? count.toFixed(decimals) : Math.round(count).toString();
+  const display = text
+    ? text
+    : decimals > 0
+      ? count.toFixed(decimals)
+      : Math.round(count).toString();
 
   return (
     <motion.div
