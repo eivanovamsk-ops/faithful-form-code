@@ -7,8 +7,7 @@ import {
   Syringe, HeartPulse, Smile, Scissors, HelpCircle
 } from "lucide-react";
 import { symptoms } from "@/data/symptoms";
-import heroReceptionAsset from "@/assets/hero-reception.jpg.asset.json";
-const heroReception = heroReceptionAsset.url;
+const heroReception = "https://faithful-form-code.lovable.app/__l5e/assets-v1/f99706ed-2584-4c60-91b4-88a8e71ec5ce/hero-reception.jpg";
 import guseynovaAsset from "@/assets/guseynova.jpg.asset.json";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import TechnologiesSection from "@/components/TechnologiesSection";
