@@ -1,3 +1,4 @@
+import clinicBuildingAsset from "@/assets/clinic-building.jpg.asset.json";
 import licenseAsset from "@/assets/license.jpg.asset.json";
 import priceListAsset from "@/assets/prajs2026.xlsx.asset.json";
 import { motion } from "framer-motion";
