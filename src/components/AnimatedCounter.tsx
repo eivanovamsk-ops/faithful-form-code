@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 interface AnimatedCounterProps {
-  end: number;
+  end?: number;
+  text?: string;
   suffix?: string;
   prefix?: string;
   duration?: number;
