@@ -13,6 +13,7 @@ import iconPeriodontology from "@/assets/service-icons/periodontology.png.asset.
 import iconSedation from "@/assets/service-icons/sedation.png.asset.json";
 import iconOrthodontics from "@/assets/service-icons/orthodontics.png.asset.json";
 import iconHygiene from "@/assets/service-icons/hygiene.png.asset.json";
+import { categoryToPrimarySlug } from "@/data/services";
 
 const services = [
   {
@@ -119,6 +120,8 @@ const services = [
 
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const targetSlug = categoryToPrimarySlug[service.title];
+  const href = targetSlug ? `/uslugi/${targetSlug}` : "/uslugi";
 
   return (
     <motion.div
@@ -130,6 +133,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
       onMouseLeave={() => setIsHovered(false)}
       className="group relative"
     >
+      <Link to={href} className="block h-full">
       <div className="relative h-full rounded-3xl border border-border bg-card overflow-hidden transition-all duration-500 hover:border-brand-teal/30 hover:shadow-[0_12px_48px_-12px_hsl(var(--brand-teal)/0.12)]">
         {/* Top accent gradient bar */}
         <div className={`h-1 w-full bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -207,6 +211,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           </div>
         </div>
       </div>
+      </Link>
     </motion.div>
   );
 };
