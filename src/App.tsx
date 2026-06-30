@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import CustomCursor from "./components/CustomCursor";
 import Index from "./pages/Index";
 import ServicesPage from "./pages/ServicesPage";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
 import DoctorsPage from "./pages/DoctorsPage";
 import DoctorProfilePage from "./pages/DoctorProfilePage";
 import PricesPage from "./pages/PricesPage";
