@@ -114,14 +114,12 @@ const SymptomsPage = () => {
                   transition={{ duration: 0.5 }}
                   className="scroll-mt-28"
                 >
-                  <div className="flex items-start gap-4 mb-8">
-                    <div className="w-16 h-16 rounded-2xl bg-brand-blue/5 flex items-center justify-center shrink-0">
-                      {s.iconImage ? (
-                        <img src={s.iconImage} alt="" className="w-12 h-12 object-contain" />
-                      ) : (
-                        <s.icon className="w-6 h-6 text-brand-blue" />
-                      )}
-                    </div>
+                  <div className="flex items-center gap-5 mb-8">
+                    {s.iconImage ? (
+                      <img src={s.iconImage} alt="" className="w-24 h-24 object-contain shrink-0" />
+                    ) : (
+                      <s.icon className="w-16 h-16 text-brand-blue shrink-0" />
+                    )}
                     <div>
                       <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground leading-tight">
                         {s.title}
