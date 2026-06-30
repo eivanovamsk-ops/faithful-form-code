@@ -13,6 +13,7 @@ import iconPeriodontology from "@/assets/service-icons/periodontology.png.asset.
 import iconSedation from "@/assets/service-icons/sedation.png.asset.json";
 import iconOrthodontics from "@/assets/service-icons/orthodontics.png.asset.json";
 import iconHygiene from "@/assets/service-icons/hygiene.png.asset.json";
+import { categoryToPrimarySlug } from "@/data/services";
 
 const services = [
   {
