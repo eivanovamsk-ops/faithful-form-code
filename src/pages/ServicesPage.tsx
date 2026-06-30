@@ -120,6 +120,8 @@ const services = [
 
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const targetSlug = categoryToPrimarySlug[service.title];
+  const href = targetSlug ? `/uslugi/${targetSlug}` : "/uslugi";
 
   return (
     <motion.div
