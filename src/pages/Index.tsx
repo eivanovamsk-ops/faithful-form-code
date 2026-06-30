@@ -81,11 +81,11 @@ const Index = () => {
     <div>
       {/* Hero — fullscreen video */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-[110px]">
-        <motion.div className="absolute left-0 right-0 bottom-0 top-[110px]" style={{ scale: heroScale }}>
+        <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
           <img
             src={heroReception}
             alt="Ресепшн клиники Articon"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[center_58%]"
           />
           <div className="absolute inset-0 bg-foreground/55" />
         </motion.div>
