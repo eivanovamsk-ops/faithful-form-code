@@ -80,8 +80,8 @@ const Index = () => {
   return (
     <div>
       {/* Hero — fullscreen video */}
-      <section ref={heroRef} className="relative h-screen flex items-center overflow-hidden">
-        <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-[110px]">
+        <motion.div className="absolute left-0 right-0 bottom-0 top-[110px]" style={{ scale: heroScale }}>
           <img
             src={heroReception}
             alt="Ресепшн клиники Articon"
