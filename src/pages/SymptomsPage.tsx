@@ -123,10 +123,7 @@ const SymptomsPage = () => {
                       )}
                     </div>
                     <div>
-                      <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-teal">
-                        Проблема {String(idx + 1).padStart(2, "0")}
-                      </span>
-                      <h2 className="mt-2 text-2xl sm:text-3xl font-display font-bold text-foreground leading-tight">
+                      <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground leading-tight">
                         {s.title}
                       </h2>
                     </div>
