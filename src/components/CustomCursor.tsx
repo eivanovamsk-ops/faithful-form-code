@@ -69,7 +69,8 @@ const CustomCursor = () => {
       style={{
         width: isHovering ? 40 : 12,
         height: isHovering ? 40 : 12,
-        backgroundColor: "hsl(var(--primary))",
+        backgroundColor: "hsl(var(--primary-foreground))",
+        boxShadow: "0 0 6px rgba(0,0,0,0.35)",
         opacity: isHovering ? 0.35 : 1,
         transition: "width 0.25s ease, height 0.25s ease, opacity 0.25s ease",
         willChange: "transform, width, height",
