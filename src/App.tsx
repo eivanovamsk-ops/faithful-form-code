@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import CustomCursor from "./components/CustomCursor";
 import Index from "./pages/Index";
 import ServicesPage from "./pages/ServicesPage";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
 import DoctorsPage from "./pages/DoctorsPage";
 import DoctorProfilePage from "./pages/DoctorProfilePage";
 import PricesPage from "./pages/PricesPage";
@@ -37,6 +38,7 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
             <Route path="/uslugi" element={<ServicesPage />} />
+            <Route path="/uslugi/:slug" element={<ServiceDetailPage />} />
             <Route path="/symptoms" element={<SymptomsPage />} />
             <Route path="/vrachi" element={<DoctorsPage />} />
             <Route path="/vrachi/:id" element={<DoctorProfilePage />} />
