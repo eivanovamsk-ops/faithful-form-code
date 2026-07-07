@@ -5,9 +5,9 @@ import { FileText, CreditCard, Shield, Gift, Heart, Phone, ArrowRight } from "lu
 import { useState } from "react";
 
 const sections = [
-  { icon: FileText, title: "Первичный приём", desc: "На первичном приёме вы получите ответы на все интересующие вопросы и уйдёте домой с полным пониманием всех этапов лечения.", details: ["Знакомство с доктором", "Тщательный осмотр полости рта", "Предварительный анализ клинической ситуации", "Фотопротокол (по показаниям)", "Составление плана лечения"] },
+  { icon: FileText, title: "Первичный приём", href: "/pacientam/pervichnyj-priem", desc: "На первичном приёме вы получите ответы на все интересующие вопросы и уйдёте домой с полным пониманием всех этапов лечения.", details: ["Знакомство с доктором", "Тщательный осмотр полости рта", "Предварительный анализ клинической ситуации", "Фотопротокол (по показаниям)", "Составление плана лечения"] },
   { icon: CreditCard, title: "Оплата лечения", desc: "Мы принимаем наличные, банковские карты. Доступна рассрочка и кредит на лечение.", details: ["Наличный и безналичный расчёт", "Рассрочка на лечение", "Возможность получения налогового вычета"] },
-  { icon: Gift, title: "Программа лояльности", desc: "Для постоянных пациентов и их семей действует специальная система скидок и привилегий.", details: ["Скидки для всей семьи", "Специальные предложения", "Бонусная программа"] },
+  { icon: Gift, title: "Программа лояльности", href: "/pacientam/loyalnost", desc: "Для постоянных пациентов и их семей действует специальная система скидок и привилегий.", details: ["Скидки для всей семьи", "Специальные предложения", "Бонусная программа"] },
   { icon: Shield, title: "Гарантии", desc: "Мы предоставляем гарантии на все виды выполненных работ.", details: ["Гарантия на все виды работ", "Сертифицированные материалы", "Оборудование ведущих мировых производителей"] },
   { icon: Heart, title: "Антистресс лечение", desc: "Применяем все методы — от седации до лечения во сне.", details: ["Непрерывный контроль анестезиологов", "Передовое оборудование мониторинга", "Объёмное лечение в одно посещение"] },
   { icon: Phone, title: "Как нас найти", desc: "Москва, ул. Серпуховский вал 21, корп 4. Ежедневно с 9:00 до 21:00.", details: ["Телефон: +7 (495) 975-95-98", "Email: clinic@articon.pro", "Удобная парковка рядом с клиникой"] },
@@ -53,62 +53,70 @@ const PatientsPage = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-6">
-            {sections.map((s, i) => (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.6, delay: i * 0.06 }}
-                onMouseEnter={() => setHoveredIndex(i)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className={`group relative bg-card rounded-2xl border p-8 overflow-hidden transition-all duration-500 ${
-                  hoveredIndex === i
-                    ? 'border-brand-teal/30 shadow-[0_8px_40px_-12px_hsl(var(--brand-teal)/0.15)] scale-[1.02]'
-                    : 'border-border hover:border-brand-teal/20'
-                }`}
-              >
-                {/* Hover glow */}
-                <div className={`absolute inset-0 bg-brand-teal/[0.03] transition-opacity duration-500 ${
-                  hoveredIndex === i ? 'opacity-100' : 'opacity-0'
-                }`} />
+            {sections.map((s, i) => {
+              const card = (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.6, delay: i * 0.06 }}
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className={`group relative bg-card rounded-2xl border p-8 overflow-hidden transition-all duration-500 ${
+                    hoveredIndex === i
+                      ? 'border-brand-teal/30 shadow-[0_8px_40px_-12px_hsl(var(--brand-teal)/0.15)] scale-[1.02]'
+                      : 'border-border hover:border-brand-teal/20'
+                  } ${s.href ? 'cursor-pointer' : ''}`}
+                >
+                  {/* Hover glow */}
+                  <div className={`absolute inset-0 bg-brand-teal/[0.03] transition-opacity duration-500 ${
+                    hoveredIndex === i ? 'opacity-100' : 'opacity-0'
+                  }`} />
 
-                <div className="relative z-10">
-                  <div className="flex items-start gap-5">
-                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 ${
-                      hoveredIndex === i ? 'bg-brand-teal scale-110' : 'bg-secondary'
-                    }`}>
-                      <s.icon className={`w-6 h-6 transition-colors duration-500 ${
-                        hoveredIndex === i ? 'text-primary-foreground' : 'text-brand-blue'
-                      }`} />
-                    </div>
-                    <div>
-                      <h2 className={`font-display font-semibold text-lg mb-2 transition-colors duration-300 ${
-                        hoveredIndex === i ? 'text-brand-teal' : 'text-foreground'
-                      }`}>{s.title}</h2>
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-5">{s.desc}</p>
-                      <ul className="space-y-2.5">
-                        {s.details.map((d, j) => (
-                          <motion.li
-                            key={d}
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 + j * 0.05 }}
-                            className="flex items-start gap-3 text-sm text-foreground/80"
-                          >
-                            <span className={`w-2 h-2 rounded-full shrink-0 mt-1.5 transition-colors duration-300 ${
-                              hoveredIndex === i ? 'bg-brand-teal' : 'bg-brand-blue/50'
-                            }`} />
-                            {d}
-                          </motion.li>
-                        ))}
-                      </ul>
+                  <div className="relative z-10">
+                    <div className="flex items-start gap-5">
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 ${
+                        hoveredIndex === i ? 'bg-brand-teal scale-110' : 'bg-secondary'
+                      }`}>
+                        <s.icon className={`w-6 h-6 transition-colors duration-500 ${
+                          hoveredIndex === i ? 'text-primary-foreground' : 'text-brand-blue'
+                        }`} />
+                      </div>
+                      <div>
+                        <h2 className={`font-display font-semibold text-lg mb-2 transition-colors duration-300 ${
+                          hoveredIndex === i ? 'text-brand-teal' : 'text-foreground'
+                        }`}>{s.title}</h2>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-5">{s.desc}</p>
+                        <ul className="space-y-2.5">
+                          {s.details.map((d, j) => (
+                            <motion.li
+                              key={d}
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: 0.2 + j * 0.05 }}
+                              className="flex items-start gap-3 text-sm text-foreground/80"
+                            >
+                              <span className={`w-2 h-2 rounded-full shrink-0 mt-1.5 transition-colors duration-300 ${
+                                hoveredIndex === i ? 'bg-brand-teal' : 'bg-brand-blue/50'
+                              }`} />
+                              {d}
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+              return s.href ? (
+                <Link key={s.title} to={s.href} className="block">
+                  {card}
+                </Link>
+              ) : (
+                <div key={s.title}>{card}</div>
+              );
+            })}
           </div>
         </div>
       </section>
