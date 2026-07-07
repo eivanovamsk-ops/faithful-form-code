@@ -16,6 +16,7 @@ import ContactsPage from "./pages/ContactsPage";
 import PatientsPage from "./pages/PatientsPage";
 import GalleryPage from "./pages/GalleryPage";
 import LoyaltyPage from "./pages/LoyaltyPage";
+import MemosPage from "./pages/MemosPage";
 import TaxDeductionPage from "./pages/TaxDeductionPage";
 import PrimaryAppointmentPage from "./pages/PrimaryAppointmentPage";
 import ArticlesPage from "./pages/ArticlesPage";
@@ -47,6 +48,7 @@ const App = () => (
             <Route path="/prices" element={<PricesPage />} />
             <Route path="/pacientam" element={<PatientsPage />} />
             <Route path="/pacientam/loyalnost" element={<LoyaltyPage />} />
+            <Route path="/pacientam/pamyatki" element={<MemosPage />} />
             <Route path="/pacientam/pervichnyj-priem" element={<PrimaryAppointmentPage />} />
             <Route path="/pacientam/nalogovyj-vychet" element={<TaxDeductionPage />} />
             <Route path="/pacientam/blog" element={<ArticlesPage />} />
