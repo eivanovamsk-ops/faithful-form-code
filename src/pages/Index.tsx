@@ -293,11 +293,11 @@ const Index = () => {
                   to={`/symptoms#${s.id}`}
                   className="group flex flex-col items-start gap-4 h-full p-6 bg-card rounded-2xl border border-border hover:border-brand-blue/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="w-16 h-16 rounded-xl bg-brand-blue/5 flex items-center justify-center group-hover:bg-brand-blue/10 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-24 h-24 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
                     {s.iconImage ? (
-                      <img src={s.iconImage} alt={s.cardTitle} className="w-12 h-12 object-contain" />
+                      <img src={s.iconImage} alt={s.cardTitle} className="w-24 h-24 object-contain" />
                     ) : (
-                      <s.icon className="w-6 h-6 text-brand-blue" />
+                      <s.icon className="w-10 h-10 text-brand-blue" />
                     )}
                   </div>
                   <h3 className="font-display font-semibold text-foreground text-base leading-snug group-hover:text-brand-blue transition-colors duration-300">
