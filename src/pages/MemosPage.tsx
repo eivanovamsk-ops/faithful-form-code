@@ -290,6 +290,9 @@ const MemoCard = ({ memo, index }: { memo: Memo; index: number }) => {
                   transition={{ delay: si * 0.05 }}
                 >
                   <h3 className="font-display font-semibold text-base text-foreground mb-3">{section.title}</h3>
+                  {section.intro && (
+                    <p className="text-sm text-foreground/80 mb-3 leading-relaxed">{section.intro}</p>
+                  )}
                   <ul className="space-y-2.5">
                     {section.items.map((item, ii) => (
                       <li key={ii} className="flex items-start gap-3 text-sm text-foreground/80">
