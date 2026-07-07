@@ -5,6 +5,29 @@ import { ArrowLeft, ArrowRight, CheckCircle2, MapPin, Phone, Clock, AlertCircle 
 import { Button } from "@/components/ui/button";
 import { getServiceBySlug, getRelatedServices } from "@/data/services";
 
+const renderWithLinks = (text: string) => {
+  const parts: (string | JSX.Element)[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIdx = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = regex.exec(text)) !== null) {
+    if (m.index > lastIdx) parts.push(text.slice(lastIdx, m.index));
+    const [, label, href] = m;
+    const isInternal = href.startsWith("/");
+    parts.push(
+      isInternal ? (
+        <Link key={key++} to={href} className="text-brand-teal underline underline-offset-4 hover:opacity-80">{label}</Link>
+      ) : (
+        <a key={key++} href={href} className="text-brand-teal underline underline-offset-4 hover:opacity-80">{label}</a>
+      )
+    );
+    lastIdx = m.index + m[0].length;
+  }
+  if (lastIdx < text.length) parts.push(text.slice(lastIdx));
+  return parts;
+};
+
 const ServiceDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? getServiceBySlug(slug) : undefined;
@@ -96,7 +119,7 @@ const ServiceDetailPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto space-y-5">
             {service.description.map((p, i) => (
-              <p key={i} className="text-foreground/85 text-lg leading-relaxed">{p}</p>
+              <p key={i} className="text-foreground/85 text-lg leading-relaxed">{renderWithLinks(p)}</p>
             ))}
           </div>
         </div>
@@ -170,7 +193,7 @@ const ServiceDetailPage = () => {
                     <span className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-primary-foreground font-display font-bold flex items-center justify-center">
                       {i + 1}
                     </span>
-                    <span className="pt-2 text-foreground/85 leading-relaxed">{step}</span>
+                    <span className="pt-2 text-foreground/85 leading-relaxed">{renderWithLinks(step)}</span>
                   </motion.li>
                 ))}
               </ol>
