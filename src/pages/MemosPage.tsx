@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 interface MemoSection {
   title: string;
+  intro?: string;
   items: string[];
 }
 
