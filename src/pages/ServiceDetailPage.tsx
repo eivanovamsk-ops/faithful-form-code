@@ -31,7 +31,6 @@ const renderWithLinks = (text: string) => {
 const ServiceDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? getServiceBySlug(slug) : undefined;
-  const service = slug ? getServiceBySlug(slug) : undefined;
 
   useEffect(() => {
     if (!service) return;
