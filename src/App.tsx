@@ -8,6 +8,7 @@ import CustomCursor from "./components/CustomCursor";
 import Index from "./pages/Index";
 import ServicesPage from "./pages/ServicesPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
+import DiagnosticsPage from "./pages/DiagnosticsPage";
 import DoctorsPage from "./pages/DoctorsPage";
 import DoctorProfilePage from "./pages/DoctorProfilePage";
 import PricesPage from "./pages/PricesPage";
@@ -40,6 +41,7 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
             <Route path="/uslugi" element={<ServicesPage />} />
+            <Route path="/uslugi/diagnostika" element={<DiagnosticsPage />} />
             <Route path="/uslugi/:slug" element={<ServiceDetailPage />} />
             <Route path="/symptoms" element={<SymptomsPage />} />
             <Route path="/vrachi" element={<DoctorsPage />} />
