@@ -88,13 +88,14 @@ const SymptomsPage = () => {
                           src={s.iconImage}
                           alt=""
                           className={cn(
-                            "w-8 h-8 shrink-0 object-contain transition-all",
+                            "w-16 h-16 shrink-0 object-contain transition-all",
                             isActive ? "brightness-0 invert" : ""
                           )}
                         />
                       ) : (
-                        <Icon className={cn("w-6 h-6 shrink-0", isActive ? "text-primary-foreground" : "text-brand-blue")} />
+                        <Icon className={cn("w-12 h-12 shrink-0", isActive ? "text-primary-foreground" : "text-brand-blue")} />
                       )}
+
 
                       <span className="text-sm font-medium">{s.shortTitle}</span>
                     </button>
