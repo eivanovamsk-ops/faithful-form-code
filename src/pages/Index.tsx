@@ -3,7 +3,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Star, Award, Users, Microscope, ShieldCheck, Baby,
-  Zap, Sparkles, Heart, ChevronDown, HelpCircle,
+  Zap, Sparkles, Heart, ChevronDown, HelpCircle, FlaskConical,
+
 } from "lucide-react";
 import iconDigital from "@/assets/service-icons/digital.png.asset.json";
 import iconOrthopedics from "@/assets/service-icons/orthopedics.png.asset.json";
@@ -121,8 +122,10 @@ const Index = () => {
               className="space-y-3 text-primary-foreground/80 mb-10 text-sm sm:text-base"
             >
               <li className="flex items-center gap-3"><Star className="w-4 h-4 text-brand-orange shrink-0" /> Рейтинг 5.0 — более 1 000 отзывов</li>
-              <li className="flex items-center gap-3"><Award className="w-4 h-4 text-brand-orange shrink-0" /> в ТОП рейтинга StartsmileTop × Forbes</li>
-              <li className="flex items-center gap-3"><Users className="w-4 h-4 text-brand-orange shrink-0" /> 70% пациентов приходят по рекомендации</li>
+              <li className="flex items-center gap-3"><Award className="w-4 h-4 text-brand-orange shrink-0" /> в ТОП 10 рейтинга StartsmileTop × Forbes</li>
+              <li className="flex items-center gap-3"><Users className="w-4 h-4 text-brand-orange shrink-0" /> 70% пациентов приходят по рекомендации близких</li>
+              <li className="flex items-center gap-3"><FlaskConical className="w-4 h-4 text-brand-orange shrink-0" /> Собственная зуботехническая лаборатория</li>
+
             </motion.ul>
             <motion.div
               variants={fadeUp}
@@ -166,9 +169,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
             <AnimatedCounter end={5} label="Рейтинг на Яндекс и Google" decimals={1} />
-            <AnimatedCounter text="ТОП" label="StartsmileTop × Forbes" />
+            <AnimatedCounter text="ТОП 10" label="StartsmileTop × Forbes" />
             <AnimatedCounter end={1000} suffix="+" label="отзывов пациентов" />
-            <AnimatedCounter end={70} suffix="%" label="приходят по рекомендации" />
+            <AnimatedCounter end={70} suffix="%" label="приходят по рекомендации близких" />
+
           </div>
         </div>
       </section>
