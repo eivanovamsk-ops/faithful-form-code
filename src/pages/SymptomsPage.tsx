@@ -169,7 +169,7 @@ const SymptomsPage = () => {
 
                     <div>
                       <div className="flex items-center gap-2 mb-3">
-                        <AlertTriangle className="w-5 h-5 text-brand-orange" />
+                        <AlertTriangle className="w-5 h-5 text-brand-blue" />
                         <h3 className="font-display font-semibold text-foreground text-lg">Что будет, если не лечить</h3>
                       </div>
                       <div className="text-foreground/80 leading-relaxed">{s.content.untreated}</div>
@@ -177,7 +177,7 @@ const SymptomsPage = () => {
 
                     <div>
                       <div className="flex items-center gap-2 mb-3">
-                        <img src={solutionIcon.url} alt="" className="w-5 h-5 object-contain" />
+                        <Lightbulb className="w-5 h-5 text-brand-blue" />
                         <h3 className="font-display font-semibold text-foreground text-lg">Как мы решаем проблему в Articon</h3>
                       </div>
                       <div className="text-foreground/80 leading-relaxed space-y-4">{s.content.solution}</div>
