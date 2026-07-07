@@ -209,9 +209,10 @@ const SymptomsPage = () => {
                         </Button>
                       </div>
                     )}
-
+                    {s.id === "desny" && <div className="text-red-500 font-bold">DEBUG MARKER</div>}
 
                   </div>
+
                 </motion.article>
               ))}
             </div>
