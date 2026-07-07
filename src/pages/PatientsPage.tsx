@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { FileText, CreditCard, Shield, Gift, Heart, Phone, ArrowRight } from "lucide-react";
+import { FileText, CreditCard, Shield, Gift, Heart, Phone, ArrowRight, Receipt } from "lucide-react";
 import { useState } from "react";
 
 const sections = [
   { icon: FileText, title: "Первичный приём", href: "/pacientam/pervichnyj-priem", desc: "На первичном приёме вы получите ответы на все интересующие вопросы и уйдёте домой с полным пониманием всех этапов лечения.", details: ["Знакомство с доктором", "Тщательный осмотр полости рта", "Предварительный анализ клинической ситуации", "Фотопротокол (по показаниям)", "Составление плана лечения"] },
+  { icon: Receipt, title: "Налоговый вычет", href: "/pacientam/nalogovyj-vychet", desc: "Верните 13% от суммы лечения. Поможем подготовить справку об оплате и другие документы для налоговой.", details: ["Возврат 13% от стоимости лечения", "Помощь с документами", "Оформление за 10 рабочих дней"] },
   { icon: CreditCard, title: "Оплата лечения", desc: "Мы принимаем наличные, банковские карты. Доступна рассрочка и кредит на лечение.", details: ["Наличный и безналичный расчёт", "Рассрочка на лечение", "Возможность получения налогового вычета"] },
   { icon: Gift, title: "Программа лояльности", href: "/pacientam/loyalnost", desc: "Для постоянных пациентов и их семей действует специальная система скидок и привилегий.", details: ["Скидки для всей семьи", "Специальные предложения", "Бонусная программа"] },
   { icon: Shield, title: "Гарантии", desc: "Мы предоставляем гарантии на все виды выполненных работ.", details: ["Гарантия на все виды работ", "Сертифицированные материалы", "Оборудование ведущих мировых производителей"] },
