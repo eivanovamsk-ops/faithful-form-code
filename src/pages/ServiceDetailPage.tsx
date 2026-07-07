@@ -5,8 +5,32 @@ import { ArrowLeft, ArrowRight, CheckCircle2, MapPin, Phone, Clock, AlertCircle 
 import { Button } from "@/components/ui/button";
 import { getServiceBySlug, getRelatedServices } from "@/data/services";
 
+const renderWithLinks = (text: string) => {
+  const parts: (string | JSX.Element)[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIdx = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = regex.exec(text)) !== null) {
+    if (m.index > lastIdx) parts.push(text.slice(lastIdx, m.index));
+    const [, label, href] = m;
+    const isInternal = href.startsWith("/");
+    parts.push(
+      isInternal ? (
+        <Link key={key++} to={href} className="text-brand-teal underline underline-offset-4 hover:opacity-80">{label}</Link>
+      ) : (
+        <a key={key++} href={href} className="text-brand-teal underline underline-offset-4 hover:opacity-80">{label}</a>
+      )
+    );
+    lastIdx = m.index + m[0].length;
+  }
+  if (lastIdx < text.length) parts.push(text.slice(lastIdx));
+  return parts;
+};
+
 const ServiceDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const service = slug ? getServiceBySlug(slug) : undefined;
   const service = slug ? getServiceBySlug(slug) : undefined;
 
   useEffect(() => {
