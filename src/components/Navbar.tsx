@@ -8,6 +8,7 @@ import logoWhite from "@/assets/logo-white.png";
 import { cn } from "@/lib/utils";
 
 const patientSubLinks = [
+  { label: "Первичный приём", href: "/pacientam/pervichnyj-priem" },
   { label: "Симптомы", href: "/symptoms" },
   { label: "Программа лояльности", href: "/pacientam/loyalnost" },
   { label: "Памятки и рекомендации", href: "/pacientam/pamyatki" },
