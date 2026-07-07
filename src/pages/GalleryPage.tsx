@@ -12,24 +12,25 @@ const GalleryPage = () => {
   return (
     <div>
 
-      {/* Full-width Video */}
-      <section className="bg-foreground">
+      {/* Video */}
+      <section className="bg-background pt-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="w-full"
+          className="container mx-auto px-4"
         >
-          <video
-            className="w-full block"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster=""
-          >
-            <source src="/videos/SmileCloud_case_1.mp4" type="video/mp4" />
-          </video>
+          <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-foreground">
+            <video
+              className="w-full block"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src="/cdn-assets/gallery-showcase.mp4" type="video/mp4" />
+            </video>
+          </div>
         </motion.div>
       </section>
 
@@ -76,7 +77,13 @@ const GalleryPage = () => {
                   </p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 gap-10 max-w-4xl mx-auto">
+                <div
+                  className={`grid gap-10 mx-auto ${
+                    category.id === "ortopediya" || category.id === "ortodontiya"
+                      ? "grid-cols-1 lg:grid-cols-2 max-w-5xl"
+                      : "grid-cols-1 max-w-2xl"
+                  }`}
+                >
                   {category.cases.map((c) => (
                     <div key={c.id} className="space-y-5">
                       {c.slides && c.slides.length > 0 && (
@@ -108,13 +115,6 @@ const GalleryPage = () => {
             </motion.div>
           ))}
 
-          <div className="max-w-lg mx-auto text-center pt-8">
-            <Button asChild variant="outline" size="lg" className="h-12 px-8 border-brand-blue/30 text-brand-blue hover:bg-brand-blue hover:text-primary-foreground transition-all duration-400">
-              <a href="https://articon-clinic.ru/albums/" target="_blank" rel="noopener noreferrer">
-                Смотреть на сайте <ExternalLink className="ml-2 w-4 h-4" />
-              </a>
-            </Button>
-          </div>
         </div>
       </section>
 

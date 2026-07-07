@@ -189,32 +189,34 @@ const DoctorProfilePage = () => {
       )}
 
       {/* Works Gallery placeholder */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground mb-8">
-              Работы врача
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map(i => (
-                <motion.div
-                  key={i}
-                  whileHover={{ y: -5 }}
-                  className="aspect-square rounded-2xl bg-background border border-border flex items-center justify-center"
-                >
-                  <p className="text-xs text-muted-foreground">Фото {i}</p>
-                </motion.div>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground mt-4 text-center">Фотографии работ скоро будут добавлены</p>
-          </motion.div>
-        </div>
-      </section>
+      {doctor.id !== "artemova" && (
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground mb-8">
+                Работы врача
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[1, 2, 3, 4].map(i => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ y: -5 }}
+                    className="aspect-square rounded-2xl bg-background border border-border flex items-center justify-center"
+                  >
+                    <p className="text-xs text-muted-foreground">Фото {i}</p>
+                  </motion.div>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground mt-4 text-center">Фотографии работ скоро будут добавлены</p>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* Certificates placeholder */}
       <section className="py-20 bg-background">

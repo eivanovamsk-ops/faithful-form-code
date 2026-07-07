@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, AlertTriangle, Stethoscope, ListChecks } from "lucide-react";
+import { ArrowRight, CheckCircle, AlertTriangle, HelpCircle, ListChecks, Info, MessageCircle } from "lucide-react";
+import solutionIcon from "@/assets/symptom-solution/symptom-solution.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { symptoms } from "@/data/symptoms";
@@ -82,7 +83,18 @@ const SymptomsPage = () => {
                           : "bg-card border-border text-foreground hover:border-brand-blue/40 hover:bg-secondary"
                       )}
                     >
-                      <Icon className={cn("w-4 h-4 shrink-0", isActive ? "text-primary-foreground" : "text-brand-blue")} />
+                      {s.iconImage ? (
+                        <img
+                          src={s.iconImage}
+                          alt=""
+                          className={cn(
+                            "w-6 h-6 shrink-0 object-contain transition-all",
+                            isActive ? "brightness-0 invert" : ""
+                          )}
+                        />
+                      ) : (
+                        <Icon className={cn("w-4 h-4 shrink-0", isActive ? "text-primary-foreground" : "text-brand-blue")} />
+                      )}
                       <span className="text-sm font-medium">{s.shortTitle}</span>
                     </button>
                   );
@@ -103,8 +115,12 @@ const SymptomsPage = () => {
                   className="scroll-mt-28"
                 >
                   <div className="flex items-start gap-4 mb-8">
-                    <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center shrink-0">
-                      <s.icon className="w-6 h-6 text-brand-blue" />
+                    <div className="w-16 h-16 rounded-2xl bg-brand-blue/5 flex items-center justify-center shrink-0">
+                      {s.iconImage ? (
+                        <img src={s.iconImage} alt="" className="w-12 h-12 object-contain" />
+                      ) : (
+                        <s.icon className="w-6 h-6 text-brand-blue" />
+                      )}
                     </div>
                     <div>
                       <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-teal">
@@ -117,6 +133,12 @@ const SymptomsPage = () => {
                   </div>
 
                   <div className="space-y-8 bg-card border border-border rounded-2xl p-8">
+                    {s.content.intro && (
+                      <div className="text-foreground/80 leading-relaxed">
+                        {s.content.intro}
+                      </div>
+                    )}
+
                     <div>
                       <div className="flex items-center gap-2 mb-4">
                         <ListChecks className="w-5 h-5 text-brand-blue" />
@@ -132,12 +154,21 @@ const SymptomsPage = () => {
                       </ul>
                     </div>
 
+                    {s.content.warning && (
+                      <div className="bg-brand-blue/5 border border-brand-blue/20 rounded-xl p-5">
+                        <div className="flex items-start gap-3">
+                          <Info className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
+                          <p className="text-foreground/80 leading-relaxed">{s.content.warning}</p>
+                        </div>
+                      </div>
+                    )}
+
                     <div>
                       <div className="flex items-center gap-2 mb-3">
-                        <AlertTriangle className="w-5 h-5 text-brand-blue" />
+                        <HelpCircle className="w-5 h-5 text-brand-blue" />
                         <h3 className="font-display font-semibold text-foreground text-lg">Причины возникновения</h3>
                       </div>
-                      <p className="text-foreground/80 leading-relaxed">{s.content.causes}</p>
+                      <div className="text-foreground/80 leading-relaxed space-y-4">{s.content.causes}</div>
                     </div>
 
                     <div>
@@ -145,16 +176,33 @@ const SymptomsPage = () => {
                         <AlertTriangle className="w-5 h-5 text-brand-orange" />
                         <h3 className="font-display font-semibold text-foreground text-lg">Что будет, если не лечить</h3>
                       </div>
-                      <p className="text-foreground/80 leading-relaxed">{s.content.untreated}</p>
+                      <div className="text-foreground/80 leading-relaxed">{s.content.untreated}</div>
                     </div>
 
                     <div>
                       <div className="flex items-center gap-2 mb-3">
-                        <Stethoscope className="w-5 h-5 text-brand-teal" />
+                        <img src={solutionIcon.url} alt="" className="w-5 h-5 object-contain" />
                         <h3 className="font-display font-semibold text-foreground text-lg">Как мы решаем проблему в Articon</h3>
                       </div>
-                      <p className="text-foreground/80 leading-relaxed">{s.content.solution}</p>
+                      <div className="text-foreground/80 leading-relaxed space-y-4">{s.content.solution}</div>
                     </div>
+
+                    {s.content.faq && (
+                      <div>
+                        <div className="flex items-center gap-2 mb-4">
+                          <MessageCircle className="w-5 h-5 text-brand-blue" />
+                          <h3 className="font-display font-semibold text-foreground text-lg">Частые вопросы</h3>
+                        </div>
+                        <div className="space-y-5">
+                          {s.content.faq.map((item, i) => (
+                            <div key={i}>
+                              <p className="font-medium text-foreground mb-1.5">{item.question}</p>
+                              <div className="text-foreground/80 leading-relaxed">{item.answer}</div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <div className="pt-2">
                       <Button asChild size="lg" className="bg-brand-teal text-primary-foreground font-semibold hover:bg-brand-teal/85 hover:shadow-[0_0_25px_hsl(174,72%,46%,0.3)] transition-all duration-300">

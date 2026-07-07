@@ -3,13 +3,20 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Star, Award, Users, Microscope, ShieldCheck, Baby,
-  Zap, Sparkles, Heart, ChevronDown, Cpu, Stethoscope, ScanLine,
-  Syringe, HeartPulse, Smile, Scissors, HelpCircle
+  Zap, Sparkles, Heart, ChevronDown, HelpCircle,
 } from "lucide-react";
+import iconDigital from "@/assets/service-icons/digital.png.asset.json";
+import iconOrthopedics from "@/assets/service-icons/orthopedics.png.asset.json";
+import iconSurgery from "@/assets/service-icons/surgery.png.asset.json";
+import iconTherapy from "@/assets/service-icons/therapy.png.asset.json";
+import iconPediatric from "@/assets/service-icons/pediatric.png.asset.json";
+import iconOrthodontics from "@/assets/service-icons/orthodontics.png.asset.json";
+import iconPeriodontology from "@/assets/service-icons/periodontology.png.asset.json";
+import iconDiagnostics from "@/assets/service-icons/diagnostics.png.asset.json";
+import iconHygiene from "@/assets/service-icons/hygiene.png.asset.json";
+import iconSedation from "@/assets/service-icons/sedation.png.asset.json";
 import { symptoms } from "@/data/symptoms";
-import heroVideoAsset from "@/assets/hero-functional.mp4.asset.json";
-const heroVideo = heroVideoAsset.url;
-import heroImage from "@/assets/hero-dental.jpg";
+const heroReception = "/cdn-assets/hero-main.jpg";
 import guseynovaAsset from "@/assets/guseynova.jpg.asset.json";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import TechnologiesSection from "@/components/TechnologiesSection";
@@ -26,16 +33,16 @@ const advantages = [
 ];
 
 const services = [
-  { icon: Cpu, title: "Цифровая стоматология", desc: "Новые зубы максимально быстро", link: "/uslugi" },
-  { icon: Stethoscope, title: "Ортопедия", desc: "Протезирование, виниры, коронки", link: "/uslugi" },
-  { icon: Syringe, title: "Хирургия и имплантация", desc: "Имплантация по навигационным шаблонам", link: "/uslugi" },
-  { icon: HeartPulse, title: "Терапия", desc: "Лечение кариеса, пульпита под микроскопом", link: "/uslugi" },
-  { icon: Baby, title: "Детская стоматология", desc: "Адаптация, лечение в игровой форме", link: "/uslugi" },
-  { icon: Smile, title: "Ортодонтия", desc: "Брекеты и элайнеры", link: "/uslugi" },
-  { icon: Scissors, title: "Пародонтология", desc: "Лечение дёсен", link: "/uslugi" },
-  { icon: ScanLine, title: "Диагностика", desc: "КТ, панорамные снимки, 3D-сканирование", link: "/uslugi" },
-  { icon: Sparkles, title: "Проф. гигиена", desc: "GBT протокол, отбеливание", link: "/uslugi" },
-  { icon: ShieldCheck, title: "Антистресс лечение", desc: "Седация, лечение во сне", link: "/uslugi" },
+  { icon: iconDigital.url, title: "Цифровая стоматология", desc: "Новые зубы максимально быстро", link: "/uslugi" },
+  { icon: iconOrthopedics.url, title: "Ортопедия", desc: "Протезирование, виниры, коронки", link: "/uslugi" },
+  { icon: iconSurgery.url, title: "Хирургия и имплантация", desc: "Имплантация по навигационным шаблонам", link: "/uslugi" },
+  { icon: iconTherapy.url, title: "Терапия", desc: "Лечение кариеса, пульпита под микроскопом", link: "/uslugi" },
+  { icon: iconPediatric.url, title: "Детская стоматология", desc: "Адаптация, лечение в игровой форме", link: "/uslugi" },
+  { icon: iconOrthodontics.url, title: "Ортодонтия", desc: "Брекеты и элайнеры", link: "/uslugi" },
+  { icon: iconPeriodontology.url, title: "Пародонтология", desc: "Лечение дёсен", link: "/uslugi" },
+  { icon: iconDiagnostics.url, title: "Диагностика", desc: "КТ, панорамные снимки, 3D-сканирование", link: "/uslugi" },
+  { icon: iconHygiene.url, title: "Проф. гигиена", desc: "GBT протокол, отбеливание", link: "/uslugi" },
+  { icon: iconSedation.url, title: "Антистресс лечение", desc: "Седация, лечение во сне", link: "/uslugi" },
 ];
 
 const reviews = [
@@ -73,18 +80,13 @@ const Index = () => {
   return (
     <div>
       {/* Hero — fullscreen video */}
-      <section ref={heroRef} className="relative h-screen flex items-center overflow-hidden">
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-[110px]">
         <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={heroImage}
-            className="w-full h-full object-cover"
-          >
-            <source src={heroVideo} type="video/mp4" />
-          </video>
+          <img
+            src={heroReception}
+            alt="Ресепшн клиники Articon"
+            className="absolute inset-x-0 top-[44px] h-[calc(100%+70px)] w-full object-cover object-[center_top]"
+          />
           <div className="absolute inset-0 bg-foreground/55" />
         </motion.div>
 
@@ -100,7 +102,7 @@ const Index = () => {
               custom={0}
               className="inline-block mb-6 text-xs font-medium tracking-[0.25em] uppercase text-brand-orange"
             >
-              Центр цифровой стоматологии
+              Центр цифровой стоматологии АРТИКОН
             </motion.span>
             <motion.h1
               variants={fadeUp}
@@ -109,7 +111,7 @@ const Index = () => {
               custom={1}
               className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] text-primary-foreground mb-8"
             >
-              Улыбка — это просто
+              Цифровые технологии — предсказуемый результат
             </motion.h1>
             <motion.ul
               variants={fadeUp}
@@ -119,7 +121,7 @@ const Index = () => {
               className="space-y-3 text-primary-foreground/80 mb-10 text-sm sm:text-base"
             >
               <li className="flex items-center gap-3"><Star className="w-4 h-4 text-brand-orange shrink-0" /> Рейтинг 5.0 — более 1 000 отзывов</li>
-              <li className="flex items-center gap-3"><Award className="w-4 h-4 text-brand-orange shrink-0" /> 10 место StartsmileTop × Forbes</li>
+              <li className="flex items-center gap-3"><Award className="w-4 h-4 text-brand-orange shrink-0" /> в ТОП рейтинга StartsmileTop × Forbes</li>
               <li className="flex items-center gap-3"><Users className="w-4 h-4 text-brand-orange shrink-0" /> 70% пациентов приходят по рекомендации</li>
             </motion.ul>
             <motion.div
@@ -163,8 +165,8 @@ const Index = () => {
 
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
-            <AnimatedCounter end={5} suffix=".0" label="Рейтинг на Яндекс и Google" decimals={1} />
-            <AnimatedCounter end={10} label="место StartsmileTop × Forbes" />
+            <AnimatedCounter end={5} label="Рейтинг на Яндекс и Google" decimals={1} />
+            <AnimatedCounter text="ТОП" label="StartsmileTop × Forbes" />
             <AnimatedCounter end={1000} suffix="+" label="отзывов пациентов" />
             <AnimatedCounter end={70} suffix="%" label="приходят по рекомендации" />
           </div>
@@ -237,8 +239,8 @@ const Index = () => {
                   to={s.link}
                   className="group block p-6 bg-background rounded-xl border border-border hover:border-brand-teal/40 transition-all duration-300 h-full hover:shadow-xl hover:scale-[1.04]"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center mb-4 group-hover:bg-brand-teal/15 group-hover:scale-110 transition-all duration-300">
-                    <s.icon className="w-5 h-5 text-brand-blue group-hover:text-brand-teal transition-colors duration-300" />
+                  <div className="w-14 h-14 rounded-lg bg-brand-blue/5 flex items-center justify-center mb-4 group-hover:bg-brand-blue/10 group-hover:scale-110 transition-all duration-300">
+                    <img src={s.icon} alt={s.title} className="w-10 h-10 object-contain" />
                   </div>
                   <h3 className="font-display font-semibold text-foreground mb-2 text-sm group-hover:text-brand-teal transition-colors duration-300">{s.title}</h3>
                   <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
@@ -291,8 +293,12 @@ const Index = () => {
                   to={`/symptoms#${s.id}`}
                   className="group flex flex-col items-start gap-4 h-full p-6 bg-card rounded-2xl border border-border hover:border-brand-blue/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center group-hover:bg-brand-blue group-hover:scale-110 transition-all duration-300">
-                    <s.icon className="w-5 h-5 text-brand-blue group-hover:text-primary-foreground transition-colors duration-300" />
+                  <div className="w-16 h-16 rounded-xl bg-brand-blue/5 flex items-center justify-center group-hover:bg-brand-blue/10 group-hover:scale-110 transition-all duration-300">
+                    {s.iconImage ? (
+                      <img src={s.iconImage} alt={s.cardTitle} className="w-12 h-12 object-contain" />
+                    ) : (
+                      <s.icon className="w-6 h-6 text-brand-blue" />
+                    )}
                   </div>
                   <h3 className="font-display font-semibold text-foreground text-base leading-snug group-hover:text-brand-blue transition-colors duration-300">
                     {s.cardTitle}

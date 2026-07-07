@@ -1,3 +1,4 @@
+import clinicBuildingAsset from "@/assets/clinic-building.jpg.asset.json";
 import licenseAsset from "@/assets/license.jpg.asset.json";
 import priceListAsset from "@/assets/prajs2026.xlsx.asset.json";
 import { motion } from "framer-motion";
@@ -6,16 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Clock, Mail, ArrowRight, Building2, User, CalendarDays, Landmark, CreditCard, Shield, ClipboardList, FileSignature, Download, Award } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
-const specialists = [
-  "Стоматолог-ортопед", "Детский врач-стоматолог", "Стоматолог-терапевт",
-  "Стоматолог-ортодонт", "Стоматолог-имплантолог", "Стоматолог-хирург",
-  "Детский стоматолог-хирург", "Стоматолог-пародонтолог",
-];
 
 const contactInfo = [
   { icon: MapPin, title: "Адрес", text: "г. Москва, ул. Серпуховский вал 21, корп 4" },
@@ -27,22 +23,49 @@ const contactInfo = [
 const ContactsPage = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ name: "", phone: "", specialist: "", message: "", consent: false });
+  const [formData, setFormData] = useState({ name: "", phone: "", consent: false });
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.consent) {
       toast({ title: "Требуется согласие", description: "Поставьте галочку, чтобы продолжить.", variant: "destructive" });
       return;
     }
-    navigate("/thank-you");
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-notification",
+          idempotencyKey: `contact-${Date.now()}`,
+          templateData: {
+            name: formData.name,
+            phone: formData.phone,
+            submittedAt: new Date().toLocaleString("ru-RU", { timeZone: "Europe/Moscow" }),
+          },
+        },
+      });
+      if (error) throw error;
+      navigate("/thank-you");
+    } catch (err) {
+      console.error(err);
+      toast({ title: "Не удалось отправить", description: "Попробуйте ещё раз или позвоните нам.", variant: "destructive" });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <div>
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 bg-foreground overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <img
+          src={clinicBuildingAsset.url}
+          alt="Центр цифровой стоматологии Артикон"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-foreground/75" />
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
           backgroundSize: '40px 40px'
@@ -118,25 +141,6 @@ const ContactsPage = () => {
                     className="h-14 pt-5 bg-secondary/50 border-border focus:border-brand-teal focus:ring-brand-teal/20 transition-all duration-300"
                   />
                 </div>
-                <div>
-                  <label className="text-xs font-medium text-muted-foreground mb-2 block tracking-wider uppercase">Специалист</label>
-                  <Select value={formData.specialist} onValueChange={(v) => setFormData({ ...formData, specialist: v })}>
-                    <SelectTrigger className="h-14 bg-secondary/50 border-border focus:border-brand-teal"><SelectValue placeholder="Выберите специалиста" /></SelectTrigger>
-                    <SelectContent>
-                      {specialists.map((s) => (<SelectItem key={s} value={s}>{s}</SelectItem>))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="text-xs font-medium text-muted-foreground mb-2 block tracking-wider uppercase">Сообщение</label>
-                  <Textarea
-                    placeholder="Опишите вашу проблему или пожелания..."
-                    rows={3}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-secondary/50 border-border focus:border-brand-teal focus:ring-brand-teal/20 transition-all duration-300"
-                  />
-                </div>
               </div>
 
               <div className="flex items-start gap-3 mt-6 mb-5">
@@ -153,8 +157,8 @@ const ContactsPage = () => {
                   </Link>
                 </label>
               </div>
-              <Button type="submit" size="lg" className="w-full bg-brand-teal text-primary-foreground font-semibold h-14 transition-all duration-500 hover:bg-brand-teal/85 hover:shadow-[0_0_30px_hsl(174,72%,46%,0.2)] hover:scale-[1.02]">
-                Записаться <ArrowRight className="ml-2 w-5 h-5" />
+              <Button type="submit" size="lg" disabled={submitting} className="w-full bg-brand-teal text-primary-foreground font-semibold h-14 transition-all duration-500 hover:bg-brand-teal/85 hover:shadow-[0_0_30px_hsl(174,72%,46%,0.2)] hover:scale-[1.02] disabled:opacity-70">
+                {submitting ? "Отправляем..." : <>Записаться <ArrowRight className="ml-2 w-5 h-5" /></>}
               </Button>
             </motion.form>
 
@@ -262,7 +266,6 @@ const ContactsPage = () => {
                     <h4 className="font-display font-semibold text-foreground text-sm mb-1">Дни и часы приёма главного врача</h4>
                     <p className="text-muted-foreground text-sm leading-relaxed">Вторник с 10:00 до 15:00 (по предварительной записи)</p>
                     <p className="text-muted-foreground text-sm mt-1">Предварительная запись по телефону: <a href="tel:+74959759598" className="text-brand-blue hover:underline">+7 (495) 975-95-98</a></p>
-                    <p className="text-muted-foreground text-sm mt-1">Email: <a href="mailto:dr.elena@articon.pro" className="text-brand-blue hover:underline">dr.elena@articon.pro</a></p>
                   </div>
                 </div>
 
