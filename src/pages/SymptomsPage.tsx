@@ -200,17 +200,16 @@ const SymptomsPage = () => {
                       </div>
                     )}
 
-                    {s.id !== "desny" && (
-                      <div className="pt-2">
-                        <Button asChild size="lg" className="bg-brand-teal text-primary-foreground font-semibold hover:bg-brand-teal/85 hover:shadow-[0_0_25px_hsl(174,72%,46%,0.3)] transition-all duration-300">
-                          <Link to="/contacts">
-                            Записаться на консультацию <ArrowRight className="ml-2 w-4 h-4" />
-                          </Link>
-                        </Button>
-                      </div>
-                    )}
+                    <div className="pt-2">
+                      <Button asChild size="lg" className="bg-brand-teal text-primary-foreground font-semibold hover:bg-brand-teal/85 hover:shadow-[0_0_25px_hsl(174,72%,46%,0.3)] transition-all duration-300">
+                        <Link to="/contacts">
+                          Записаться на консультацию <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
+                      </Button>
+                    </div>
 
                   </div>
+
 
 
                 </motion.article>
