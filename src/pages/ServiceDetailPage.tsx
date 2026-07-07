@@ -193,7 +193,7 @@ const ServiceDetailPage = () => {
                     <span className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-primary-foreground font-display font-bold flex items-center justify-center">
                       {i + 1}
                     </span>
-                    <span className="pt-2 text-foreground/85 leading-relaxed">{step}</span>
+                    <span className="pt-2 text-foreground/85 leading-relaxed">{renderWithLinks(step)}</span>
                   </motion.li>
                 ))}
               </ol>
