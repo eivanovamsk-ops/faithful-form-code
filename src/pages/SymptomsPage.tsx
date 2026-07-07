@@ -207,7 +207,11 @@ const SymptomsPage = () => {
                         </Link>
                       </Button>
                     </div>
+
                   </div>
+
+
+
                 </motion.article>
               ))}
             </div>

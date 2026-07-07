@@ -200,13 +200,9 @@ export const symptoms: Symptom[] = [
       solution: (
         <>
           <p>Лечение гингивита и лечение десны при пародонтите в Articon начинается с профессиональной гигиены и глубокого скейлинга — очистки корней под десной по швейцарскому протоколу <strong>GBT</strong>. Для труднодоступных мест, где аппаратная чистка не справляется, дополнительно используем ручные кюреты — это позволяет полностью убрать зубные отложения и бактериальный налёт даже глубоко под десной. На <Link to="/foto-rabot#prof-gigiena" className="text-brand-blue hover:underline font-bold">фото до и после</Link> видно, сколько отложений выявляет окрашивание налёта и как меняется состояние зубов после очищения.</p>
-          <p className="mt-6">
-            <Link to="/contacts" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition">
-              Записаться на консультацию →
-            </Link>
-          </p>
         </>
       ),
+
       faq: [
         {
           question: "Можно ли вылечить кровоточивость дёсен без визита к врачу?",
