@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, AlertTriangle, HelpCircle, ListChecks, Info, MessageCircle } from "lucide-react";
-import solutionIcon from "@/assets/symptom-solution/symptom-solution.png.asset.json";
+import { ArrowRight, CheckCircle, AlertTriangle, HelpCircle, ListChecks, Info, MessageCircle, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { symptoms } from "@/data/symptoms";
